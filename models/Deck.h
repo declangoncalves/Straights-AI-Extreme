@@ -7,8 +7,8 @@ class Deck {
 	public:
 		Deck();
 		std:vector<Card> getDeck();
-		void shuffle();
-		
+		void shuffle(int seed = 0);
+
 	private:
 		std::vector<Card> deck;
 

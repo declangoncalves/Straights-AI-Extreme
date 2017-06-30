@@ -7,6 +7,7 @@
 class Model : public Subject {
   public:
   Model();
+  Model(int seed);
   ~Model();
 
   private:
