@@ -8,7 +8,6 @@ class Deck {
 		Deck();
 		std:vector<Card> getDeck();
 		void shuffle();
-
 		
 	private:
 		std::vector<Card> deck;
