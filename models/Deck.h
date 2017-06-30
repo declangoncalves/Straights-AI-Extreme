@@ -5,7 +5,7 @@
 
 class Deck {
 	public:
-		Deck();
+		Deck(int seed = 0);
 		std:vector<Card> getDeck();
 		void shuffle(int seed = 0);
 

@@ -6,15 +6,19 @@
 
 class Model : public Subject {
   public:
-  Model();
   Model(int seed);
+  void setupPlayers();
+  void getCommand();
+  void performCommand();
+  void nextRound();
   ~Model();
 
   private:
 	Deck deck_;
   Command command_;
   std::vector<Player> players_;
-  std::vector<std::vector<> table_;
+  std::vector<std::vector<int> > table_;
+  int seed_;
 
 }; // Model
 
