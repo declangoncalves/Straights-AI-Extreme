@@ -19,13 +19,16 @@ class Player {
 		int getScore(); // Returns player score
 		void setScore(int score); // Sets player score
 
+		// Helper Functions
+		int getCardIndex(string card); //  Returns index of card in hand
+
 		// TODO: Check for certain card
 
 	private:
 		std::vector<Card> hand_;
 		std::vector<Card> discards_;
 		int score_;
-		char type;
+		char type_;
 
 }; // Player
 
