@@ -5,6 +5,9 @@
 #include "subject.h"
 #include <iostream>
 
-View::View(){}
+View::View(Controller* c, Model* m) {
+	controller_ = c;
+	model_ = m;
+}
 
 View::~View() {}
