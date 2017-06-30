@@ -9,14 +9,14 @@ Command::Command() : type{Command::Type::BAD_COMMAND}, card{Card::Rank{0}, Card:
 
 istream & operator>>( istream & in, Command & c ) {
 	c.type = Command::Type::BAD_COMMAND;
-	
+
 	string str;
 	getline( in, str );
 	stringstream ss{ str };
-	
+
 	string cmd;
 	ss >> cmd;
-	
+
 	if ( cmd == "play" ) {
 		c.type = Command::Type::PLAY;
 		ss >> c.card;
@@ -27,11 +27,11 @@ istream & operator>>( istream & in, Command & c ) {
 		c.type = Command::Type::DECK;
 	} else if ( cmd == "quit" ) {
 		c.type = Command::Type::QUIT;
-	} else if ( cmd == "ragequit" ) { 
+	} else if ( cmd == "ragequit" ) {
 		c.type = Command::Type::RAGEQUIT;
 	} // if
-	
+
 	assert( !in.fail() && !ss.fail() && c.type != Command::Type::BAD_COMMAND );
-	
+
 	return in;
 } // operator>>
