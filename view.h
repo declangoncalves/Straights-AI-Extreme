@@ -18,15 +18,15 @@ class View : public Observer {
 	void roundEnd();
 
 	// Helper Functions
-	const void printClubs(std::vector<Cards>;
-	const void printSpades(std::vector<Cards>;
-	const void printHearts(std::vector<Cards>;
-	const void printDiamonds(std::vector<Cards>;
+	const void printClubs(std::vector<Card>);
+	const void printSpades(std::vector<Card>);
+	const void printHearts(std::vector<Card>);
+	const void printDiamonds(std::vector<Card>);
 
-	const void printPlayerHand(std::vector<Cards>;
-	const void printLegalPlays(std::vector<Cards>;
+	const void printPlayerHand(std::vector<Card>);
+	const void printLegalPlays(std::vector<Card>);
 
-	Commmand receiveCommand();
+	Command receiveCommand();
 	void printDeck();
 
   private:

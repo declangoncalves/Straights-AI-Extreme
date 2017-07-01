@@ -7,7 +7,7 @@
 
 class Model : public Subject {
   public:
-  Model(int seed = 0, std::vector<Player> players);
+  Model(int seed, std::vector<Player> players);
   void initializeRound();
   void playCard(Card);
   void discardCard(Card);

@@ -34,14 +34,14 @@ void update() override {
 
 void roundStart() {
 	gamePhase = 2;
-	cout << "A new round begins. It’s player " << model_->getCurrentPlayerIndex() + 1 << "’s turn to play.\n";
+	cout << "A new round begins. Itï¿½s player " << model_->getCurrentPlayerIndex() + 1 << "ï¿½s turn to play.\n";
 	playerTurn();
 }
 
 void playerTurn() {
 
-	std::vector<Cards> cardTable = model_->getCardTable();
-	std::vector<Cards> intTable = model_->getCardTable();
+	std::vector<Card> cardTable = model_->getCardTable();
+	std::vector<Card> intTable = model_->getCardTable();
 
 	cout << "Cards on the table:\n";
 	cout << "\nClubs:";
@@ -87,14 +87,14 @@ void roundEnd() {
 		controller_->newRound();
 		gamePhase == 1;
 	}
-	
+
 }
 
 Command receiveCommand() {
 
 	Command my_command;
-	std::vector<Cards> legalPlays = model->getLegalPlays();
-	std::vector<Cards> playerHand = model->getCurrentPlayer().getHand();
+	std::vector<Card> legalPlays = model->getLegalPlays();
+	std::vector<Card> playerHand = model->getCurrentPlayer().getHand();
 
 	// First check if computer or human player
 
@@ -102,11 +102,11 @@ Command receiveCommand() {
 
 		if (model_->getLegalPlays().size() > 0){
 			cout << "Player " << model_->getCurrentPlayerIndex() + 1 << " plays	" << legalPlays[0] << "\n";
-			my_command = Command("play", legalPlays[0]); 
+			my_command = Command("play", legalPlays[0]);
 		}
 		else {
 			cout << "Player " << model_->getCurrentPlayerIndex() + 1 << " discards	" << playerHand[0] << "\n";
-			my_command = Command("discard", playerHand[0]); 
+			my_command = Command("discard", playerHand[0]);
 		}
 	}
 
@@ -145,7 +145,7 @@ Command receiveCommand() {
 					cout << "Player	<x>	ragequits. A computer will now take over.\n";
 					if (model_->getLegalPlays().size() > 0){
 						cout << "Player " << model_->getCurrentPlayerIndex() + 1 << " plays	" << legalPlays[0] << "\n";
-						my_command = Command("play", legalPlays[0]); 
+						my_command = Command("play", legalPlays[0]);
 					}
 					else {
 						cout << "Player " << model_->getCurrentPlayerIndex() + 1 << " discards	" << playerHand[0] << "\n";
@@ -177,7 +177,7 @@ void printDeck(){
 
 // Print Legal Plays
 void printLegalPlays() {
-	std::vector<Cards> legalPlays = model->getLegalPlays();
+	std::vector<Card> legalPlays = model->getLegalPlays();
 	for (int i = 0; i < legalPlays.size(); i++) {
 		cout << " " << legalPlays[i];
 	}
@@ -199,7 +199,7 @@ void printPlayerDiscards(Player p) {
 }
 
 // Print Clubs
-void printClubs(std::vector<Cards> cardTable, std::vector<Cards> intTable) {
+void printClubs(std::vector<Card> cardTable, std::vector<Card> intTable) {
 	for (int i = 1; i < 14; i++) {
 		if (intTable[0][i] == 1) {
 			cout << " " << rankToLetter(cardTable[0][i].rank());
@@ -208,7 +208,7 @@ void printClubs(std::vector<Cards> cardTable, std::vector<Cards> intTable) {
 }
 
 // Print Diamonds
-void printDiamonds(std::vector<Cards> cardTable, std::vector<Cards> intTable) {
+void printDiamonds(std::vector<Card> cardTable, std::vector<Card> intTable) {
 	for (int i = 1; i < 14; i++) {
 		if (intTable[1][i] == 1) {
 			cout << " " << rankToLetter(cardTable[0][i].rank());
@@ -217,7 +217,7 @@ void printDiamonds(std::vector<Cards> cardTable, std::vector<Cards> intTable) {
 }
 
 // Print Hearts
-void printHearts(std::vector<Cards> cardTable, std::vector<Cards> intTable) {
+void printHearts(std::vector<Card> cardTable, std::vector<Card> intTable) {
 	for (int i = 1; i < 14; i++) {
 		if (intTable[2][i] == 1) {
 			cout << " " << rankToLetter(cardTable[0][i].rank());
@@ -226,7 +226,7 @@ void printHearts(std::vector<Cards> cardTable, std::vector<Cards> intTable) {
 }
 
 // Print Spades
-void printSpades(std::vector<Cards> cardTable, std::vector<Cards> intTable) {
+void printSpades(std::vector<Card> cardTable, std::vector<Card> intTable) {
 	for (int i = 1; i < 14; i++) {
 		if (intTable[3][i] == 1) {
 			cout << " " << rankToLetter(cardTable[0][i].rank());

@@ -1,7 +1,7 @@
 #ifndef MVC_CONTROLLER_H
 #define MVC_CONTROLLER_H
 
-#include <Command>
+#include "Command.h"
 
 class Model;
 
@@ -17,4 +17,3 @@ class Controller {
 }; // Controller
 
 #endif
-

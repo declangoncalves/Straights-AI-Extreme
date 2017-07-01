@@ -5,59 +5,59 @@
 //
 // Player::Player() : type_{'h'} {}
 
-char getType() { // Returns the type of player: 'h' - human | 'c' - computer
+char Player::getType() { // Returns the type of player: 'h' - human | 'c' - computer
 	return type_;
 }
 
-std::vector<Card> getHand() { // Returns the hand vector
+std::vector<Card> Player::getHand() { // Returns the hand vector
 	return hand_;
 }
 
-std::vector<Card> getDiscards() { // Returns the discard vector
+std::vector<Card> Player::getDiscards() { // Returns the discard vector
 	return discards_;
 }
 
-int getRoundScore() { // Returns player score
+int Player::getRoundScore() { // Returns player score
 	return roundscore_;
 }
 
-int getTotalScore() { // Returns player score
+int Player::getTotalScore() { // Returns player score
 	return totalscore_;
 }
 
-void setRoundScore(int score) { // Sets player score
+void Player::setRoundScore(int score) { // Sets player score
 	roundscore_ = score;
 }
 
-void setTotalScore(int score) { // Sets player score
+void Player::setTotalScore(int score) { // Sets player score
 	totalscore_ = score;
 }
 
-void emptyHand() { // Used to completely empty hand / discards
+void Player::emptyHand() { // Used to completely empty hand / discards
 	discards_.clear();
 }
 
-void rageQuit() {
+void Player::rageQuit() {
 	type_ = 'c';
 	return;
 }
 
-void dealCard(Card c) { // Insert Card into hand
+void Player::dealCard(Card c) { // Insert Card into hand
 	hand_.push_back(c);
 }
 
-void discard(Card c) { // Remove from hand / add to discards
+void Player::discard(Card c) { // Remove from hand / add to discards
 	discards_.push_back(c);
 	hand_.erase(hand_.begin() + getCardIndex(c));
 }
 
-void play(Card c) { // Remove from hand
-	hand_.erase(hand_.begin() + getCardIndex(card));
+void Player::play(Card c) { // Remove from hand
+	hand_.erase(hand_.begin() + getCardIndex(c));
 }
 
 // Helper Functions
 
-int getCardIndex(Card c) { // Returns index of card in hand
+int Player::getCardIndex(Card c) { // Returns index of card in hand
 
 	for (int i = 0; i < hand_.size(); i++) {
 		if ((hand_.at(i).rank().rank() == c.rank().rank()) && (hand_.at(i).suit().suit() == c.suit().suit())){
