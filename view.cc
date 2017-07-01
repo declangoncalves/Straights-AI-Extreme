@@ -1,6 +1,11 @@
 
 #include "view.h"
-
+#include "controller.h"
+#include "model.h"
+#include "subject.h"
+#include <string>
+#include <iostream>
+#include <algorithm>
 
 using namespace std;
 
