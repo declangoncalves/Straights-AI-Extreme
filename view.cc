@@ -135,6 +135,13 @@ Command receiveCommand() {
 }
 
 void printDeck(){
+	std::vector<Card> deck =  model_->getDeck();
+	int cardsPerLine = 13;
+
+	for (int i=0; i<deck.size(); i++){
+		cout << deck[i] << " ";
+		if (i < )
+	}
 
 }
 
