@@ -6,12 +6,15 @@
 
 class Model : public Subject {
   public:
-    Model();
-	~Model();
+  Model();
+  ~Model();
 
-  
   private:
-	
+	Deck deck_;
+  Command command_;
+  std::vector<Player> players_;
+  std::vector<std::vector<> table_;
+
 }; // Model
 
 
