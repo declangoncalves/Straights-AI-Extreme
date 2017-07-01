@@ -99,7 +99,7 @@ Command receiveCommand() {
 	// First check if computer or human player
 
 	if (model_->getCurrentPlayer().getType == 'c'){ // Computer Player
-		
+
 		if (model_->getLegalPlays().size() > 0){
 			cout << "Player " << model_->getCurrentPlayerIndex() + 1 << " plays	" << legalPlays[0] << "\n";
 			my_command = Command("play", legalPlays[0]); 
@@ -149,7 +149,7 @@ Command receiveCommand() {
 					}
 					else {
 						cout << "Player " << model_->getCurrentPlayerIndex() + 1 << " discards	" << playerHand[0] << "\n";
-						my_command = Command("discard", playerHand[0]); 
+						my_command = Command("discard", playerHand[0]);
 					}
 					validCommand = true;
 					break;

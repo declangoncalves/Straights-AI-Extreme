@@ -16,8 +16,10 @@ class Player {
 		void discard(string card); // Remove from hand / add to discards
 		void play(string card); // Remove from hand
 
-		int getScore(); // Returns player score
-		void setScore(int score); // Sets player score
+		int getRoundScore(); // Returns player score
+		int getTotalScore(); // Returns player score
+		void setRoundScore(int score); // Sets player score
+		void setTotalScore(int score); // Sets player score
 
 		// Helper Functions
 		int getCardIndex(string card); //  Returns index of card in hand
@@ -27,7 +29,8 @@ class Player {
 	private:
 		std::vector<Card> hand_;
 		std::vector<Card> discards_;
-		int score_;
+		int roundscore_;
+		int totalscore_;
 		char type_;
 
 }; // Player
