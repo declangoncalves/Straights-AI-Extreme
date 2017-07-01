@@ -64,7 +64,13 @@ void Model::initializeRound() {
   roundflag_ = 0;
   playerturn_ = 0;
   emptyhands_ = 0;
-  deck_ = deck_.shuffle();
+  deck_.shuffle();
+  for (auto player: players_) {
+    for (int i = 0; i < 13; i ++) {
+      player.dealCard(deck_[i]);
+    }
+  }
+
   for (int i = 0; i < players_.size(); i++) {
     for (auto card : players[i].getHand()) {
       if (card.suit().suit() == 0 && card.rank().rank() == 6) playerturn_ = i;

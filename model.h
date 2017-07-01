@@ -17,7 +17,6 @@ class Model : public Subject {
   const Player getCurrentPlayer();
   const std::vector<Player> getPlayers();
   const int getCurrentPlayerIndex();
-  const int getConsecutiveDiscards();
   const int checkScore();
   const std::vector<std::vector<int> > getCardTable();
   const std::vector<std::vector<int> > getIntTable();
@@ -31,7 +30,6 @@ class Model : public Subject {
 
   private:
   void endRound();
-  void incrementPlayerTurn();
   void incrementPlayerTurn();
 	Deck deck_;
   std::vector<Player> players_;
