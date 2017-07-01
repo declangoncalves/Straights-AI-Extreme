@@ -1,6 +1,6 @@
 #include "model.h"
 
-Model::Model(int seed) : deck_(new Deck(seed)) , table_(4, std::vector<int>(15, nullptr)) , table_(4, std::vector<Card>(15)), seed_(seed) {}
+Model::Model(int seed = 0, std::vector<char> players = {'c', 'c', 'c', 'c'}) : deck_(new Deck(seed)) , table_(4, std::vector<int>(15, nullptr)) , table_(4, std::vector<Card>(15)), seed_(seed) {}
 
 vector<vector<Card> > Model::getCardTable() {
   return cardstable_;
@@ -10,12 +10,19 @@ vector<vector<int> > Model::getIntTable() {
   return intstable_;
 }
 
-void Model::getCardTable(string card) {
-  return cardstable_;
-}
-
 int Model::getCurrentPlayerIndex() {
   return playerturn_;
+}
+
+void Model::incrementPlayerTurn() {
+  const int max_index = 3;
+  playerturn_++;
+  if (playerturn > max_index) playerturn_ = 0;
+  return;
+}
+
+void Model::discardCard(Card c) {
+
 }
 
 int Model::getCurrentPlayer() {
@@ -48,6 +55,7 @@ void Model::playCard(Card c) {
   getCurrentPlayer().playCard(c);
   intstable_[suit + 1][rank + 1] = 1;
   cardstable_[suit + 1][rank + 1] = c;
+  incrementPlayerTurn();
   return;
 }
 
@@ -55,6 +63,8 @@ void Model::discardCard(Card c) {
   int suit = c.suit().suit();
   int rank = card.rank().rank();
   getCurrentPlayer().discardCard(c);
+  incrementPlayerTurn();
+  incrementDiscards();
   return;
 }
 

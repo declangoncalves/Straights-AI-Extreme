@@ -7,17 +7,16 @@
 
 class Model : public Subject {
   public:
-  Model(int seed, std::vector<char> players);
+  Model(int seed = 0, std::vector<char> players = {'c', 'c', 'c', 'c'});
   void initializeRound();
-  void endRound();
-
-  void incrementPlayerTurn();
   void playCard(Card);
   void discardCard(Card);
   void printDeck();
   void rageQuit();
   const Player getCurrentPlayer();
   const int getCurrentPlayerIndex();
+  const int getConsecutiveDiscards();
+  const int checkScore();
   const std::vector<std::vector<int> > getCardTable();
   const std::vector<std::vector<int> > getIntTable();
   const std::vector<Card> getPlayerHand();
@@ -28,11 +27,15 @@ class Model : public Subject {
   ~Model();
 
   private:
+  void endRound();
+  void incrementPlayerTurn();
+  void incrementPlayerTurn();
 	Deck deck_;
   std::vector<Player> players_;
   std::vector<std::vector<int> > intstable_;
   std::vector<std::vector<Card> > cardstable_;
   int playerturn_;
+  int discards_;
   int seed_;
 
 }; // Model
