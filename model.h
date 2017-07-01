@@ -11,7 +11,6 @@ class Model : public Subject {
   void initializeRound();
   void playCard(Card);
   void discardCard(Card);
-  void printDeck();
   void rageQuit();
   const Player getCurrentPlayer();
   const int getCurrentPlayerIndex();
@@ -21,6 +20,7 @@ class Model : public Subject {
   const std::vector<std::vector<int> > getIntTable();
   const std::vector<Card> getPlayerHand();
   const std::vector<Card> getLegalPlays();
+  const std::vector<Card> getDeck();
 
 
   void nextRound();
