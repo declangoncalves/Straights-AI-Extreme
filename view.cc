@@ -34,8 +34,8 @@ void update() override {
 
 void roundStart() {
 	gamePhase = 2;
-	model_->initializeRond();
-	cout << "A	new	round	begins.	It’s	player	" << model_->getCurrentPlayerIndex() + 1 << "’s	turn	to	play.\n";
+	model_->initializeRound();
+	cout << "A	new	round	begins.	Itï¿½s	player	" << model_->getCurrentPlayerIndex() + 1 << "ï¿½s	turn	to	play.\n";
 	playerTurn();
 }
 
@@ -73,14 +73,14 @@ Command receiveCommand() {
 	// First check if computer or human player
 
 	if (model_->getCurrentPlayer().getType == 'c'){ // Computer Player
-		
+
 		if (model_->getLegalPlays().size() > 0){
 			cout << "Player " << model_->getCurrentPlayerIndex() << " plays	" << legalPlays[0] << "\n";
-			my_command = Command("play", legalPlays[0]); 
+			my_command = Command("play", legalPlays[0]);
 		}
 		else {
 			cout << "Player " << model_->getCurrentPlayerIndex() << " discards	" << playerHand[0] << "\n";
-			my_command = Command("discard", playerHand[0]); 
+			my_command = Command("discard", playerHand[0]);
 		}
 	}
 
@@ -119,11 +119,11 @@ Command receiveCommand() {
 					cout << "Player	<x>	ragequits. A	computer	will	now	take	over.\n";
 					if (model_->getLegalPlays().size() > 0){
 						cout << "Player " << model_->getCurrentPlayerIndex() << " plays	" << legalPlays[0] << "\n";
-						my_command = Command("play", legalPlays[0]); 
+						my_command = Command("play", legalPlays[0]);
 					}
 					else {
 						cout << "Player " << model_->getCurrentPlayerIndex() << " discards	" << playerHand[0] << "\n";
-						my_command = Command("discard", playerHand[0]); 
+						my_command = Command("discard", playerHand[0]);
 					}
 					validCommand = true;
 					break;
