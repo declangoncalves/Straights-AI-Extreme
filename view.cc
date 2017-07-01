@@ -34,7 +34,6 @@ void update() override {
 
 void roundStart() {
 	gamePhase = 2;
-	model_->initializeRound();
 	cout << "A	new	round	begins.	It’s	player	" << model_->getCurrentPlayerIndex() + 1 << "’s	turn	to	play.\n";
 	playerTurn();
 }

@@ -10,7 +10,6 @@ vector<vector<int> > Model::getIntTable() {
   return intstable_;
 }
 
-
 int Model::getCurrentPlayerIndex() {
   return playerturn_;
 }
