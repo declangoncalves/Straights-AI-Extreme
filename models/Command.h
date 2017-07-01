@@ -18,6 +18,9 @@ struct Command {
 	Card card;
 	
 	Command();
+
+	Command(string cmd, Card card);
+
 	// Ensures: Command is set to invalid state, card is set to AC
 };
 

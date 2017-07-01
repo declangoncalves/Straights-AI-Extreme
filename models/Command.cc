@@ -7,6 +7,24 @@ using std::stringstream;
 
 Command::Command() : type{Command::Type::BAD_COMMAND}, card{Card::Rank{0}, Card::Suit{0}} {}
 
+Command::Command(string cmd, Card card) : type{Command::Type::BAD_COMMAND}, card{Card::Rank{0}, Card::Suit{0}} {
+	
+	if ( cmd == "play" ) {
+		c.type = Command::Type::PLAY;
+		c.card card;
+	} else if ( cmd == "discard" ) {
+		c.type = Command::Type::DISCARD;
+		c.card = card;
+	} else if ( cmd == "deck" ) {
+		c.type = Command::Type::DECK;
+	} else if ( cmd == "quit" ) {
+		c.type = Command::Type::QUIT;
+	} else if ( cmd == "ragequit" ) {
+		c.type = Command::Type::RAGEQUIT;
+	} // if
+}
+
+
 istream & operator>>( istream & in, Command & c ) {
 	c.type = Command::Type::BAD_COMMAND;
 

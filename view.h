@@ -8,6 +8,7 @@ class Model;
 
 class View : public Observer {
   public:
+
     View( Controller*, Model* );
     virtual ~View();
     void update() override;
@@ -24,6 +25,9 @@ class View : public Observer {
 
 	const void printPlayerHand(std::vector<Cards>;
 	const void printLegalPlays(std::vector<Cards>;
+
+	Commmand receiveCommand();
+	void printDeck();
 
   private:
     Model *model_;
