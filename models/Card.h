@@ -1,5 +1,5 @@
 /*
- * Represents a Card with a Suit {Club, Diamond, Heart, Spade} and a Rank 
+ * Represents a Card with a Suit {Club, Diamond, Heart, Spade} and a Rank
  * {Ace, 2, 3, 4, 5, 6, 7, 8, 9, T, J, Q, K}.
  *
  *  Last updated: 2017-06-06
@@ -17,7 +17,7 @@ public:
 	// buy the integer comparison and arithmetic operations for cheap. Default copy/move
 	// and assignment operations are fine.
 
-    class Suit { 
+    class Suit {
     public:
     	static const int MAX_SUIT = 4; // Maximum # of suits available for a card
 		static const int CLUB = 1;    // Suit index associated with Clubs
@@ -59,7 +59,7 @@ public:
 
     	int rank() const;
     	// Returns: 0 <= rank < MAX_RANK
-    	 
+
     private:
     	int rank_;
     };
@@ -68,7 +68,7 @@ public:
 	Suit suit() const;
 	Rank rank() const;
 	bool operator==( const Card & ) const;
-	
+
 private:
 	Suit suit_;
 	Rank rank_;

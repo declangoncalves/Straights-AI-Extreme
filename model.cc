@@ -1,3 +1,3 @@
 #include "model.h"
 
-Model::Model(){}
+Model::Model(int seed) : deck_(new Deck(seed)) : table_(4, std::vector<int>(15, 0)) {}
