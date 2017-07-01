@@ -25,7 +25,7 @@ ostream & operator<<( ostream & out, const Card::Rank & r ) {
 } // operator<<
 
 ostream & operator<<( ostream & out, const Card & c ) {
-	out << c.rank() << c.suit();	
+	out << c.rank() << c.suit();
 	return out;
 } // operator<<
 
@@ -55,12 +55,12 @@ istream & operator>>( istream & in, Card::Suit & s ) {
 	return in;
 }  // operator>>
 
-istream & operator>>( istream & in, Card & c ) {	
+istream & operator>>( istream & in, Card & c ) {
 	Card::Rank r{0};
 	Card::Suit s{0};
 	in >> r >> s;
 	assert ( !in.fail() );
-	
+
 	c = Card( r, s );
 	return in;
 } // operator>>
@@ -74,7 +74,7 @@ int Card::Suit::suit() const { return suit_; }
 
 Card::Rank::Rank( int r ) {
 	if ( r < 0 || r >= Card::Rank::MAX_RANK ) throw "Invalid rank";
-	rank_ = r;	
+	rank_ = r;
 }
 
 int Card::Rank::rank() const { return rank_; }
