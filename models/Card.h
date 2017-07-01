@@ -65,6 +65,7 @@ public:
     };
 
 	Card( Rank, Suit );
+  Card(string);
 	Suit suit() const;
 	Rank rank() const;
 	bool operator==( const Card & ) const;

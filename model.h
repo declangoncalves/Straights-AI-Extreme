@@ -2,32 +2,40 @@
 #define MVC_MODEL_H
 
 #include "subject.h"
-#incude "Deck.h"
+#include "Deck.h"
+#include "player.h"
 
 class Model : public Subject {
   public:
-  Model(int seed);
-  void setupPlayers();
+  Model(int seed = 0, std::vector<char> players = {'c', 'c', 'c', 'c'});
   void initializeRound();
-  void endRound();
-  void incrementPlayerTurn();
-  void playCard(string card);
-  void discardCard(string card);
+  void playCard(Card);
+  void discardCard(Card);
   void printDeck();
   void rageQuit();
-  std::vector<Cards> getPlayerHand();
-  std::vector<Cards> getLegalPlays();
+  const Player getCurrentPlayer();
+  const int getCurrentPlayerIndex();
+  const int getConsecutiveDiscards();
+  const int checkScore();
+  const std::vector<std::vector<int> > getCardTable();
+  const std::vector<std::vector<int> > getIntTable();
+  const std::vector<Card> getPlayerHand();
+  const std::vector<Card> getLegalPlays();
 
 
   void nextRound();
   ~Model();
 
   private:
+  void endRound();
+  void incrementPlayerTurn();
+  void incrementPlayerTurn();
 	Deck deck_;
-  Command command_;
   std::vector<Player> players_;
-  std::vector<std::vector<int> > table_;
+  std::vector<std::vector<int> > intstable_;
+  std::vector<std::vector<Card> > cardstable_;
   int playerturn_;
+  int discards_;
   int seed_;
 
 }; // Model
