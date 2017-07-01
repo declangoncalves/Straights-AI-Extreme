@@ -25,7 +25,7 @@ void setTotalScore(int score) { // Sets player score
 }
 
 void emptyHand() { // Used to completely empty hand / discards
-	hand_.clear();
+	discards_.clear();
 }
 
 void dealCard(Card c) { // Insert Card into hand

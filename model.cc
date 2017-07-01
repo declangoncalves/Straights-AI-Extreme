@@ -20,9 +20,14 @@ const std::vector<Player> Model::getPlayers() {
 }
 
 void Model::incrementPlayerTurn() {
+  if (emptyhands_ == 4) endRound();
   const int max_index = 3;
   playerturn_++;
   if (playerturn > max_index) playerturn_ = 0;
+  while (players_[playerturn_].getHand().size() == 0) {
+    playerturn_++;
+    if (playerturn > max_index) playerturn_ = 0;
+  }
   return;
 }
 
@@ -50,11 +55,6 @@ std::vector<Card> Model::getPlayerHand() {
   return hand;
 }
 
-void Model::checkEmptyHand() {
-    if (getCurrentPlayer().getHand().size() == 0) emptyhands_++;
-    if (emptyhands_ == 4) endRound();
-}
-
 void Model::getRoundFlag() {
   // 1 = Round has ended 2 = Game has ended
   return gamestate_;
@@ -62,6 +62,14 @@ void Model::getRoundFlag() {
 
 void Model::initializeRound() {
   roundflag_ = 0;
+  playerturn_ = 0;
+  emptyhands_ = 0;
+  deck_ = deck_.shuffle();
+  for (int i = 0; i < players_.size(); i++) {
+    for (auto card : players[i].getHand()) {
+      if (card.suit().suit() == 0 && card.rank().rank() == 6) playerturn_ = i;
+    }
+  }
 }
 
 void Model::endRound() {
@@ -69,8 +77,13 @@ void Model::endRound() {
   vector<int> scores;
   for (auto player : players_) {
     for (auto card : player.getDiscards()) {
-      
+      player.setRoundScore(player.getRoundScore() += (card.rank().rank() + 1));
     }
+    player.emptyHand();
+    player.setTotalScore(player.getTotalScore() += player.getRoundScore());
+  }
+  for (auto player : players_) {
+    if (player.getTotalScore() >= 80) roundflag_ = 2;
   }
 }
 
@@ -80,8 +93,8 @@ void Model::playCard(Card c) {
   getCurrentPlayer().playCard(c);
   intstable_[suit + 1][rank + 1] = 1;
   cardstable_[suit + 1][rank + 1] = c;
+  if (getCurrentPlayer().getHand().size() == 0) emptyhands_++;
   incrementPlayerTurn();
-  emptyhands_ = 0;
   return;
 }
 
@@ -89,6 +102,7 @@ void Model::discardCard(Card c) {
   int suit = c.suit().suit();
   int rank = card.rank().rank();
   getCurrentPlayer().discardCard(c);
+  if (getCurrentPlayer().getHand().size() == 0) emptyhands_++;
   incrementPlayerTurn();
   return;
 }
