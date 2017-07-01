@@ -16,8 +16,12 @@ int getScore() { // Returns player score
 	return score;
 }
 
-void setScore(int s) { // Sets player score
-	score = s;
+void setRoundScore(int score) { // Sets player score
+	roundscore_ = score;
+}
+
+void setTotalScore(int score) { // Sets player score
+	totalscore_ = score;
 }
 
 void emptyHand() { // Used to completely empty hand / discards

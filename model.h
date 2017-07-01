@@ -12,7 +12,10 @@ class Model : public Subject {
   void playCard(Card);
   void discardCard(Card);
   void rageQuit();
+  void skipTurn();
+  int getGameState();
   const Player getCurrentPlayer();
+  const std::vector<Player> getPlayers();
   const int getCurrentPlayerIndex();
   const int getConsecutiveDiscards();
   const int checkScore();
@@ -35,8 +38,9 @@ class Model : public Subject {
   std::vector<std::vector<int> > intstable_;
   std::vector<std::vector<Card> > cardstable_;
   int playerturn_;
-  int discards_;
+  int emptyhands_;
   int seed_;
+  int gamestate_;
 
 }; // Model
 

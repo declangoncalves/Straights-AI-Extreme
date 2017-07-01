@@ -10,8 +10,13 @@ vector<vector<int> > Model::getIntTable() {
   return intstable_;
 }
 
+
 int Model::getCurrentPlayerIndex() {
   return playerturn_;
+}
+
+const std::vector<Player> Model::getPlayers() {
+  return players_;
 }
 
 void Model::incrementPlayerTurn() {
@@ -19,10 +24,6 @@ void Model::incrementPlayerTurn() {
   playerturn_++;
   if (playerturn > max_index) playerturn_ = 0;
   return;
-}
-
-void Model::discardCard(Card c) {
-
 }
 
 int Model::getCurrentPlayer() {
@@ -49,6 +50,30 @@ std::vector<Card> Model::getPlayerHand() {
   return hand;
 }
 
+void Model::checkEmptyHand() {
+    if (getCurrentPlayer().getHand().size() == 0) emptyhands_++;
+    if (emptyhands_ == 4) endRound();
+}
+
+void Model::getRoundFlag() {
+  // 1 = Round has ended 2 = Game has ended
+  return gamestate_;
+}
+
+void Model::initializeRound() {
+  roundflag_ = 0;
+}
+
+void Model::endRound() {
+  roundflag_ = 1;
+  vector<int> scores;
+  for (auto player : players_) {
+    for (auto card : player.getDiscards()) {
+      
+    }
+  }
+}
+
 void Model::playCard(Card c) {
   int suit = c.suit().suit();
   int rank = card.rank().rank();
@@ -56,6 +81,7 @@ void Model::playCard(Card c) {
   intstable_[suit + 1][rank + 1] = 1;
   cardstable_[suit + 1][rank + 1] = c;
   incrementPlayerTurn();
+  emptyhands_ = 0;
   return;
 }
 
@@ -64,7 +90,6 @@ void Model::discardCard(Card c) {
   int rank = card.rank().rank();
   getCurrentPlayer().discardCard(c);
   incrementPlayerTurn();
-  incrementDiscards();
   return;
 }
 
