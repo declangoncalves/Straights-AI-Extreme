@@ -28,6 +28,10 @@ void emptyHand() { // Used to completely empty hand / discards
 	discards_.clear();
 }
 
+void rageQuit() {
+	type_ = 'c';
+}
+
 void dealCard(Card c) { // Insert Card into hand
 	hand_.push_back(c);
 }

@@ -11,6 +11,7 @@ class Player {
 		std::vector<Card> getDiscards(); // Returns the discard vector
 
 		void dealCard(Card); // Insert Card into hand
+		void rageQuit(); // ragequit method to turn it into a computer
 
 		void discard(string card); // Remove from hand / add to discards
 		void play(string card); // Remove from hand

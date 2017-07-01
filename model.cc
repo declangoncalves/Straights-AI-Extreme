@@ -10,13 +10,16 @@ vector<vector<int> > Model::getIntTable() {
   return intstable_;
 }
 
-
 int Model::getCurrentPlayerIndex() {
   return playerturn_;
 }
 
 const std::vector<Player> Model::getPlayers() {
   return players_;
+}
+
+void Model::rageQuit() {
+  currentPlayer().rageQuit();
 }
 
 void Model::incrementPlayerTurn() {
@@ -31,7 +34,7 @@ void Model::incrementPlayerTurn() {
   return;
 }
 
-int Model::getCurrentPlayer() {
+Player Model::getCurrentPlayer() {
   return players_[playerturn_];
 }
 
@@ -70,7 +73,6 @@ void Model::initializeRound() {
       player.dealCard(deck_[i]);
     }
   }
-
   for (int i = 0; i < players_.size(); i++) {
     for (auto card : players[i].getHand()) {
       if (card.suit().suit() == 0 && card.rank().rank() == 6) playerturn_ = i;
