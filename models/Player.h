@@ -10,8 +10,8 @@ class Player {
 		std::vector<Card> getHand(); // Returns the hand vector
 		std::vector<Card> getDiscards(); // Returns the discard vector
 
-		void emptyHand(); // Used to completely empty hand / discards
 		void dealCard(Card); // Insert Card into hand
+		void rageQuit(); // ragequit method to turn it into a computer
 
 		void discard(string card); // Remove from hand / add to discards
 		void play(string card); // Remove from hand
@@ -27,6 +27,7 @@ class Player {
 		// TODO: Check for certain card
 
 	private:
+		void emptyHand(); // Used to completely empty hand / discards
 		std::vector<Card> hand_;
 		std::vector<Card> discards_;
 		int roundscore_;
