@@ -3,7 +3,7 @@
 
 #include "subject.h"
 #include "Deck.h"
-#include "player.h"
+#include "Player.h"
 
 class Model : public Subject {
   public:
