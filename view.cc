@@ -23,7 +23,7 @@ void update() override {
 	}
 
 	else if (gamePhase == 2) { // Player Turn
-		if (model_->getGameState() == 1){ // Round Finished
+		if (model_->getGameState() != 0){ // Round Finished
 			roundEnd();
 		}
 		else { // Round not finished
@@ -80,6 +80,7 @@ void roundEnd() {
 				cout << "Player	" << i + 1 << " wins!\n"
 			}
 		}
+		exit(0);
 	}
 
 	else {
