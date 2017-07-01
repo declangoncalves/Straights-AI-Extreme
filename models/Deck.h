@@ -5,12 +5,13 @@
 
 class Deck {
 	public:
-		Deck();
+		Deck(int seed = 0);
 		std:vector<Card> getDeck();
 		void shuffle();
 		
 	private:
 		std::vector<Card> deck;
+		int private seed = 0;
 
 }; // Deck
 

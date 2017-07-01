@@ -1,7 +1,7 @@
 #include <random>
 
 void Deck::shuffle() {
-	static mt19937 rng(0); // Seed = 0
+	static mt19937 rng(seed); // Seed = 0
 
 	int n = CARD_COUNT;
 
