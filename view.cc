@@ -14,6 +14,7 @@ View::~View() {}
 
 void View::update() {
 
+	cout << "updating" << endl;
 	if (gamePhase_ == 1) { // Start Round
 		roundStart();
 	}
@@ -37,7 +38,17 @@ void View::roundStart() {
 void View::playerTurn() {
 
 	std::vector<vector<Card> > cardTable = model_->getCardTable();
+	// for (auto card_v : cardTable) {
+	// 	for (auto card : card_v) {
+	// 		cout << card << endl;
+	// 	}
+	// }
 	std::vector<vector<int> > intTable = model_->getIntTable();
+	// for (auto card_v : intTable) {
+	// 	for (auto card : card_v) {
+	// 		cout << card << endl;
+	// 	}
+	// }
 
 	cout << "Cards on the table:\n";
 	cout << "\nClubs:";

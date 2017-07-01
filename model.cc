@@ -1,6 +1,12 @@
 #include "model.h"
+#include <algorithm>
+#include <iostream>
 
-Model::Model(int seed, std::vector<Player> players) : deck_(Deck(seed)) , intstable_(4, std::vector<int>(15, 0)) , cardstable_(4, std::vector<Card>(15)), seed_{seed} , players_{players}{}
+using namespace std;
+
+Model::Model(int seed, std::vector<Player> players) : deck_(Deck(seed)) , intstable_(4, std::vector<int>(15, 0)) , cardstable_(4, std::vector<Card>(15)), seed_{seed} , players_{players} {
+  initializeRound();
+}
 
 const std::vector<std::vector<Card> > Model::getCardTable() {
   return cardstable_;
@@ -43,7 +49,7 @@ const std::vector<Card> Model::getLegalPlays() {
   for (auto card : getCurrentPlayer().getHand()) {
     int suit = card.suit().suit();
     int rank = card.rank().rank();
-    if (intstable_[suit + 1][rank] == 1 || intstable_[suit + 1][rank + 2] == 1) {
+    if ((intstable_[suit + 1][rank] == 1 || intstable_[suit + 1][rank + 2] == 1) || (rank == 6)) {
       plays.push_back(card);
     }
   }
@@ -107,8 +113,8 @@ void Model::playCard(Card c) {
   cardstable_[suit + 1][rank + 1] = c;
   if (getCurrentPlayer().getHand().size() == 0) emptyhands_++;
   incrementPlayerTurn();
+  cout << "notifying" << endl;
   notify();
-  return;
 }
 
 void Model::discardCard(Card c) {
@@ -118,7 +124,6 @@ void Model::discardCard(Card c) {
   if (getCurrentPlayer().getHand().size() == 0) emptyhands_++;
   incrementPlayerTurn();
   notify();
-  return;
 }
 
 const std::vector<Card> Model::getDeck() {
