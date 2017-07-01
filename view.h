@@ -33,12 +33,16 @@ class View : public Observer {
 	const void printLegalPlays();
 
 	Command receiveCommand();
-	void printDeck();
+	const void printDeck();
 
   private:
     Model *model_;
     Controller *controller_;
 	   int gamePhase_ = 1; // 1 - RoundStart | 2 - PlayerTurn
 }; // View
+
+//helper functions
+
+string rankToLetter(int rank);
 
 #endif

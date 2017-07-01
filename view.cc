@@ -76,8 +76,8 @@ void View::roundEnd() {
 
 	if (model_->getGameState() == 2){
 		for (int i=0; i < players.size(); i++){
-			if (players[i].getTotalScore() == minScore{
-				cout << "Player	" << i + 1 << " wins!\n"
+			if (players[i].getTotalScore() == minScore) {
+				cout << "Player	" << i + 1 << " wins!\n";
 			}
 		}
 		exit(0);
@@ -98,7 +98,7 @@ Command View::receiveCommand() {
 
 	// First check if computer or human player
 
-	if (model_->getCurrentPlayer().getType == 'c'){ // Computer Player
+	if (model_->getCurrentPlayer().getType() == 'c'){ // Computer Player
 
 		if (model_->getLegalPlays().size() > 0){
 			cout << "Player " << model_->getCurrentPlayerIndex() + 1 << " plays	" << legalPlays[0] << "\n";
@@ -160,7 +160,7 @@ Command View::receiveCommand() {
 	return my_command;
 }
 
-void View::printDeck(){
+const void View::printDeck(){
 	std::vector<Card> deck =  model_->getDeck();
 	int cardsPerLine = 13;
 
@@ -176,7 +176,7 @@ void View::printDeck(){
 // Helper Functions
 
 // Print Legal Plays
-void View::printLegalPlays() {
+const void View::printLegalPlays() {
 	std::vector<Card> legalPlays = model_->getLegalPlays();
 	for (int i = 0; i < legalPlays.size(); i++) {
 		cout << " " << legalPlays[i];
@@ -185,52 +185,52 @@ void View::printLegalPlays() {
 }
 
 // Print Player Hand
-void View::printPlayerHand() {
+const void View::printPlayerHand() {
 	Player p = model_->getCurrentPlayer();
 	for (int i = 0; i < p.getHand().size(); i++) {
-		cout << " " << p[i];
+		cout << " " << p.getHand()[i];
 	}
 }
 
 // Print Player Discards
-void View::printPlayerDiscards(Player p) {
+const void View::printPlayerDiscards(Player p) {
 	for (int i = 0; i < p.getDiscards().size(); i++) {
 		cout << " " << p.getDiscards()[i];
 	}
 }
 
 // Print Clubs
-void View::printClubs(std::vector<vector<Card> > cardTable, std::vector<vector<int> > intTable) {
+const void View::printClubs(std::vector<vector<Card> > cardTable, std::vector<vector<int> > intTable) {
 	for (int i = 1; i < 14; i++) {
 		if (intTable[0][i] == 1) {
-			cout << " " << rankToLetter(cardTable[0][i].rank());
+			cout << " " << rankToLetter(cardTable[0][i].rank().rank());
 		}
 	}
 }
 
 // Print Diamonds
-void View::printDiamonds(std::vector<vector<Card> > cardTable, std::vector<vector<int> > intTable) {
+const void View::printDiamonds(std::vector<vector<Card> > cardTable, std::vector<vector<int> > intTable) {
 	for (int i = 1; i < 14; i++) {
 		if (intTable[1][i] == 1) {
-			cout << " " << rankToLetter(cardTable[0][i].rank());
+			cout << " " << rankToLetter(cardTable[0][i].rank().rank());
 		}
 	}
 }
 
 // Print Hearts
-void View::printHearts(std::vector<vector<Card> > cardTable, std::vector<vector<int> > intTable) {
+const void View::printHearts(std::vector<vector<Card> > cardTable, std::vector<vector<int> > intTable) {
 	for (int i = 1; i < 14; i++) {
 		if (intTable[2][i] == 1) {
-			cout << " " << rankToLetter(cardTable[0][i].rank());
+			cout << " " << rankToLetter(cardTable[0][i].rank().rank());
 		}
 	}
 }
 
 // Print Spades
-void View::printSpades(std::vector<vector<Card> > cardTable, std::vector<vector<int> > intTable) {
+const void View::printSpades(std::vector<vector<Card> > cardTable, std::vector<vector<int> > intTable) {
 	for (int i = 1; i < 14; i++) {
 		if (intTable[3][i] == 1) {
-			cout << " " << rankToLetter(cardTable[0][i].rank());
+			cout << " " << rankToLetter(cardTable[0][i].rank().rank());
 		}
 	}
 }
@@ -243,6 +243,6 @@ string rankToLetter(int rank) {
 	case 11: return "J";
 	case 12: return "Q";
 	case 13: return "K";
-	case default: return std::to_string(rank);
+	default: return std::to_string(rank);
 	}
 }
