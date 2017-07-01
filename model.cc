@@ -1,11 +1,17 @@
 #include "model.h"
 
-Model::Model(int seed) : deck_(new Deck(seed)) : table_(4, std::vector<Card*>(15, nullptr)) {}
-Model::Model(int seed) : deck_(new Deck(seed)) : table_(4, std::vector<Card*>(15, nullptr)) {}
+Model::Model(int seed) : deck_(new Deck(seed)) , table_(4, std::vector<int>(15, nullptr)) , table_(4, std::vector<Card>(15)), seed_(seed) {}
 
-void Model::playCard(string card) {
+vector<vector<Card> > Model::getCardTable() {
+  return cardstable_;
+}
 
+vector<vector<int> > Model::getIntTable() {
+  return intstable_;
+}
 
+void Model::getCardTable(string card) {
+  return cardstable_;
 }
 
 int Model::getCurrentPlayerIndex() {
@@ -21,7 +27,7 @@ std::vector<Card> Model::getLegalPlays() {
   for (auto card : getCurrentPlayer().getHand()) {
     int suit = card.suit().suit();
     int rank = card.rank().rank();
-    if (table_[suit - 1][rank - 1] == 1 || table_[suit - 1][rank + 1] == 1) {
+    if (intstable_[suit + 1][rank] == 1 || table_[suit + 1][rank + 2] == 1) {
       plays.push(card);
     }
   }
@@ -40,7 +46,8 @@ void Model::playCard(Card c) {
   int suit = c.suit().suit();
   int rank = card.rank().rank();
   getCurrentPlayer().playCard(c);
-  table_[suit][rank] = 1;
+  intstable_[suit + 1][rank + 1] = 1;
+  cardstable_[suit + 1][rank + 1] = c;
   return;
 }
 
@@ -53,6 +60,6 @@ void Model::discardCard(Card c) {
 
 void Model::printDeck() {
   for (auto card : deck_) {
-
+    cout  << " " << card << endl;
   }
 }

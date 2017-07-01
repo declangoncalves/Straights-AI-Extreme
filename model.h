@@ -29,10 +29,9 @@ class Model : public Subject {
 
   private:
 	Deck deck_;
-  Command command_;
   std::vector<Player> players_;
-  std::vector<std::vector<int> > inttable_;
-  std::vector<std::vector<int> > cardstable_;
+  std::vector<std::vector<int> > intstable_;
+  std::vector<std::vector<Card> > cardstable_;
   int playerturn_;
   int seed_;
 
