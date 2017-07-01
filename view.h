@@ -32,7 +32,7 @@ class View : public Observer {
   private:
     Model *model_;
     Controller *controller_;
-	int gamePhase_ = 1; // 1 - RoundStart | 2 - PlayerTurn | 3 - RoundEnd
+	int gamePhase_ = 1; // 1 - RoundStart | 2 - PlayerTurn
 }; // View
 
 #endif
