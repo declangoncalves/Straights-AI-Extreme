@@ -1,6 +1,6 @@
 #include "model.h"
 
-Model::Model(int seed = 0, std::vector<char> players = {'c', 'c', 'c', 'c'}) : deck_(new Deck(seed)) , intstable_(4, std::vector<int>(15, nullptr)) , cardstable_(4, std::vector<Card>(15)), seed_{seed} {}
+Model::Model(int seed = 0, std::vector<Player> players) : deck_(new Deck(seed)) , intstable_(4, std::vector<int>(15, nullptr)) , cardstable_(4, std::vector<Card>(15)), seed_{seed} , players_{players}{}
 
 vector<vector<Card> > Model::getCardTable() {
   return cardstable_;

@@ -5,7 +5,7 @@
 
 class Player {
 	public:
-
+		Player Player();
 		Player Player(char type);
 		char getType(); // Returns the type of player: 'h' - human | 'c' - computer
 

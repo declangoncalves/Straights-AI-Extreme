@@ -2,6 +2,8 @@
 
 Player Player(char type) : type_(type) {}
 
+Player Player() : type_{'h'} {}
+
 char getType() { // Returns the type of player: 'h' - human | 'c' - computer
 	return type_;
 }

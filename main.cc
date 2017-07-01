@@ -13,7 +13,8 @@ int main( int argc, char * argv[] ) {
       cin >> type;
       // todo: throw exception
       // if (type != "h" && type != "c") cerr << "error: wrong type" << endl;
-      players.push(type[0]);
+      Player player = new Player(type);
+      players.push(player);
     }
     int seed = atoi(argv[1], players);
     Model model(seed); // Create model
