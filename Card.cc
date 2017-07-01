@@ -5,6 +5,13 @@ using namespace std;
 
 Card::Card( Card::Rank r, Card::Suit s ) : suit_{s}, rank_{r} {}
 
+Card::Card() {
+	Card::Suit s(0);
+	Card::Rank r(0);
+	suit_ = s;
+	rank_ = r;
+}
+
 Card::Suit Card::suit() const { return suit_; }
 Card::Rank Card::rank() const { return rank_; }
 
@@ -75,6 +82,14 @@ int Card::Suit::suit() const { return suit_; }
 Card::Rank::Rank( int r ) {
 	if ( r < 0 || r >= Card::Rank::MAX_RANK ) throw "Invalid rank";
 	rank_ = r;
+}
+
+Card::Suit::Suit() {
+	suit_ = 0;
+}
+
+Card::Rank::Rank() {
+	rank_ = 0;
 }
 
 int Card::Rank::rank() const { return rank_; }

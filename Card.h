@@ -26,6 +26,7 @@ public:
 		static const int SPADE = 4;    // Suit index associated with Spades
 
     	Suit( int s );
+      Suit();
     	// Throws: "Invalid suit" if s < 0 || s >= MAX_SUIT
     	// Modifies: this
 
@@ -54,6 +55,7 @@ public:
 		static const int KING = 13;     // Rank index associated with the King
 
     	Rank( int r );
+      Rank();
     	// Throws: "Invalid rank" if r < 0 || r >= MAX_RANK
     	// Modifies: this
 
@@ -65,6 +67,7 @@ public:
     };
 
 	Card( Rank, Suit );
+  Card();
 	Suit suit() const;
 	Rank rank() const;
 	bool operator==( const Card & ) const;

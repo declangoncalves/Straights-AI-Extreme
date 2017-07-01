@@ -3,10 +3,10 @@
 #include "controller.h"
 #include "model.h"
 #include "subject.h"
-#include "./models/Command.h"
-#include "./models/Card.h"
 #include <string>
 #include <iostream>
+
+using namespace std;
 
 View::View(Controller* c, Model* m) {
 	controller_ = c;
@@ -16,13 +16,13 @@ View::View(Controller* c, Model* m) {
 
 View::~View() {}
 
-void update() override {
+void View::update() {
 
-	if (gamePhase == 1) { // Start Round
+	if (gamePhase_ == 1) { // Start Round
 		roundStart();
 	}
 
-	else if (gamePhase == 2) { // Player Turn
+	else if (gamePhase_ == 2) { // Player Turn
 		if (model_->getGameState() != 0){ // Round Finished
 			roundEnd();
 		}
@@ -32,16 +32,16 @@ void update() override {
 	}
 }
 
-void roundStart() {
-	gamePhase = 2;
+void View::roundStart() {
+	gamePhase_ = 2;
 	cout << "A new round begins. It�s player " << model_->getCurrentPlayerIndex() + 1 << "�s turn to play.\n";
 	playerTurn();
 }
 
-void playerTurn() {
+void View::playerTurn() {
 
-	std::vector<Card> cardTable = model_->getCardTable();
-	std::vector<Card> intTable = model_->getCardTable();
+	std::vector<vector<Card> > cardTable = model_->getCardTable();
+	std::vector<vector<int> > intTable = model_->getIntTable();
 
 	cout << "Cards on the table:\n";
 	cout << "\nClubs:";
@@ -52,17 +52,17 @@ void playerTurn() {
 	printHearts(cardTable, intTable);
 	cout << "\nSpades:";
 	printSpades(cardTable, intTable);
-	cout << "\nYour	hand:"
+	cout << "\nYour	hand:";
 	printPlayerHand();
-	cout << "\nLegal plays:"
+	cout << "\nLegal plays:";
 	printLegalPlays();
 
 	controller_->executeCommand(receiveCommand());
 
 }
 
-void roundEnd() {
-	std::vector<Players> players = model_->getPlayers();
+void View::roundEnd() {
+	std::vector<Player> players = model_->getPlayers();
 	int minScore = players[0].getTotalScore();
 
 	for (int i=0; i < players.size(); i++){
@@ -76,7 +76,7 @@ void roundEnd() {
 
 	if (model_->getGameState() == 2){
 		for (int i=0; i < players.size(); i++){
-			if (players[i].getTotalScore() == minScore()){
+			if (players[i].getTotalScore() == minScore{
 				cout << "Player	" << i + 1 << " wins!\n"
 			}
 		}
@@ -85,16 +85,16 @@ void roundEnd() {
 
 	else {
 		controller_->newRound();
-		gamePhase == 1;
+		gamePhase_ = 1;
 	}
 
 }
 
-Command receiveCommand() {
+Command View::receiveCommand() {
 
 	Command my_command;
-	std::vector<Card> legalPlays = model->getLegalPlays();
-	std::vector<Card> playerHand = model->getCurrentPlayer().getHand();
+	std::vector<Card> legalPlays = model_->getLegalPlays();
+	std::vector<Card> playerHand = model_->getCurrentPlayer().getHand();
 
 	// First check if computer or human player
 
@@ -160,7 +160,7 @@ Command receiveCommand() {
 	return my_command;
 }
 
-void printDeck(){
+void View::printDeck(){
 	std::vector<Card> deck =  model_->getDeck();
 	int cardsPerLine = 13;
 
@@ -176,8 +176,8 @@ void printDeck(){
 // Helper Functions
 
 // Print Legal Plays
-void printLegalPlays() {
-	std::vector<Card> legalPlays = model->getLegalPlays();
+void View::printLegalPlays() {
+	std::vector<Card> legalPlays = model_->getLegalPlays();
 	for (int i = 0; i < legalPlays.size(); i++) {
 		cout << " " << legalPlays[i];
 	}
@@ -185,21 +185,22 @@ void printLegalPlays() {
 }
 
 // Print Player Hand
-void printPlayerHand() {
-	Player p = model->getCurrentPlayer();
+void View::printPlayerHand() {
+	Player p = model_->getCurrentPlayer();
 	for (int i = 0; i < p.getHand().size(); i++) {
-		cout << " " << p[i];
-	}
-
-// Print Player Discards
-void printPlayerDiscards(Player p) {
-	for (int i = 0; i < p.getDiscards().size(); i++) {
 		cout << " " << p[i];
 	}
 }
 
+// Print Player Discards
+void View::printPlayerDiscards(Player p) {
+	for (int i = 0; i < p.getDiscards().size(); i++) {
+		cout << " " << p.getDiscards()[i];
+	}
+}
+
 // Print Clubs
-void printClubs(std::vector<Card> cardTable, std::vector<Card> intTable) {
+void View::printClubs(std::vector<vector<Card> > cardTable, std::vector<vector<int> > intTable) {
 	for (int i = 1; i < 14; i++) {
 		if (intTable[0][i] == 1) {
 			cout << " " << rankToLetter(cardTable[0][i].rank());
@@ -208,7 +209,7 @@ void printClubs(std::vector<Card> cardTable, std::vector<Card> intTable) {
 }
 
 // Print Diamonds
-void printDiamonds(std::vector<Card> cardTable, std::vector<Card> intTable) {
+void View::printDiamonds(std::vector<vector<Card> > cardTable, std::vector<vector<int> > intTable) {
 	for (int i = 1; i < 14; i++) {
 		if (intTable[1][i] == 1) {
 			cout << " " << rankToLetter(cardTable[0][i].rank());
@@ -217,7 +218,7 @@ void printDiamonds(std::vector<Card> cardTable, std::vector<Card> intTable) {
 }
 
 // Print Hearts
-void printHearts(std::vector<Card> cardTable, std::vector<Card> intTable) {
+void View::printHearts(std::vector<vector<Card> > cardTable, std::vector<vector<int> > intTable) {
 	for (int i = 1; i < 14; i++) {
 		if (intTable[2][i] == 1) {
 			cout << " " << rankToLetter(cardTable[0][i].rank());
@@ -226,7 +227,7 @@ void printHearts(std::vector<Card> cardTable, std::vector<Card> intTable) {
 }
 
 // Print Spades
-void printSpades(std::vector<Card> cardTable, std::vector<Card> intTable) {
+void View::printSpades(std::vector<vector<Card> > cardTable, std::vector<vector<int> > intTable) {
 	for (int i = 1; i < 14; i++) {
 		if (intTable[3][i] == 1) {
 			cout << " " << rankToLetter(cardTable[0][i].rank());

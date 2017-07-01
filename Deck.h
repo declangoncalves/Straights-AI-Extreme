@@ -7,12 +7,13 @@
 class Deck {
 	public:
 		Deck(int seed = 0);
+		Card getCard(int);
 		std::vector<Card> getDeck();
 		void shuffle();
 
 	private:
 		std::vector<Card> deck_;
-		int seed;
+		int seed_;
 
 }; // Deck
 

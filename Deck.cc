@@ -1,8 +1,25 @@
 #include <random>
 #include "Deck.h"
 
+Deck::Deck(int seed) {
+	seed_ = seed;
+	for (int i = 0; i < 3; i ++) {
+		for (int j = 0; j < 13; j ++) {
+			Card::Suit s(i);
+			Card::Rank r(j);
+		 	Card c(r, s);
+			deck_.push_back(c);
+		}
+	}
+	shuffle();
+}
+
+Card Deck::getCard(int i) {
+	return deck_[i];
+}
+
 void Deck::shuffle() {
-	static std::mt19937 rng(seed); // Seed = 0
+	static std::mt19937 rng(seed_); // Seed = 0
 
 	int n = 52;
 
