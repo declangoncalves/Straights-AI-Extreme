@@ -8,7 +8,7 @@ using std::stringstream;
 Command::Command() : type{Command::Type::BAD_COMMAND}, card{Card::Rank{0}, Card::Suit{0}} {}
 
 Command::Command(string cmd, Card card) : type{Command::Type::BAD_COMMAND}, card{Card::Rank{0}, Card::Suit{0}} {
-	
+
 	if ( cmd == "play" ) {
 		c.type = Command::Type::PLAY;
 		c.card card;

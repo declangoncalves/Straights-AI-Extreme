@@ -1,4 +1,5 @@
-/*
+
+using std::string;/*
  *  Represents a command to the game.
  *
  *  Last updated: 2017-05-24
@@ -10,13 +11,14 @@
 
 #include "Card.h"
 #include <istream>
+using std::string;
 
 
 struct Command {
     enum class Type { PLAY, DISCARD, DECK, QUIT, RAGEQUIT, BAD_COMMAND };
 	Type type;
 	Card card;
-	
+
 	Command();
 
 	Command(string cmd, Card card);
