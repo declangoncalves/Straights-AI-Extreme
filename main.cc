@@ -32,7 +32,6 @@ int main( int argc, char * argv[] ) {
     int seed = 42;
     Model model(seed, players); // Create model
     // cout << model.getDeck()[13] << endl;
-    model.initializeRound();
     // cout << model.getDeck()[13] << endl;
     // cout << model.getCurrentPlayer().getHand().size();
     Controller controller( &model ); // Create controller

@@ -32,7 +32,7 @@ class Model : public Subject {
   void endRound();
   void incrementPlayerTurn();
 	Deck deck_;
-  std::vector<Player> players_;
+  std::vector<Player*> players_;
   std::vector<std::vector<int> > intstable_;
   std::vector<std::vector<Card> > cardstable_;
   int playerturn_;

@@ -12,6 +12,7 @@ using namespace std;
 View::View(Controller* c, Model* m) {
 	controller_ = c;
 	model_ = m;
+	model_->subscribe(this);
 	roundStart();
 }
 
@@ -68,9 +69,9 @@ void View::playerTurn() {
 	printPlayerHand();
 	cout << "\nLegal plays:";
 	printLegalPlays();
-
+	cout << "trying to execute command" << endl;
 	controller_->executeCommand(receiveCommand());
-
+	cout << "executed command" << endl;
 }
 
 void View::roundEnd() {
@@ -189,11 +190,13 @@ const void View::printDeck(){
 
 // Print Legal Plays
 const void View::printLegalPlays() {
+	cout << "trying to get legal plays" << endl;
 	std::vector<Card> legalPlays = model_->getLegalPlays();
 	for (int i = 0; i < legalPlays.size(); i++) {
 		cout << " " << legalPlays[i];
 	}
 	cout << "\n";
+	cout << "got legal plays" << endl;
 }
 
 // Print Player Hand
@@ -224,7 +227,7 @@ const void View::printClubs(std::vector<vector<Card> > cardTable, std::vector<ve
 const void View::printDiamonds(std::vector<vector<Card> > cardTable, std::vector<vector<int> > intTable) {
 	for (int i = 1; i < 14; i++) {
 		if (intTable[1][i] == 1) {
-			cout << " " << rankToLetter(cardTable[0][i].rank().rank());
+			cout << " " << rankToLetter(cardTable[1][i].rank().rank());
 		}
 	}
 }
@@ -233,7 +236,7 @@ const void View::printDiamonds(std::vector<vector<Card> > cardTable, std::vector
 const void View::printHearts(std::vector<vector<Card> > cardTable, std::vector<vector<int> > intTable) {
 	for (int i = 1; i < 14; i++) {
 		if (intTable[2][i] == 1) {
-			cout << " " << rankToLetter(cardTable[0][i].rank().rank());
+			cout << " " << rankToLetter(cardTable[2][i].rank().rank());
 		}
 	}
 }
@@ -242,7 +245,7 @@ const void View::printHearts(std::vector<vector<Card> > cardTable, std::vector<v
 const void View::printSpades(std::vector<vector<Card> > cardTable, std::vector<vector<int> > intTable) {
 	for (int i = 1; i < 14; i++) {
 		if (intTable[3][i] == 1) {
-			cout << " " << rankToLetter(cardTable[0][i].rank().rank());
+			cout << " " << rankToLetter(cardTable[3][i].rank().rank());
 		}
 	}
 }

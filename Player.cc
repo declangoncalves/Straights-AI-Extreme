@@ -1,5 +1,7 @@
 #include "Card.h"
 #include "Player.h"
+#include <iostream>
+using namespace std;
 
 Player::Player(char type) : type_{type} {}
 
@@ -48,11 +50,14 @@ void Player::dealCard(Card c) { // Insert Card into hand
 
 void Player::discard(Card c) { // Remove from hand / add to discards
 	discards_.push_back(c);
-	hand_.erase(hand_.begin() + getCardIndex(c));
+	hand_.erase(std::remove(hand_.begin(), hand_.end(), c), hand_.end());
+	cout << hand_.size() << "size" << endl;
 }
 
 void Player::play(Card c) { // Remove from hand
-	hand_.erase(hand_.begin() + getCardIndex(c));
+	cout << "Card Index: " << getCardIndex(c) << endl;
+	hand_.erase(std::remove(hand_.begin(), hand_.end(), c), hand_.end());
+	cout << hand_.size() << "size" << endl;
 }
 
 // Helper Functions

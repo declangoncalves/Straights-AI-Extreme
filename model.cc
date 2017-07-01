@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Model::Model(int seed, std::vector<Player> players) : deck_(Deck(seed)) , intstable_(4, std::vector<int>(15, 0)) , cardstable_(4, std::vector<Card>(15)), seed_{seed} , players_{players} {
+Model::Model(int seed, std::vector<Player*> players) : deck_(Deck(seed)) , intstable_(4, std::vector<int>(15, 0)) , cardstable_(4, std::vector<Card>(15)), seed_{seed} , players_{players} {
   initializeRound();
 }
 
@@ -20,7 +20,7 @@ const int Model::getCurrentPlayerIndex() {
   return playerturn_;
 }
 
-std::vector<Player> Model::getPlayers() {
+std::vector<Player*> Model::getPlayers() {
   return players_;
 }
 
@@ -33,7 +33,7 @@ void Model::incrementPlayerTurn() {
   const int max_index = 3;
   playerturn_++;
   if (playerturn_ > max_index) playerturn_ = 0;
-  while (players_[playerturn_].getHand().size() == 0) {
+  while (players_[playerturn_]->getHand().size() == 0) {
     playerturn_++;
     if (playerturn_ > max_index) playerturn_ = 0;
   }
@@ -41,7 +41,7 @@ void Model::incrementPlayerTurn() {
 }
 
 Player Model::getCurrentPlayer() {
-  return players_[playerturn_];
+  return *(players_[playerturn_]);
 }
 
 const std::vector<Card> Model::getLegalPlays() {
@@ -49,7 +49,7 @@ const std::vector<Card> Model::getLegalPlays() {
   for (auto card : getCurrentPlayer().getHand()) {
     int suit = card.suit().suit();
     int rank = card.rank().rank();
-    if ((intstable_[suit + 1][rank] == 1 || intstable_[suit + 1][rank + 2] == 1) || (rank == 6)) {
+    if ((intstable_[suit][rank] == 1 || intstable_[suit][rank + 2] == 1) || (rank == 6)) {
       plays.push_back(card);
     }
   }
@@ -84,7 +84,9 @@ void Model::initializeRound() {
       if (card.suit().suit() == 0 && card.rank().rank() == 6) playerturn_ = i;
     }
   }
+  cout << "trying to notify" << endl;
   notify();
+  cout << "finished notify" << endl;
 }
 
 void Model::endRound() {
@@ -109,8 +111,10 @@ void Model::playCard(Card c) {
   int suit = c.suit().suit();
   int rank = c.rank().rank();
   getCurrentPlayer().play(c);
-  intstable_[suit + 1][rank + 1] = 1;
-  cardstable_[suit + 1][rank + 1] = c;
+  cout << getCurrentPlayer().getHand().size() << endl;
+  intstable_[suit][rank + 1] = 1;
+  cardstable_[suit][rank + 1] = c;
+  cout << c << endl;
   if (getCurrentPlayer().getHand().size() == 0) emptyhands_++;
   incrementPlayerTurn();
   cout << "notifying" << endl;
