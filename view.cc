@@ -34,7 +34,7 @@ void update() override {
 
 void roundStart() {
 	gamePhase = 2;
-	cout << "A	new	round	begins.	It’s	player	" << model_->getCurrentPlayerIndex() + 1 << "’s	turn	to	play.\n";
+	cout << "A new round begins. It’s player " << model_->getCurrentPlayerIndex() + 1 << "’s turn to play.\n";
 	playerTurn();
 }
 
@@ -43,7 +43,7 @@ void playerTurn() {
 	std::vector<Cards> cardTable = model_->getCardTable();
 	std::vector<Cards> intTable = model_->getCardTable();
 
-	cout << "Cards	on	the	table:\n";
+	cout << "Cards on the table:\n";
 	cout << "\nClubs:";
 	printClubs(cardTable, intTable);
 	cout << "\nDiamonds:";
@@ -54,7 +54,7 @@ void playerTurn() {
 	printSpades(cardTable, intTable);
 	cout << "\nYour	hand:"
 	printPlayerHand();
-	cout << "\nLegal	plays:"
+	cout << "\nLegal plays:"
 	printLegalPlays();
 
 	controller_->executeCommand(receiveCommand());
@@ -123,7 +123,7 @@ Command receiveCommand() {
 						validCommand = true;
 					}
 					else {
-						cout << "This	is	not	a	legal	play.\n";
+						cout << "This is not a legal play.\n";
 					}
 					break;
 				case Command::Type::DISCARD:
@@ -132,7 +132,7 @@ Command receiveCommand() {
 						validCommand = true;
 					}
 					else {
-						cout << "You	have	a	legal	play.	You	may	not	discard.\n";
+						cout << "You have a legal play. You may not discard.\n";
 					}
 					break;
 				case Command::Type::DECK:
@@ -141,7 +141,7 @@ Command receiveCommand() {
 				case Command::Type::QUIT:
 					exit(0);
 				case Command::Type::RAGEQUIT:
-					cout << "Player	<x>	ragequits. A	computer	will	now	take	over.\n";
+					cout << "Player	<x>	ragequits. A computer will now take over.\n";
 					if (model_->getLegalPlays().size() > 0){
 						cout << "Player " << model_->getCurrentPlayerIndex() + 1 << " plays	" << legalPlays[0] << "\n";
 						my_command = Command("play", legalPlays[0]); 
