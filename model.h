@@ -4,13 +4,13 @@
 #include "subject.h"
 #include "Deck.h"
 #include "Player.h"
+#include "Card.h"
 
 class Model : public Subject {
   public:
   Model(int seed, std::vector<Player> players);
   void initializeRound();
   void playCard(Card);
-  void printDeck();
   void discardCard(Card);
   void rageQuit();
   Player getCurrentPlayer();

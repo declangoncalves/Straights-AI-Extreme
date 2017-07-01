@@ -1,9 +1,9 @@
 #include "Card.h"
 #include "Player.h"
 
-// Player::Player(char type) : type_{type} {}
-//
-// Player::Player() : type_{'h'} {}
+Player::Player(char type) : type_{type} {}
+
+Player::Player() : type_{'h'} {}
 
 char Player::getType() { // Returns the type of player: 'h' - human | 'c' - computer
 	return type_;

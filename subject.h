@@ -2,6 +2,9 @@
 #define MVC_SUBJECT_H
 
 #include <set>
+#include "observer.h"
+
+#include <set>
 
 class Observer;
 
