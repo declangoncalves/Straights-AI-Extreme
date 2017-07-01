@@ -1,5 +1,7 @@
 #include "Card.h"
 
+Player Player(char type) : type_(type) {}
+
 char getType() { // Returns the type of player: 'h' - human | 'c' - computer
 	return type_;
 }

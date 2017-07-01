@@ -5,6 +5,8 @@
 
 class Player {
 	public:
+
+		Player Player(char type);
 		char getType(); // Returns the type of player: 'h' - human | 'c' - computer
 
 		std::vector<Card> getHand(); // Returns the hand vector

@@ -1,6 +1,6 @@
 #include "model.h"
 
-Model::Model(int seed = 0, std::vector<char> players = {'c', 'c', 'c', 'c'}) : deck_(new Deck(seed)) , table_(4, std::vector<int>(15, nullptr)) , table_(4, std::vector<Card>(15)), seed_(seed) {}
+Model::Model(int seed = 0, std::vector<char> players = {'c', 'c', 'c', 'c'}) : deck_(new Deck(seed)) , intstable_(4, std::vector<int>(15, nullptr)) , cardstable_(4, std::vector<Card>(15)), seed_{seed} {}
 
 vector<vector<Card> > Model::getCardTable() {
   return cardstable_;
@@ -78,6 +78,7 @@ void Model::initializeRound() {
       if (card.suit().suit() == 0 && card.rank().rank() == 6) playerturn_ = i;
     }
   }
+  notify();
 }
 
 void Model::endRound() {
@@ -93,6 +94,7 @@ void Model::endRound() {
   for (auto player : players_) {
     if (player.getTotalScore() >= 80) roundflag_ = 2;
   }
+  notify();
 }
 
 void Model::playCard(Card c) {
@@ -103,6 +105,7 @@ void Model::playCard(Card c) {
   cardstable_[suit + 1][rank + 1] = c;
   if (getCurrentPlayer().getHand().size() == 0) emptyhands_++;
   incrementPlayerTurn();
+  notify();
   return;
 }
 
@@ -112,6 +115,7 @@ void Model::discardCard(Card c) {
   getCurrentPlayer().discardCard(c);
   if (getCurrentPlayer().getHand().size() == 0) emptyhands_++;
   incrementPlayerTurn();
+  notify();
   return;
 }
 
