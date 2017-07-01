@@ -11,6 +11,7 @@ class Deck {
 
 	private:
 		std::vector<Card> deck;
+		int private seed = 0;
 
 }; // Deck
 
