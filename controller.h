@@ -1,13 +1,16 @@
 #ifndef MVC_CONTROLLER_H
 #define MVC_CONTROLLER_H
 
+#include <Command>
+
 class Model;
 
 class Controller {
   public:
     Controller( Model* );
-    
-    // UI Interaction Events
+
+	void executeCommand(Command);
+	void newRound();
 
   private:
     Model *model_;
