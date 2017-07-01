@@ -1,5 +1,5 @@
 
-using std::string;/*
+/*
  *  Represents a command to the game.
  *
  *  Last updated: 2017-05-24
@@ -11,8 +11,8 @@ using std::string;/*
 
 #include "Card.h"
 #include <istream>
-using std::string;
 
+using std::string;
 
 struct Command {
     enum class Type { PLAY, DISCARD, DECK, QUIT, RAGEQUIT, BAD_COMMAND };
@@ -21,7 +21,7 @@ struct Command {
 
 	Command();
 
-	Command(string cmd, Card card);
+	Command(std::string cmd, Card card);
 
 	// Ensures: Command is set to invalid state, card is set to AC
 };

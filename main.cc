@@ -6,11 +6,11 @@
 
 int main( int argc, char * argv[] ) {
 
-    vector<char> players;
+    std::vector<char> players;
     for (int i = 0; i < 4; i ++) {
-      cout <<  "Is player " << (i + 1) << " a human(h) or a computer(c)?\n" << endl;
-      string type;
-      cin >> type;
+      std::cout <<  "Is player " << (i + 1) << " a human(h) or a computer(c)?\n" << endl;
+      std::string type;
+      std::cin >> type;
       // todo: throw exception
       // if (type != "h" && type != "c") cerr << "error: wrong type" << endl;
       Player player = new Player(type);

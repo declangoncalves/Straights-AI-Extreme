@@ -1,8 +1,9 @@
 #include "Card.h"
+#include "Player.h"
 
-Player Player(char type) : type_(type) {}
+Player::Player(char type) : type_{type} {}
 
-Player Player() : type_{'h'} {}
+Player::Player() : type_{'h'} {}
 
 char getType() { // Returns the type of player: 'h' - human | 'c' - computer
 	return type_;
@@ -40,9 +41,9 @@ void dealCard(Card c) { // Insert Card into hand
 	hand_.push_back(c);
 }
 
-void discard(string card) { // Remove from hand / add to discards
-	discards_.push_back(hand_.at(getCardIndex(card)));
-	hand_.erase(hand_.begin() + getCardIndex(card));
+void discard(Card c) { // Remove from hand / add to discards
+	discards_.push_back(c);
+	hand_.erase(hand_.begin() + getCardIndex(c));
 }
 
 void play(string card) { // Remove from hand
@@ -51,57 +52,10 @@ void play(string card) { // Remove from hand
 
 // Helper Functions
 
-int getCardIndex(string card) { // Returns index of card in hand
-
-	int rank = 0;
-	int suit = 0;
-
-	switch (card[0]) {
-	case 'A':	rank = 1;
-		break;
-	case '2':	rank = 2;
-		break;
-	case '3':	rank = 3;
-		break;
-	case '4':	rank = 4;
-		break;
-	case '5':	rank = 5;
-		break;
-	case '6':	rank = 6;
-		break;
-	case '7':	rank = 7;
-		break;
-	case '8':	rank = 8;
-		break;
-	case '9':	rank = 9;
-		break;
-	case '10':	rank = 10;
-		break;
-	case 'J':	rank = 11;
-		break;
-	case 'Q':	rank = 12;
-		break;
-	case 'K':	rank = 13;
-		break;
-	case default:
-		// Throw Exception
-	}
-
-	switch (card[1]) {
-	case 'C':	suit = 1;
-		break;
-	case 'D':	suit = 2;
-		break;
-	case 'H':	suit = 3;
-		break;
-	case 'S':	suit = 4;
-		break;
-	case default:
-		// Throw Exception
-	}
+int getCardIndex(Card c) { // Returns index of card in hand
 
 	for (int i = 0; i < hand_.size(); i++) {
-		if ((hand_.at(i).rank() == rank) && (hand_.at(i).suit() == suit)){
+		if ((hand_.at(i).rank().rank() == c.rank().rank()) && (hand_.at(i).suit().suit() == c.suit().suit())){
 			return i;
 		}
 	}
