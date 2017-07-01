@@ -1,5 +1,4 @@
 #include "model.h"
-#include "Card.h"
 
 Model::Model(int seed, std::vector<Player> players) : deck_(Deck(seed)) , intstable_(4, std::vector<int>(15, 0)) , cardstable_(4, std::vector<Card>(15)), seed_{seed} , players_{players}{}
 
@@ -98,6 +97,8 @@ void Model::endRound() {
   notify();
 }
 
+Model::~Model() {}
+
 void Model::playCard(Card c) {
   int suit = c.suit().suit();
   int rank = c.rank().rank();
@@ -120,8 +121,6 @@ void Model::discardCard(Card c) {
   return;
 }
 
-void Model::printDeck() {
-  for (auto card : deck_.getDeck()) {
-    std::cout  << " " << card << std::endl;
-  }
+const std::vector<Card> Model::getDeck() {
+  return deck_.getDeck();
 }

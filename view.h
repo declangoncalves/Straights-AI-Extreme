@@ -1,11 +1,17 @@
 #ifndef MVC_VIEW_H
 #define MVC_VIEW_H
 
+
 #include "observer.h"
 #include "Card.h"
 #include "Command.h"
 #include "Player.h"
+#include "controller.h"
+#include "model.h"
+#include "subject.h"
+#include <string>
 #include <vector>
+#include <iostream>
 
 using namespace std;
 

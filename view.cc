@@ -1,4 +1,4 @@
-#include "observer.h"
+
 #include "view.h"
 #include "controller.h"
 #include "model.h"
@@ -35,7 +35,7 @@ void View::update() {
 
 void View::roundStart() {
 	gamePhase_ = 2;
-	cout << "A new round begins. It�s player " << model_->getCurrentPlayerIndex() + 1 << "�s turn to play.\n";
+	cout << "A new round begins. It's player " << model_->getCurrentPlayerIndex() + 1 << "'s turn to play.\n";
 	playerTurn();
 }
 
@@ -53,7 +53,7 @@ void View::playerTurn() {
 	printHearts(cardTable, intTable);
 	cout << "\nSpades:";
 	printSpades(cardTable, intTable);
-	cout << "\nYour	hand:";
+	cout << "\nYour hand:";
 	printPlayerHand();
 	cout << "\nLegal plays:";
 	printLegalPlays();
