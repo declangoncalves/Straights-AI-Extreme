@@ -17,8 +17,12 @@ std::vector<Card> getDiscards() { // Returns the discard vector
 	return discards_;
 }
 
-int getScore() { // Returns player score
-	return score;
+int getRoundScore() { // Returns player score
+	return roundscore_;
+}
+
+int getTotalScore() { // Returns player score
+	return totalscore_;
 }
 
 void setRoundScore(int score) { // Sets player score
@@ -35,6 +39,7 @@ void emptyHand() { // Used to completely empty hand / discards
 
 void rageQuit() {
 	type_ = 'c';
+	return;
 }
 
 void dealCard(Card c) { // Insert Card into hand
@@ -46,7 +51,7 @@ void discard(Card c) { // Remove from hand / add to discards
 	hand_.erase(hand_.begin() + getCardIndex(c));
 }
 
-void play(string card) { // Remove from hand
+void play(Card c) { // Remove from hand
 	hand_.erase(hand_.begin() + getCardIndex(card));
 }
 
