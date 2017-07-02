@@ -15,7 +15,10 @@ View::View(Controller* c, Model* m) {
 	roundStart();
 }
 
-View::~View() {}
+View::~View() {
+	delete model_;
+	delete controller_;
+}
 
 void View::update() {
 
