@@ -35,7 +35,7 @@ class Model : public Subject {
   std::vector<Player*> players_;
   std::vector<std::vector<int> > intstable_;
   std::vector<std::vector<Card> > cardstable_;
-  int playerturn_;
+  int playerturn_ = 0;
   int emptyhands_;
   int seed_;
   int gamestate_;

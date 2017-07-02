@@ -21,7 +21,7 @@ int main( int argc, char * argv[] ) {
     //   players.push_back(player);
     // }
     // int seed = atoi(argv[1]);
-    Player a('h');
+    Player a('c');
     Player b('h');
     Player c('h');
     Player d('h');
@@ -29,11 +29,14 @@ int main( int argc, char * argv[] ) {
     players.push_back(b);
     players.push_back(c);
     players.push_back(d);
-    int seed = 42;
+    int seed = 40;
     Model model(seed, players); // Create model
+<<<<<<< HEAD
     // cout << model.getDeck()[13] << endl;
     // cout << model.getDeck()[13] << endl;
     // cout << model.getCurrentPlayer().getHand().size();
+=======
+>>>>>>> ca3e52d6758463c0a7ed04d398b9eacd287c1dec
     Controller controller( &model ); // Create controller
     View view( &controller, &model ); // Create the view
 

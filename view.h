@@ -22,7 +22,7 @@ class View : public Observer {
   public:
 
     View( Controller*, Model* );
-    virtual ~View();
+    ~View();
     void update() override;
 
 	void roundStart();
