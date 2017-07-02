@@ -2,6 +2,8 @@
 #include "controller.h"
 #include "view.h"
 #include "Player.h"
+#include "Computer.h"
+#include "Human.h"
 #include <string>
 #include <vector>
 #include <iostream>
@@ -21,14 +23,14 @@ int main( int argc, char * argv[] ) {
     //   players.push_back(player);
     // }
     // int seed = atoi(argv[1]);
-    Player a('c');
-    Player b('c');
-    Player c('c');
-    Player d('c');
-    players.push_back(&a);
-    players.push_back(&b);
-    players.push_back(&c);
-    players.push_back(&d);
+    Player *a = new Human();
+    Player *b = new Computer();
+    Player *c = new Computer();
+    Player *d  = new Computer();
+    players.push_back(a);
+    players.push_back(b);
+    players.push_back(c);
+    players.push_back(d);
     int seed = 40;
     Model model(seed, players); // Create model
     Controller controller( &model ); // Create controller

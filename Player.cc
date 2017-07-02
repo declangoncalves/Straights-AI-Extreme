@@ -3,13 +3,7 @@
 #include <iostream>
 using namespace std;
 
-Player::Player(char type) : type_{type} {}
-
-Player::Player() : type_{'h'} {}
-
-char Player::getType() { // Returns the type of player: 'h' - human | 'c' - computer
-	return type_;
-}
+Player::Player() {}
 
 std::vector<Card> Player::getHand() { // Returns the hand vector
 	return hand_;
@@ -17,6 +11,10 @@ std::vector<Card> Player::getHand() { // Returns the hand vector
 
 std::vector<Card> Player::getDiscards() { // Returns the discard vector
 	return discards_;
+}
+
+char Player::getType() {
+	return type_;
 }
 
 int Player::getRoundScore() { // Returns player score
@@ -39,11 +37,6 @@ void Player::emptyHand() { // Used to completely empty hand / discards
 	discards_.clear();
 }
 
-void Player::rageQuit() {
-	type_ = 'c';
-	return;
-}
-
 void Player::dealCard(Card c) { // Insert Card into hand
 	hand_.push_back(c);
 }
@@ -51,13 +44,10 @@ void Player::dealCard(Card c) { // Insert Card into hand
 void Player::discard(Card c) { // Remove from hand / add to discards
 	discards_.push_back(c);
 	hand_.erase(std::remove(hand_.begin(), hand_.end(), c), hand_.end());
-	cout << hand_.size() << "size" << endl;
 }
 
 void Player::play(Card c) { // Remove from hand
-	cout << "Card Index: " << getCardIndex(c) << endl;
 	hand_.erase(std::remove(hand_.begin(), hand_.end(), c), hand_.end());
-	cout << hand_.size() << "size" << endl;
 }
 
 // Helper Functions

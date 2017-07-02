@@ -23,7 +23,6 @@ View::~View() {
 
 void View::update() {
 
-	cout << "updating" << endl;
 	if (gamePhase_ == 1) { // Start Round
 		roundStart();
 	}
@@ -72,9 +71,7 @@ void View::playerTurn() {
 	printPlayerHand();
 	cout << "\nLegal plays:";
 	printLegalPlays();
-	cout << "trying to execute command" << endl;
 	controller_->executeCommand(receiveCommand());
-	cout << "executed command" << endl;
 }
 
 void View::roundEnd() {
@@ -158,15 +155,7 @@ Command View::receiveCommand() {
 				case Command::Type::QUIT:
 					exit(0);
 				case Command::Type::RAGEQUIT:
-					cout << "Player	<x>	ragequits. A computer will now take over.\n";
-					if (model_->getLegalPlays().size() > 0){
-						cout << "Player " << model_->getCurrentPlayerIndex() + 1 << " plays	" << legalPlays[0] << "\n";
-						my_command = Command("play", legalPlays[0]);
-					}
-					else {
-						cout << "Player " << model_->getCurrentPlayerIndex() + 1 << " discards	" << playerHand[0] << "\n";
-						my_command = Command("discard", playerHand[0]);
-					}
+					cout << "Player " << model_->getCurrentPlayerIndex() + 1 << "	ragequits. A computer will now take over.\n";
 					validCommand = true;
 					break;
 			}
@@ -193,13 +182,11 @@ const void View::printDeck(){
 
 // Print Legal Plays
 const void View::printLegalPlays() {
-	cout << "trying to get legal plays" << endl;
 	std::vector<Card> legalPlays = model_->getLegalPlays();
 	for (int i = 0; i < legalPlays.size(); i++) {
 		cout << " " << legalPlays[i];
 	}
 	cout << "\n";
-	cout << "got legal plays" << endl;
 }
 
 // Print Player Hand

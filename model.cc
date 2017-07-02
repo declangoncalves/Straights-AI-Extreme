@@ -1,4 +1,6 @@
 #include "model.h"
+#include "human.h"
+#include <algorithm>
 
 using namespace std;
 
@@ -82,9 +84,7 @@ void Model::initializeRound() {
       if (card.suit().suit() == 0 && card.rank().rank() == 6) playerturn_ = i;
     }
   }
-  cout << "trying to notify" << endl;
   notify();
-  cout << "finished notify" << endl;
 }
 
 void Model::endRound() {
@@ -109,10 +109,8 @@ void Model::playCard(Card c) {
   int suit = c.suit().suit();
   int rank = c.rank().rank();
   getCurrentPlayer()->play(c);
-  cout << getCurrentPlayer()->getHand().size() << endl;
   intstable_[suit][rank + 1] = 1;
   cardstable_[suit][rank + 1] = c;
-  cout << c << endl;
   if (getCurrentPlayer()->getHand().size() == 0) emptyhands_++;
   incrementPlayerTurn();
   notify();
