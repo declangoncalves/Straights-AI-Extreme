@@ -78,21 +78,21 @@ void View::playerTurn() {
 }
 
 void View::roundEnd() {
-	std::vector<Player> players = model_->getPlayers();
-	int minScore = players[0].getTotalScore();
+	std::vector<Player*> players = model_->getPlayers();
+	int minScore = players[0]->getTotalScore();
 
-	for (int i=0; i < players.size(); i++){
+	for (int i=0; i < players->size(); i++){
 		cout << "Player " << i + 1 << "\'s discards:";
 		printPlayerDiscards(players[i]);
-		cout << "Player " << i + 1 << "\'s score: " << (players[i].getTotalScore() - players[i].getRoundScore()) << " + " << players[i].getRoundScore() << " = " << players[i].getTotalScore() << "\n";
-		if (players[i].getTotalScore() < minScore){
-			minScore = players[i].getTotalScore();
+		cout << "Player " << i + 1 << "\'s score: " << (players[i]->getTotalScore() - players[i]->getRoundScore()) << " + " << players[i]->getRoundScore() << " = " << players[i]->getTotalScore() << "\n";
+		if (players[i]->getTotalScore() < minScore){
+			minScore = players[i]->getTotalScore();
 		}
 	}
 
 	if (model_->getGameState() == 2){
 		for (int i=0; i < players.size(); i++){
-			if (players[i].getTotalScore() == minScore) {
+			if (players[i]->getTotalScore() == minScore) {
 				cout << "Player	" << i + 1 << " wins!\n";
 			}
 		}
@@ -110,11 +110,11 @@ Command View::receiveCommand() {
 
 	Command my_command;
 	std::vector<Card> legalPlays = model_->getLegalPlays();
-	std::vector<Card> playerHand = model_->getCurrentPlayer().getHand();
+	std::vector<Card> playerHand = model_->getCurrentPlayer()->getHand();
 
 	// First check if computer or human player
 
-	if (model_->getCurrentPlayer().getType() == 'c'){ // Computer Player
+	if (model_->getCurrentPlayer()->getType() == 'c'){ // Computer Player
 
 		if (model_->getLegalPlays().size() > 0){
 			cout << "Player " << model_->getCurrentPlayerIndex() + 1 << " plays	" << legalPlays[0] << "\n";
@@ -204,16 +204,16 @@ const void View::printLegalPlays() {
 
 // Print Player Hand
 const void View::printPlayerHand() {
-	Player p = model_->getCurrentPlayer();
-	for (int i = 0; i < p.getHand().size(); i++) {
-		cout << " " << p.getHand()[i];
+	Player *p = model_->getCurrentPlayer();
+	for (int i = 0; i < p->getHand().size(); i++) {
+		cout << " " << p->getHand()[i];
 	}
 }
 
 // Print Player Discards
-const void View::printPlayerDiscards(Player p) {
-	for (int i = 0; i < p.getDiscards().size(); i++) {
-		cout << " " << p.getDiscards()[i];
+const void View::printPlayerDiscards(Player *p) {
+	for (int i = 0; i < p->getDiscards().size(); i++) {
+		cout << " " << p->getDiscards()[i];
 	}
 }
 
