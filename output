@@ -1,1 +1,130 @@
 Is player 1 a human(h) or a computer(c)?
+c
+Is player 2 a human(h) or a computer(c)?
+c
+Is player 3 a human(h) or a computer(c)?
+c
+Is player 4 a human(h) or a computer(c)?
+c
+A new round begins. It's player 1's turn to play.
+Player 1 plays 7S
+Player 2 discards 4H
+Player 3 plays 7D
+Player 4 plays 8S
+Player 1 plays 8D
+Player 2 plays 6D
+Player 3 plays 6S
+Player 4 plays 7C
+Player 1 plays 9D
+Player 2 discards 4D
+Player 3 plays 9S
+Player 4 plays 6C
+Player 1 plays TD
+Player 2 plays 5C
+Player 3 plays TS
+Player 4 plays 8C
+Player 1 plays JS
+Player 2 plays JD
+Player 3 plays 5S
+Player 4 plays 4S
+Player 1 plays 3S
+Player 2 plays QS
+Player 3 plays 2S
+Player 4 plays AS
+Player 1 plays QD
+Player 2 plays 9C
+Player 3 plays TC
+Player 4 plays 7H
+Player 1 plays 8H
+Player 2 plays 9H
+Player 3 plays KD
+Player 4 discards KH
+Player 1 plays TH
+Player 2 discards 3H
+Player 3 plays JH
+Player 4 discards QC
+Player 1 plays 6H
+Player 2 plays 5H
+Player 3 plays 4C
+Player 4 discards 3D
+Player 1 plays 5D
+Player 2 plays QH
+Player 3 plays JC
+Player 4 discards 2H
+Player 1 discards AC
+Player 2 plays 3C
+Player 3 plays 2C
+Player 4 discards KC
+Player 1 discards AD
+Player 2 discards AH
+Player 3 plays KS
+Player 4 discards 2D
+Player 1's discards: AC AD
+Player 1's score: 0 + 2 = 2
+Player 2's discards: 4H 4D 3H AH
+Player 2's score: 0 + 12 = 12
+Player 3's discards:
+Player 3's score: 0 + 0 = 0
+Player 4's discards: KH QC 3D 2H KC 2D
+Player 4's score: 0 + 45 = 45
+Player 1 plays 7S
+Player 2 plays 8S
+Player 3 discards AH
+Player 4 plays 7H
+Player 1 plays 6H
+Player 2 plays 7C
+Player 3 plays 8H
+Player 4 plays 8C
+Player 1 plays 9C
+Player 2 plays 6C
+Player 3 plays 5C
+Player 4 plays 5H
+Player 1 plays TC
+Player 2 plays 4C
+Player 3 discards TH
+Player 4 plays 7D
+Player 1 plays 3C
+Player 2 plays 8D
+Player 3 plays 6D
+Player 4 discards JD
+Player 1 plays JC
+Player 2 plays 5D
+Player 3 plays 4D
+Player 4 discards KC
+Player 1 plays 9S
+Player 2 plays TS
+Player 3 plays 9D
+Player 4 plays JS
+Player 1 plays 6S
+Player 2 plays QS
+Player 3 plays 2C
+Player 4 plays TD
+Player 1 plays KS
+Player 2 plays 4H
+Player 3 plays 5S
+Player 4 plays 3H
+Player 1 plays 2H
+Player 2 plays 3D
+Player 3 plays 2D
+Player 4 plays 4S
+Player 1 plays 9H
+Player 2 plays 3S
+Player 3 plays QC
+Player 4 discards KD
+Player 1 plays AC
+Player 2 plays 2S
+Player 3 discards QD
+Player 4 plays AS
+Player 1 plays AD
+Player 2 discards KH
+Player 3 discards QH
+Player 4 discards JH
+Player 1's discards:
+Player 1's score: 2 + 0 = 2
+Player 2's discards: KH
+Player 2's score: 12 + 13 = 25
+Player 3's discards: AH TH QD QH
+Player 3's score: 0 + 35 = 35
+Player 4's discards: JD KC KD JH
+Player 4's score: 45 + 48 = 93
+Player	1 wins!
