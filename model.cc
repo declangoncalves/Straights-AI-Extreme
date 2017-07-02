@@ -100,6 +100,11 @@ void Model::endRound() {
   for (auto player : players_) {
     if (player->getTotalScore() >= 80) gamestate_ = 2;
   }
+  for (int i = 0; i < intstable_.size(); i++) {
+    for (int j = 0; j < intstable_[i].size(); j++) {
+      intstable_[i][j] = 0;
+    }
+  }
   notify();
 }
 

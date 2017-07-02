@@ -1,6 +1,7 @@
 #include "Card.h"
 #include "Player.h"
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 Player::Player() {}

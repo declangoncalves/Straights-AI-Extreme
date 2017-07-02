@@ -81,6 +81,7 @@ void View::roundEnd() {
 	for (int i=0; i < players.size(); i++){
 		cout << "Player " << i + 1 << "\'s discards:";
 		printPlayerDiscards(players[i]);
+		cout << endl;
 		cout << "Player " << i + 1 << "\'s score: " << (players[i]->getTotalScore() - players[i]->getRoundScore()) << " + " << players[i]->getRoundScore() << " = " << players[i]->getTotalScore() << "\n";
 		if (players[i]->getTotalScore() < minScore){
 			minScore = players[i]->getTotalScore();

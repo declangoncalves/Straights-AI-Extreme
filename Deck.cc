@@ -14,7 +14,6 @@ Deck::Deck(int seed) {
 			deck_.push_back(c);
 		}
 	}
-	shuffle();
 }
 
 Card Deck::getCard(int i) {
