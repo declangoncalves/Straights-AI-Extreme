@@ -81,7 +81,7 @@ void View::roundEnd() {
 	std::vector<Player*> players = model_->getPlayers();
 	int minScore = players[0]->getTotalScore();
 
-	for (int i=0; i < players->size(); i++){
+	for (int i=0; i < players.size(); i++){
 		cout << "Player " << i + 1 << "\'s discards:";
 		printPlayerDiscards(players[i]);
 		cout << "Player " << i + 1 << "\'s score: " << (players[i]->getTotalScore() - players[i]->getRoundScore()) << " + " << players[i]->getRoundScore() << " = " << players[i]->getTotalScore() << "\n";
@@ -256,11 +256,11 @@ const void View::printSpades(std::vector<vector<Card> > cardTable, std::vector<v
 // Return character rank
 string rankToLetter(int rank) {
 	switch (rank) {
-	case 1: return "A";
-	case 10: return "T";
-	case 11: return "J";
-	case 12: return "Q";
-	case 13: return "K";
+	case 0: return "A";
+	case 9: return "T";
+	case 10: return "J";
+	case 11: return "Q";
+	case 12: return "K";
 	default: return std::to_string(rank);
 	}
 }

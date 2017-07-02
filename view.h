@@ -34,7 +34,7 @@ class View : public Observer {
 	const void printSpades(std::vector<vector<Card> > cardTable, std::vector<vector<int> > intTable);
 	const void printHearts(std::vector<vector<Card> > cardTable, std::vector<vector<int> > intTable);
 	const void printDiamonds(std::vector<vector<Card> > cardTable, std::vector<vector<int> > intTable);
-  const void printPlayerDiscards(Player);
+  const void printPlayerDiscards(Player*);
 	const void printPlayerHand();
 	const void printLegalPlays();
 

@@ -10,7 +10,7 @@ using namespace std;
 
 int main( int argc, char * argv[] ) {
 
-    std::vector<Player> players;
+    std::vector<Player*> players;
     // for (int i = 0; i < 4; i ++) {
     //   std::cout <<  "Is player " << (i + 1) << " a human(h) or a computer(c)?\n";
     //   std::string type;
@@ -22,13 +22,13 @@ int main( int argc, char * argv[] ) {
     // }
     // int seed = atoi(argv[1]);
     Player a('c');
-    Player b('h');
-    Player c('h');
-    Player d('h');
-    players.push_back(a);
-    players.push_back(b);
-    players.push_back(c);
-    players.push_back(d);
+    Player b('c');
+    Player c('c');
+    Player d('c');
+    players.push_back(&a);
+    players.push_back(&b);
+    players.push_back(&c);
+    players.push_back(&d);
     int seed = 40;
     Model model(seed, players); // Create model
     Controller controller( &model ); // Create controller
