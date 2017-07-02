@@ -141,7 +141,7 @@ Command View::receiveCommand() {
 					}
 					break;
 				case Command::Type::DISCARD:
-					if (std::find(playerHand.begin(), playerHand.end(), my_command.card) != playerHand.end()){
+					if (legalPlays.size() == 0) {
 						cout << "Player " << model_->getCurrentPlayerIndex() + 1 << " discards	" << my_command.card << "\n";
 						validCommand = true;
 					}
