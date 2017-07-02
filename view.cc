@@ -110,11 +110,11 @@ Command View::receiveCommand() {
 
 	Command my_command;
 	std::vector<Card> legalPlays = model_->getLegalPlays();
-	std::vector<Card> playerHand = model_->getCurrentPlayer().getHand();
+	std::vector<Card> playerHand = model_->getCurrentPlayer()->getHand();
 
 	// First check if computer or human player
 
-	if (model_->getCurrentPlayer().getType() == 'c'){ // Computer Player
+	if (model_->getCurrentPlayer()->getType() == 'c'){ // Computer Player
 
 		if (model_->getLegalPlays().size() > 0){
 			cout << "Player " << model_->getCurrentPlayerIndex() + 1 << " plays	" << legalPlays[0] << "\n";

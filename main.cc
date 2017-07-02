@@ -31,12 +31,6 @@ int main( int argc, char * argv[] ) {
     players.push_back(d);
     int seed = 40;
     Model model(seed, players); // Create model
-<<<<<<< HEAD
-    // cout << model.getDeck()[13] << endl;
-    // cout << model.getDeck()[13] << endl;
-    // cout << model.getCurrentPlayer().getHand().size();
-=======
->>>>>>> ca3e52d6758463c0a7ed04d398b9eacd287c1dec
     Controller controller( &model ); // Create controller
     View view( &controller, &model ); // Create the view
 

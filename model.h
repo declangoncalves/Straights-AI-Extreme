@@ -8,13 +8,13 @@
 
 class Model : public Subject {
   public:
-  Model(int seed, std::vector<Player> players);
+  Model(int seed, std::vector<Player*> players);
   void initializeRound();
   void playCard(Card);
   void discardCard(Card);
   void rageQuit();
-  Player getCurrentPlayer();
-  std::vector<Player> getPlayers();
+  Player* getCurrentPlayer();
+  std::vector<Player*> getPlayers();
   const int getCurrentPlayerIndex();
   const int getGameState();
   const int checkScore();
