@@ -17,7 +17,7 @@ int main( int argc, char * argv[] ) {
     seedstring >> seed;
     std::vector<Player*> players;
     for (int i = 0; i < 4; i ++) {
-      cout << "Is player " << i + 1 << " a human(h) or a computer(c)?\n";
+      cout << "Is player " << i + 1 << " a human(h) or a computer(c)?\n>";
       string c;
       std::getline(cin, c);
       if (c[0] == 'c') {

@@ -83,15 +83,15 @@ void View::roundEnd() {
 	if (model_->getGameState() == 2){
 		for (int i=0; i < players.size(); i++){
 			if (players[i]->getTotalScore() == minScore) {
-				cout << "Player	" << i + 1 << " wins!\n";
+				cout << "Player " << i + 1 << " wins!\n";
 			}
 		}
 		exit(0);
 	}
 
 	else {
-		controller_->newRound();
 		gamePhase_ = 1;
+		controller_->newRound();
 	}
 
 }
@@ -107,11 +107,11 @@ Command View::receiveCommand() {
 	if (model_->getCurrentPlayer()->getType() == 'c'){ // Computer Player
 
 		if (model_->getLegalPlays().size() > 0){
-			cout << "Player " << model_->getCurrentPlayerIndex() + 1 << " plays " << legalPlays[0] << "\n";
+			cout << "Player " << model_->getCurrentPlayerIndex() + 1 << " plays " << legalPlays[0] << ".\n";
 			my_command = Command("play", legalPlays[0]);
 		}
 		else {
-			cout << "Player " << model_->getCurrentPlayerIndex() + 1 << " discards " << playerHand[0] << "\n";
+			cout << "Player " << model_->getCurrentPlayerIndex() + 1 << " discards " << playerHand[0] << ".\n";
 			my_command = Command("discard", playerHand[0]);
 		}
 	}
@@ -121,12 +121,13 @@ Command View::receiveCommand() {
 		bool validCommand = false;
 
 		while (!validCommand){
+			cout << ">";
 			cin >> my_command;
 
 			switch(my_command.type){
 				case Command::Type::PLAY:
 					if (std::find(legalPlays.begin(), legalPlays.end(), my_command.card) != legalPlays.end()){
-						cout << "Player " << model_->getCurrentPlayerIndex() + 1 << " plays " << my_command.card << "\n";
+						cout << "Player " << model_->getCurrentPlayerIndex() + 1 << " plays " << my_command.card << ".\n";
 						validCommand = true;
 					}
 					else {
@@ -135,7 +136,7 @@ Command View::receiveCommand() {
 					break;
 				case Command::Type::DISCARD:
 					if (legalPlays.size() == 0) {
-						cout << "Player " << model_->getCurrentPlayerIndex() + 1 << " discards " << my_command.card << "\n";
+						cout << "Player " << model_->getCurrentPlayerIndex() + 1 << " discards " << my_command.card << ".\n";
 						validCommand = true;
 					}
 					else {
