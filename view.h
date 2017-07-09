@@ -12,6 +12,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <gtkmm.h>
 
 using namespace std;
 
