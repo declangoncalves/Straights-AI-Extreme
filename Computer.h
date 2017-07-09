@@ -7,7 +7,6 @@ class Computer : public Player {
 public:
   Computer();
   Computer(Player &player);
-  void rageQuit() override;
 };
 
 #endif

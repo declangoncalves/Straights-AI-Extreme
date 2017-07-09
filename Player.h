@@ -20,7 +20,7 @@ protected:
 		std::vector<Card> getHand(); // Returns the hand vector
 		std::vector<Card> getDiscards(); // Returns the discard vector
 
-		virtual void rageQuit() = 0;
+		void rageQuit();
 
 		void dealCard(Card); // Insert Card into hand
 

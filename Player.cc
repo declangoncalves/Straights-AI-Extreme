@@ -4,7 +4,7 @@
 #include <algorithm>
 using namespace std;
 
-Player::Player() {}
+Player::Player(): type_{'c'} {}
 
 std::vector<Card> Player::getHand() { // Returns the hand vector
 	return hand_;
@@ -20,6 +20,10 @@ char Player::getType() {
 
 int Player::getRoundScore() { // Returns player score
 	return roundscore_;
+}
+
+void Player::rageQuit() {
+	return;
 }
 
 int Player::getTotalScore() { // Returns player score

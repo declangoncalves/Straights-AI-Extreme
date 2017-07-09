@@ -8,7 +8,7 @@
 class Human : public Player {
 public:
   Human();
-  void rageQuit() override;
+  void rageQuit();
 };
 
 #endif
