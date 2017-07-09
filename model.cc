@@ -52,6 +52,11 @@ const std::vector<Card> Model::getLegalPlays() {
     if ((intstable_[suit][rank] == 1 || intstable_[suit][rank + 2] == 1) || (rank == 6)) {
       plays.push_back(card);
     }
+    if (suit == 3 && rank == 6) {
+      std::vector<Card> single_play;
+      single_play.push_back(card);
+      return single_play;
+    }
   }
   return plays;
 }

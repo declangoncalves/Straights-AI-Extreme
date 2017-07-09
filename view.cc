@@ -165,7 +165,7 @@ const void View::printDeck(){
 
 	for (int i=0; i<deck.size(); i++){
 		cout << deck[i] << " ";
-		if (i == cardsPerLine - 1){
+		if (i%(cardsPerLine) == (cardsPerLine-1)){
 			cout << "\n";
 		}
 	}
