@@ -6,6 +6,7 @@
 #include <string>
 #include <iostream>
 #include <algorithm>
+#include <gtkmm.h> 
 
 using namespace std;
 
