@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include "model.h"
 #include "Human.h"
 #include <algorithm>
@@ -138,7 +137,7 @@ void Model::discardCard(Card c) {
 const std::vector<Card> Model::getDeck() {
   return deck_.getDeck();
 }
-=======
+
 #include "model.h"
 #include "Human.h"
 #include <algorithm>
@@ -283,4 +282,4 @@ void Model::discardCard(Card c) {
 const std::vector<Card> Model::getDeck() {
   return deck_.getDeck();
 }
->>>>>>> 4efe06ff382fe91538c7ae1836433ecb892912f8
+
