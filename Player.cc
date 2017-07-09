@@ -5,16 +5,13 @@ using namespace std;
 
 Player::Player(): type_{'c'} {}
 
-Player::Player(const Player &player) : hand_(player.hand_), discards_(player.discards_), roundscore_(player.roundscore_), totalscore_(player.totalscore_), type_{'c'} {}
+Player::Player(const Player &player) : hand_(player.hand_), discards_(player.discards_), roundscore_{player.roundscore_}, totalscore_{player.totalscore_}, type_{'c'} {}
 
 std::vector<Card> Player::getHand() { // Returns the hand vector
 	return hand_;
 }
 
-Command Player::makeMove(std::vector<Card> legalPlays) {
-	Command c;
-	return c;
-}
+Command Player::makeMove(std::vector<Card> legalPlays) {}
 
 std::vector<Card> Player::getDiscards() { // Returns the discard vector
 	return discards_;

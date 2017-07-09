@@ -1,7 +1,8 @@
 #include "Computer.h"
 
-
-Computer::Computer() {}
+Computer::Computer() {
+  type_ = 'c';
+}
 
 Computer::Computer(Player &player): Player(player) {}
 

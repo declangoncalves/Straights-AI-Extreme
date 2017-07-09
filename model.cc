@@ -1,5 +1,6 @@
 #include "model.h"
 #include "Human.h"
+#include "Computer.h"
 #include <algorithm>
 
 using namespace std;
@@ -30,7 +31,7 @@ void Model::rageQuit() {
   replacement = new Computer(*(players_[i]));
   delete players_[i];
   players_[i] = replacement;
-  return;
+  cout << "hello" << endl;
 }
 
 void Model::incrementPlayerTurn() {

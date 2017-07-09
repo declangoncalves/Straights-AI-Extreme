@@ -23,7 +23,7 @@ protected:
 		std::vector<Card> getDiscards(); // Returns the discard vector
 
 		void rageQuit();
-		Command makeMove(std::vector<Card> legalPlays);
+		virtual Command makeMove(std::vector<Card> legalPlays);
 
 		void dealCard(Card); // Insert Card into hand
 
