@@ -1,10 +1,11 @@
 #include "Human.h"
-#include <iostream>
-
-void Human::rageQuit() {
-  type_ = 'c';
-}
 
 Human::Human() {
   type_ = 'h';
+}
+
+Command Human::makeMove(std::vector<Card> legalPlays) {
+  Command c;
+  std::cin >> c;
+  return c;
 }

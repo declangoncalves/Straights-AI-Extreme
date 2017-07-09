@@ -1,13 +1,19 @@
-#include "Card.h"
-#include "Player.h"
 #include <iostream>
 #include <algorithm>
+#include "Player.h"
 using namespace std;
 
 Player::Player(): type_{'c'} {}
 
+Player::Player(const Player &player) : hand_(player.hand_), discards_(player.discards_), roundscore_(player.roundscore_), totalscore_(player.totalscore_), type_{'c'} {}
+
 std::vector<Card> Player::getHand() { // Returns the hand vector
 	return hand_;
+}
+
+Command Player::makeMove(std::vector<Card> legalPlays) {
+	Command c;
+	return c;
 }
 
 std::vector<Card> Player::getDiscards() { // Returns the discard vector

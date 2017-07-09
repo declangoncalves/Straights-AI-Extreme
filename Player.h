@@ -2,6 +2,7 @@
 #define PLAYER_H
 
 #include "Card.h"
+#include "Command.h"
 #include <vector>
 #include <string>
 
@@ -15,12 +16,14 @@ protected:
 		char type_;
 	public:
 		Player();
+		Player(const Player &player);
 		char getType(); // Returns the type of player: 'h' - human | 'c' - computer
 
 		std::vector<Card> getHand(); // Returns the hand vector
 		std::vector<Card> getDiscards(); // Returns the discard vector
 
 		void rageQuit();
+		Command makeMove(std::vector<Card> legalPlays);
 
 		void dealCard(Card); // Insert Card into hand
 

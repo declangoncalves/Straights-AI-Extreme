@@ -63,6 +63,10 @@ void View::playerTurn() {
 		cout << "\nLegal plays:";
 		printLegalPlays();
 	}
+	// if (getCurrentPlayer()->getType() == 'c') {
+	// 	Command my_command = getCurrentPlayer()->makeMove(legalPlays);
+	// 	controller_->executeCommand(my_command);
+	// }
 	controller_->executeCommand(receiveCommand());
 }
 
@@ -93,7 +97,6 @@ void View::roundEnd() {
 		gamePhase_ = 1;
 		controller_->newRound();
 	}
-
 }
 
 Command View::receiveCommand() {
@@ -104,18 +107,9 @@ Command View::receiveCommand() {
 
 	// First check if computer or human player
 
-	if (model_->getCurrentPlayer()->getType() == 'c'){ // Computer Player
-
-		if (model_->getLegalPlays().size() > 0){
-			cout << "Player " << model_->getCurrentPlayerIndex() + 1 << " plays " << legalPlays[0] << ".\n";
-			my_command = Command("play", legalPlays[0]);
-		}
-		else {
-			cout << "Player " << model_->getCurrentPlayerIndex() + 1 << " discards " << playerHand[0] << ".\n";
-			my_command = Command("discard", playerHand[0]);
-		}
+	if (model_->getCurrentPlayer()->getType() == 'c') {
+		my_command = model_->getCurrentPlayer()->makeMove(legalPlays);
 	}
-
 	else { // Human Player
 
 		bool validCommand = false;
