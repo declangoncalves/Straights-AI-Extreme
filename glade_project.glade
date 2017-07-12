@@ -5,6 +5,7 @@
   <!-- interface-local-resource-path C:\Users\Declan\OneDrive\Documents\Assignments\CS 247\cs247_project\img -->
   <object class="GtkWindow" id="glade_window">
     <property name="startup_id">glade_window</property>
+    <property name="window_position">center</property>
     <child>
       <placeholder/>
     </child>
