@@ -6,7 +6,7 @@
 #include <string>
 #include <iostream>
 #include <algorithm>
-#include <gtkmm.h> 
+#include <gtkmm.h>
 
 using namespace std;
 
@@ -15,9 +15,10 @@ View::View(Controller* c, Model* m) {
 	model_ = m;
 	model_->subscribe(this);
 	roundStart();
-	
+
     // Load the glade file
-    Glib::RefPtr<Gtk::Builder> builder = Gtk::Builder::create_from_file("glade_project.glade");
+	pWindow = nullptr;
+  Glib::RefPtr<Gtk::Builder> builder = Gtk::Builder::create_from_file("glade_project.glade");
 	builder->get_widget("glade_window", pWindow);
 	pWindow->show();
 	//builder->get_widget("glade_window", window);
