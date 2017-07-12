@@ -11,12 +11,12 @@
 #include <string>
 #include <vector>
 #include <iostream>
-#include <gtkmm/application.h>
+#include <gtkmm.h>
 
 // Include GTK widgets
 #include <gtkmm/window.h>
 #include <gtkmm/fixed.h>
-#include <gtkmm/hbox.h>
+#include <gtkmm/hvbox.h>
 #include <gtkmm/table.h>
 #include <gtkmm/button.h>
 #include <gtkmm/image.h>
