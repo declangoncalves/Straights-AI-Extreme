@@ -5,6 +5,7 @@
 #include "Computer.h"
 #include "Human.h"
 #include <string>
+
 #include <vector>
 #include <iostream>
 #include <sstream>
@@ -21,11 +22,11 @@ int main( int argc, char * argv[] ) {
       string c;
       std::getline(cin, c);
       if (c[0] == 'c') {
-        Player *a = new Computer();
+        Computer *a = new Computer();
         players.push_back(a);
       }
       if (c[0] == 'h') {
-        Player *a = new Human();
+        Human *a = new Human();
         players.push_back(a);
       }
     }

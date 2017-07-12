@@ -2,13 +2,13 @@
 #define HUMAN_H
 
 #include "Player.h"
-#include "Computer.h"
-
+#include "Command.h"
+#include <iostream>
 
 class Human : public Player {
 public:
   Human();
-  void rageQuit();
+  Command makeMove(std::vector<Card> legalPlays);
 };
 
 #endif

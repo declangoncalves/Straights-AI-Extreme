@@ -1,5 +1,6 @@
 #include "model.h"
 #include "Human.h"
+#include "Computer.h"
 #include <algorithm>
 
 using namespace std;
@@ -25,7 +26,12 @@ std::vector<Player*> Model::getPlayers() {
 }
 
 void Model::rageQuit() {
-  getCurrentPlayer()->rageQuit();
+  Computer *replacement = nullptr;
+  int i = getCurrentPlayerIndex();
+  replacement = new Computer(*(players_[i]));
+  delete players_[i];
+  players_[i] = replacement;
+  cout << "hello" << endl;
 }
 
 void Model::incrementPlayerTurn() {
