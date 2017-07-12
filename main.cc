@@ -39,6 +39,6 @@ int main( int argc, char * argv[] ) {
     Controller controller( &model ); // Create controller
     View view( &controller, &model ); // Create the view
 
-    return app->run(view.pWindow);
+    return app->run(*view.getWindow());
 
 } // main
