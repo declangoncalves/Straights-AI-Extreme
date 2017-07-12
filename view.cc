@@ -24,7 +24,7 @@ View::View(Controller* c, Model* m, int argc, char * argv[]) {
 	builder->get_widget("glade_window", pWindow);
 	pWindow->show();
 
-	app->run(pWindow);
+	app->run(*pWindow);
 	
 	pWindow->show();
 	//builder->get_widget("glade_window", window);
