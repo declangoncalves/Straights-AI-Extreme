@@ -18,6 +18,7 @@ View::View(Controller* c, Model* m) {
 	
     // Load the glade file
     Glib::RefPtr<Gtk::Builder> builder = Gtk::Builder::create_from_file("glade_project.glade");
+	//builder->get_widget("glade_window", window);
 }
 
 View::~View() {
