@@ -15,7 +15,7 @@
 using namespace std;
 
 int main( int argc, char * argv[] ) {
-  
+
     auto app = Gtk::Application::create(argc, argv, "org.gtkmm.example");
 
     std::istringstream seedstring(argv[1] == nullptr ?  "0" : argv[1]); //
@@ -39,6 +39,6 @@ int main( int argc, char * argv[] ) {
     Controller controller( &model ); // Create controller
     View view( &controller, &model ); // Create the view
 
-    return app->run(view);
+    return app->run(view.pWindow);
 
 } // main
