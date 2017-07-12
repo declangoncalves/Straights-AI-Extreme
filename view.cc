@@ -28,6 +28,10 @@ View::~View() {
 	delete controller_;
 }
 
+Gtk::Window getWindow(){
+	return *pWindow;
+}
+
 void View::update() {
 
 	if (gamePhase_ == 1) { // Start Round

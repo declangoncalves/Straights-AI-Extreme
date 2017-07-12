@@ -48,7 +48,9 @@ class View : public Observer, public Gtk::Window {
 
 	Command receiveCommand();
 	const void printDeck();
-
+	
+	Gtk::Window getWindow();
+	
 	protected:
 		Glib::RefPtr<Gtk::Builder> builder;
 		Gtk::Window* pWindow = nullptr;
