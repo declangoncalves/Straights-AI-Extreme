@@ -1,7 +1,6 @@
 #ifndef MVC_VIEW_H
 #define MVC_VIEW_H
 
-
 #include "observer.h"
 #include "Card.h"
 #include "Command.h"
@@ -12,13 +11,22 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <gtkmm/application.h>
+
+// Include GTK widgets
+#include <gtkmm/window.h>
+#include <gtkmm/fixed.h>
+#include <gtkmm/hbox.h>
+#include <gtkmm/table.h>
+#include <gtkmm/button.h>
+#include <gtkmm/image.h>
 
 using namespace std;
 
 class Controller;
 class Model;
 
-class View : public Observer {
+class View : public Observer, public Gtk::Window {
   public:
 
     View( Controller*, Model* );
@@ -44,7 +52,13 @@ class View : public Observer {
   private:
     Model *model_;
     Controller *controller_;
-	   int gamePhase_ = 1; // 1 - RoundStart | 2 - PlayerTurn
+	  int gamePhase_ = 1; // 1 - RoundStart | 2 - PlayerTurn
+
+		// Glade / GTK
+		Glib::RefPtr<Gtk::Builder> builder;
+
+
+
 }; // View
 
 //helper functions

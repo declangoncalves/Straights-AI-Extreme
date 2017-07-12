@@ -15,6 +15,9 @@ View::View(Controller* c, Model* m) {
 	model_ = m;
 	model_->subscribe(this);
 	roundStart();
+	
+    // Load the glade file
+    Glib::RefPtr<Gtk::Builder> builder = Gtk::Builder::create_from_file("glade_project.glade");
 }
 
 View::~View() {

@@ -35,4 +35,5 @@ int main( int argc, char * argv[] ) {
     View view( &controller, &model ); // Create the view
 
     return 0;
+
 } // main
