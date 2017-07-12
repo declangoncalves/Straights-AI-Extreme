@@ -49,14 +49,16 @@ class View : public Observer, public Gtk::Window {
 	Command receiveCommand();
 	const void printDeck();
 
+	protected:
+		Glib::RefPtr<Gtk::Builder> builder;
+		Gtk::Window* pWindow = nullptr;
+
   private:
     Model *model_;
     Controller *controller_;
 	  int gamePhase_ = 1; // 1 - RoundStart | 2 - PlayerTurn
 
 		// Glade / GTK
-		Glib::RefPtr<Gtk::Builder> builder;
-		Gtk::Window* pWindow = nullptr;
 
 
 
