@@ -56,6 +56,7 @@ class View : public Observer, public Gtk::Window {
 
 		// Glade / GTK
 		Glib::RefPtr<Gtk::Builder> builder;
+		Gtk::Window* pWindow = nullptr;
 
 
 
