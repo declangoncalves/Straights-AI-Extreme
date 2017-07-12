@@ -29,7 +29,7 @@ View::~View() {
 	delete controller_;
 }
 
-Gtk::Window* getWindow(){
+View::Gtk::Window* getWindow(){
 	return pWindow;
 }
 
