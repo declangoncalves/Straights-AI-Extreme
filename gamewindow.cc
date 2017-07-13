@@ -2,10 +2,20 @@
 #include <gtkmm.h>
 #include <iostream>
 
-ExampleWindow::ExampleWindow(const Glib::RefPtr<Gtk::Application>& app) : m_Box(Gtk::ORIENTATION_VERTICAL)
+ExampleWindow::ExampleWindow(const Glib::RefPtr<Gtk::Application>& app)// : m_Box(Gtk::ORIENTATION_VERTICAL)
 {
   set_title("Straights EXTREME");
   set_default_size(600, 600);
+  m_refBuilder = Gtk::Builder::create();
+  try
+  {
+    m_refBuilder->add_from_file("glade_project.glade");
+  }
+  catch(const Glib::Error& ex)
+  {
+    std::cerr << "ERROR ADDING FROM: glade_project" <<  ex.what();
+  }
+}
 
   //add(m_Box); //We can put a MenuBar at the top of the box and other stuff below it.
 
@@ -35,7 +45,6 @@ ExampleWindow::ExampleWindow(const Glib::RefPtr<Gtk::Application>& app) : m_Box(
 //   insert_action_group("example", m_refActionGroup);
 
   //Define how the actions are presented in the menus and toolbars:
-  m_refBuilder = Gtk::Builder::create();
 
   //Layout the actions in a menubar and toolbar:
 //   const char* ui_info =
@@ -102,15 +111,6 @@ ExampleWindow::ExampleWindow(const Glib::RefPtr<Gtk::Application>& app) : m_Box(
 //   app->set_accel_for_action("example.copy", "<Primary>c");
 //   app->set_accel_for_action("example.paste", "<Primary>v");
 
-  try
-  {
-    m_refBuilder->add_from_file("glade_project.glade");
-  }
-  catch(const Glib::Error& ex)
-  {
-    std::cerr << "ERROR ADDING FROM: glade_project" <<  ex.what();
-  }
-}
 
   //Get the menubar:
 //   auto object = m_refBuilder->get_object("menubar");
