@@ -8,8 +8,9 @@
 
 class Model : public Subject {
   public:
-  Model(int seed, std::vector<Player*> players);
+  Model();
   void initializeRound();
+  void startGame(int seed, std::vector<Player*> players);
   void playCard(Card);
   void discardCard(Card);
   void rageQuit();
