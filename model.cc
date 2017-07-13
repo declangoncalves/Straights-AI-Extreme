@@ -5,9 +5,9 @@
 
 using namespace std;
 
-Model::Model() : intstable_(4, std::vector<int>(15, 0)) , cardstable_(4, std::vector<Card>(15)), players_{players} {}
+Model::Model() : intstable_(4, std::vector<int>(15, 0)) , cardstable_(4, std::vector<Card>(15)), {}
 
-void Model::startGame(int seed, std::vector<Player*> players) : deck_(Deck(seed)) , players_{players} {
+void Model::startGame(int seed, std::vector<Player*> players) {
   deck_ = Deck(seed);
   players_ = players;
   initializeRound();
