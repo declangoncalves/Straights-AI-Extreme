@@ -43,6 +43,10 @@ void GameWindow::playerTurn() {
   return;
 }
 
+void GameWindow::roundEnd() {
+  return;
+}
+
 void GameWindow::resetTable() {
   return;
 }
@@ -96,6 +100,7 @@ void GameWindow::executeCommand(Command c) {
 void GameWindow::updateTable() {
   return;
 }
+
 
 
 
