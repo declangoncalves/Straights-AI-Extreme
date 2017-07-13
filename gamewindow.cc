@@ -2,21 +2,34 @@
 #include <gtkmm.h>
 #include <iostream>
 
-GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app) : m_Box(Gtk::ORIENTATION_VERTICAL)
+GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c, Model* m) : m_Box(Gtk::ORIENTATION_VERTICAL)
 {
-  set_title("Straights EXTREME");
-  set_default_size(600, 600);
-  m_refBuilder = Gtk::Builder::create();
-  try
-  {
-    m_refBuilder->add_from_file("glade_project.glade");
-  }
-  catch(const Glib::Error& ex)
-  {
-    std::cerr << "ERROR ADDING FROM: glade_project" <<  ex.what();
-  }
+    set_title("Straights EXTREME");
+    set_default_size(600, 600);
+    
+    controller_ = c;
+    model_ = m;
+    model_->subscribe(this);
+    roundStart();
+
+    m_refBuilder = Gtk::Builder::create();
+    try
+    {
+        m_refBuilder->add_from_file("glade_project.glade");
+    }
+    catch(const Glib::Error& ex)
+    {
+        std::cerr << "ERROR ADDING FROM: glade_project" <<  ex.what();
+    }
 }
 
+
+(Controller* c, Model* m) {
+	controller_ = c;
+	model_ = m;
+	model_->subscribe(this);
+	roundStart();
+}
   //add(m_Box); //We can put a MenuBar at the top of the box and other stuff below it.
 
   //Define the actions:

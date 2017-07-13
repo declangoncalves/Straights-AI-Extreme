@@ -3,7 +3,7 @@
 
 #include <gtkmm.h>
 
-class GameWindow : public Gtk::Window
+class GameWindow : public Gtk::Window, public Observer
 {
 public:
   GameWindow(const Glib::RefPtr<Gtk::Application>& app);

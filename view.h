@@ -11,22 +11,13 @@
 #include <string>
 #include <vector>
 #include <iostream>
-#include <gtkmm.h>
-
-// Include GTK widgets
-#include <gtkmm/window.h>
-#include <gtkmm/fixed.h>
-#include <gtkmm/hvbox.h>
-#include <gtkmm/table.h>
-#include <gtkmm/button.h>
-#include <gtkmm/image.h>
 
 using namespace std;
 
 class Controller;
 class Model;
 
-class View : public Observer, public Gtk::Window {
+class View : public Observer {
   public:
 
 	View( Controller*, Model*);
@@ -50,8 +41,7 @@ class View : public Observer, public Gtk::Window {
 	const void printDeck();
 
 	private:
-		Glib::RefPtr<Gtk::Builder> builder;
-		Gtk::Window* pWindow;
+	
     Model *model_;
     Controller *controller_;
 	  int gamePhase_ = 1; // 1 - RoundStart | 2 - PlayerTurn

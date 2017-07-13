@@ -15,22 +15,6 @@ View::View(Controller* c, Model* m) {
 	model_ = m;
 	model_->subscribe(this);
 	roundStart();
-	cout << "Got here1\n";
-    // Load the glade file
-
-	cout << "Got here2\n";
-	pWindow = nullptr;
-  	Glib::RefPtr<Gtk::Builder> builder = Gtk::Builder::create_from_file("glade_project.glade");
-	builder->get_widget("glade_window", pWindow);
-	//pWindow->show();
-
-	cout << "Got here3\n";
-	//app->run(*pWindow);
-	
-	cout << "Got here4\n";
-	pWindow->show();
-	cout << "Got here5\n";
-	//builder->get_widget("glade_window", window);
 }
 
 View::~View() {
