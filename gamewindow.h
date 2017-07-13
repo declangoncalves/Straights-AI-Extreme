@@ -38,7 +38,7 @@ private:
 
   Gtk::Box m_Box;
   Controller* controller_;
-  vector<Gtk::Button> handButtons_;
+  std::vector<Gtk::Button> handButtons_;
   Gtk::Table table_;
 
   Model* model_;
