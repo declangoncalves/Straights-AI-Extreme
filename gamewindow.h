@@ -17,7 +17,7 @@ private:
 //   void on_action_toggle();
 
   //Child widgets:
-  //Gtk::Box m_Box;
+  Gtk::Box m_Box;
 
   Glib::RefPtr<Gtk::Builder> m_refBuilder;
   //Glib::RefPtr<Gio::SimpleActionGroup> m_refActionGroup;

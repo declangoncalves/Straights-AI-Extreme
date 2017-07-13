@@ -2,7 +2,7 @@
 #include <gtkmm.h>
 #include <iostream>
 
-ExampleWindow::ExampleWindow(const Glib::RefPtr<Gtk::Application>& app)// : m_Box(Gtk::ORIENTATION_VERTICAL)
+GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app) : m_Box(Gtk::ORIENTATION_VERTICAL)
 {
   set_title("Straights EXTREME");
   set_default_size(600, 600);
