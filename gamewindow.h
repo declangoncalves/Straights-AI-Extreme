@@ -11,7 +11,7 @@ class GameWindow : public Gtk::Window, public Observer
 public:
   GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c, Model* m);
   void updateTable();
-  void executeCommand(command c)
+  void executeCommand(command c);
   void updatePlayerHand();
   virtual ~GameWindow();
 
