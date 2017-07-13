@@ -4,7 +4,6 @@
   <!-- interface-naming-policy project-wide -->
   <!-- interface-local-resource-path C:\Users\Declan\OneDrive\Documents\Assignments\CS -->
   <object class="GtkWindow" id="glade_window">
-    <property name="label_xalign">0</property>
     <child>
       <object class="GtkFixed" id="fixed1">
         <property name="visible">True</property>
