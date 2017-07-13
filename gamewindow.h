@@ -2,11 +2,17 @@
 #define GTKMM_GAMEWINDOW_H
 
 #include <gtkmm.h>
+#include "Command.h"
+#include "model.h"
+#include "controller.h"
 
 class GameWindow : public Gtk::Window, public Observer
 {
 public:
-  GameWindow(const Glib::RefPtr<Gtk::Application>& app);
+  GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c, Model* m);
+  void updateTable();
+  void executeCommand(command c)
+  void updatePlayerHand();
   virtual ~GameWindow();
 
 private:
