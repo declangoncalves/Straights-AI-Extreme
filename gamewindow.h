@@ -37,7 +37,6 @@ private:
   Gtk::Button* p4_RQ = nullptr;
 
   Gtk::Box m_Box;
-  Gtk::Button
   Controller* controller_;
   vector<Gtk::Button> handButtons_;
   Gtk::Table table_;
