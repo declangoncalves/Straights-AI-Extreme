@@ -21,7 +21,7 @@ int main( int argc, char * argv[] ) {
   GameWindow window(app);
 
   std::vector<Player*> players;
-  
+
   int seed = 0;
   for (int i = 0; i < 4; i ++) {
       Human *a = new Human();
@@ -30,7 +30,7 @@ int main( int argc, char * argv[] ) {
 
   Model model(seed, players); // Create model
   Controller controller( &model ); // Create controller
-  View view( &controller, &model, app ); // Create the view
+  View view( &controller, &model); // Create the view
 
   return app->run(window);
 

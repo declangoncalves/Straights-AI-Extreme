@@ -10,7 +10,7 @@
 
 using namespace std;
 
-View::View(Controller* c, Model* m, Glib::RefPtr<Gtk::Application>& app) {
+View::View(Controller* c, Model* m) {
 	controller_ = c;
 	model_ = m;
 	model_->subscribe(this);
