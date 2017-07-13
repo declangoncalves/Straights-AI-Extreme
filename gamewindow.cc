@@ -21,6 +21,14 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
     controller_ = c;
     model_ = m;
     model_->subscribe(this);
+
+    m_refBuilder->get_widget("start_game_btn", start_game_btn);
+    m_refBuilder->get_widget("end_game_btn", end_game_btn);
+    m_refBuilder->get_widget("p1_RQ", p1_RQ);
+    m_refBuilder->get_widget("p1_RQ", p2_RQ);
+    m_refBuilder->get_widget("p1_RQ", p3_RQ);
+    m_refBuilder->get_widget("p1_RQ", p4_RQ);
+    show_all_children();
 }
 
 GameWindow::~GameWindow()

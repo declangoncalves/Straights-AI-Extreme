@@ -5,6 +5,7 @@
 #include "Command.h"
 #include "model.h"
 #include "controller.h"
+#include <vector>
 
 class GameWindow : public Gtk::Window, public Observer
 {
@@ -27,8 +28,20 @@ private:
 //   void on_action_toggle();
 
   //Child widgets:
+
+  Gtk::Button* start_game_btn = nullptr;
+  Gtk::Button* end_game_btn = nullptr;
+  Gtk::Button* p1_RQ = nullptr;
+  Gtk::Button* p2_RQ = nullptr;
+  Gtk::Button* p3_RQ = nullptr;
+  Gtk::Button* p4_RQ = nullptr;
+
   Gtk::Box m_Box;
+  Gtk::Button
   Controller* controller_;
+  vector<Gtk::Button> handButtons_;
+  Gtk::Table table_;
+
   Model* model_;
   Glib::RefPtr<Gtk::Builder> m_refBuilder;
   //Glib::RefPtr<Gio::SimpleActionGroup> m_refActionGroup;
