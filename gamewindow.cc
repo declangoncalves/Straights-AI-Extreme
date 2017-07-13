@@ -64,8 +64,8 @@ void GameWindow::executeCommand(Command c) {
 		bool validCommand = false;
 
 		while (!validCommand){
-			cout << ">";
-			cin >> my_command;
+			std::cout << ">";
+			std::cin >> my_command;
 
 			switch(my_command.type){
 				case Command::Type::PLAY:
