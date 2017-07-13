@@ -21,7 +21,7 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
     controller_ = c;
     model_ = m;
     model_->subscribe(this);
-
+    add(m_Box);
     m_refBuilder->get_widget("start_game_btn", start_game_btn);
     m_Box.pack_start(*start_game_btn, Gtk::PACK_SHRINK);
     m_refBuilder->get_widget("end_game_btn", end_game_btn);
