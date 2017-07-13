@@ -35,8 +35,8 @@ void Model::rageQuit() {
   replacement = new Computer(*(players_[i]));
   delete players_[i];
   players_[i] = replacement;
-  Command c = getCurrentPlayer->getMove();
-  if (c.type == Command::Type::Play) {
+  Command c = getCurrentPlayer()->makeMove();
+  if (c.type == Command::Type::PLAY) {
     playCard(c.card);
   }
   else {
@@ -54,8 +54,8 @@ void Model::incrementPlayerTurn() {
     if (playerturn_ > max_index) playerturn_ = 0;
   }
   if (players_[playerturn_]->getType() == 'c') {
-    Command c = getCurrentPlayer->makeMove();
-    if (c.type == Command::Type::Play) {
+    Command c = getCurrentPlayer()->makeMove();
+    if (c.type == Command::Type::PLAY) {
       playCard(c.card);
     }
     else {
