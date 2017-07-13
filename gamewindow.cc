@@ -4,14 +4,9 @@
 
 GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c, Model* m) : m_Box(Gtk::ORIENTATION_VERTICAL)
 {
+    // Prepare game window
     set_title("Straights EXTREME");
     set_default_size(600, 600);
-    
-    controller_ = c;
-    model_ = m;
-    model_->subscribe(this);
-    roundStart();
-
     m_refBuilder = Gtk::Builder::create();
     try
     {
@@ -21,15 +16,81 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
     {
         std::cerr << "ERROR ADDING FROM: glade_project" <<  ex.what();
     }
+    
+    // Prepare MVC
+    controller_ = c;
+    model_ = m;
+    model_->subscribe(this);
 }
 
-
-(Controller* c, Model* m) {
-	controller_ = c;
-	model_ = m;
-	model_->subscribe(this);
-	roundStart();
+GameWindow::~GameWindow()
+{
+  delete model_;
+  delete controller_;
 }
+
+void GameWindow::update() {
+		if (model_->getGameState() != 0){ // Round Finished
+			roundEnd();
+		}
+
+		else { // Round not finished
+			playerTurn();
+	  }
+}
+
+void GameWindow::executeCommand(Command c){
+  // If command is valid, send to controller_
+
+  // If commmand is invalid, update widgets and do nothing
+  Command my_command;
+	std::vector<Card> legalPlays = model_->getLegalPlays();
+	std::vector<Card> playerHand = model_->getCurrentPlayer()->getHand();
+
+	// First check if computer or human player
+	if (model_->getCurrentPlayer()->getType() == 'c') {
+		my_command = model_->getCurrentPlayer()->makeMove(legalPlays);
+	}
+	else { // Human Player
+
+		bool validCommand = false;
+
+		while (!validCommand){
+			cout << ">";
+			cin >> my_command;
+
+			switch(my_command.type){
+				case Command::Type::PLAY:
+					if (std::find(legalPlays.begin(), legalPlays.end(), my_command.card) != legalPlays.end()){
+						controller_->executeCommand(my_command);
+					}
+					else {
+            // Update window widgets
+					}
+					break;
+				case Command::Type::DISCARD:
+					if (legalPlays.size() == 0) {
+					  controller_->executeCommand(my_command);
+					}
+					else {
+						// Update window widgets
+					}
+					break;
+				case Command::Type::DECK:
+					printDeck();
+					break;
+				case Command::Type::QUIT:
+					exit(0);
+				case Command::Type::RAGEQUIT:
+					cout << "Player " << model_->getCurrentPlayerIndex() + 1 << " ragequits. A computer will now take over.\n";
+					validCommand = true;
+					break;
+			}
+		}
+	}
+
+}
+
   //add(m_Box); //We can put a MenuBar at the top of the box and other stuff below it.
 
   //Define the actions:
@@ -148,10 +209,6 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
     
 //   show_all_children();
 // }
-
-GameWindow::~GameWindow()
-{
-}
 
 // void ExampleWindow::on_action_file_quit()
 // {
