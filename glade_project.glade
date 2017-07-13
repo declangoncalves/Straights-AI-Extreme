@@ -3,11 +3,8 @@
   <requires lib="gtk+" version="2.16"/>
   <!-- interface-naming-policy project-wide -->
   <!-- interface-local-resource-path C:\Users\Declan\OneDrive\Documents\Assignments\CS -->
-  <object class="GtkWindow" id="glade_window">
-    <property name="type">popup</property>
-    <property name="startup_id">glade_window</property>
-    <property name="window_position">center</property>
-    <property name="destroy_with_parent">True</property>
+  <object class="GtkFrame" id="glade_frame">
+    <property name="label_xalign">0</property>
     <child>
       <object class="GtkFixed" id="fixed1">
         <property name="visible">True</property>
@@ -19,13 +16,13 @@
             <property name="n_rows">4</property>
             <property name="n_columns">13</property>
             <child>
-              <object class="GtkImage" id="image1">
+              <object class="GtkImage" id="image_00">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
             </child>
             <child>
-              <object class="GtkImage" id="image2">
+              <object class="GtkImage" id="image_01">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -35,7 +32,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image3">
+              <object class="GtkImage" id="image_02">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -45,7 +42,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image4">
+              <object class="GtkImage" id="image_03">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -55,7 +52,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image5">
+              <object class="GtkImage" id="image_04">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -65,7 +62,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image6">
+              <object class="GtkImage" id="image_05">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -75,7 +72,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image7">
+              <object class="GtkImage" id="image_06">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -85,7 +82,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image8">
+              <object class="GtkImage" id="image_07">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -95,7 +92,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image9">
+              <object class="GtkImage" id="image_08">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -105,7 +102,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image10">
+              <object class="GtkImage" id="image_09">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -115,7 +112,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image11">
+              <object class="GtkImage" id="image_010">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -125,7 +122,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image12">
+              <object class="GtkImage" id="image_011">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -135,7 +132,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image13">
+              <object class="GtkImage" id="image_012">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -145,7 +142,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image14">
+              <object class="GtkImage" id="image_10">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -155,7 +152,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image15">
+              <object class="GtkImage" id="image_11">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -167,7 +164,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image16">
+              <object class="GtkImage" id="image_12">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -179,7 +176,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image17">
+              <object class="GtkImage" id="image_13">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -191,7 +188,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image18">
+              <object class="GtkImage" id="image_14">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -203,7 +200,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image19">
+              <object class="GtkImage" id="image_15">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -215,7 +212,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image20">
+              <object class="GtkImage" id="image_16">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -227,7 +224,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image21">
+              <object class="GtkImage" id="image_17">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -239,7 +236,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image22">
+              <object class="GtkImage" id="image_18">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -251,7 +248,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image23">
+              <object class="GtkImage" id="image_19">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -263,7 +260,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image24">
+              <object class="GtkImage" id="image_110">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -275,7 +272,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image25">
+              <object class="GtkImage" id="image_111">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -287,7 +284,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image26">
+              <object class="GtkImage" id="image_112">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -299,7 +296,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image27">
+              <object class="GtkImage" id="image_20">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -309,7 +306,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image28">
+              <object class="GtkImage" id="image_21">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -321,7 +318,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image29">
+              <object class="GtkImage" id="image_22">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -333,7 +330,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image30">
+              <object class="GtkImage" id="image_23">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -345,7 +342,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image31">
+              <object class="GtkImage" id="image_24">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -357,7 +354,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image32">
+              <object class="GtkImage" id="image_25">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -369,7 +366,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image33">
+              <object class="GtkImage" id="image_26">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -381,7 +378,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image34">
+              <object class="GtkImage" id="image_27">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -393,7 +390,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image35">
+              <object class="GtkImage" id="image_28">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -405,7 +402,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image36">
+              <object class="GtkImage" id="image_29">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -417,7 +414,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image37">
+              <object class="GtkImage" id="image_210">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -429,7 +426,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image38">
+              <object class="GtkImage" id="image_211">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -441,7 +438,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image39">
+              <object class="GtkImage" id="image_212">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -453,7 +450,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image40">
+              <object class="GtkImage" id="image_30">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -463,7 +460,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image41">
+              <object class="GtkImage" id="image_31">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -475,7 +472,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image42">
+              <object class="GtkImage" id="image_32">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -487,7 +484,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image43">
+              <object class="GtkImage" id="image_33">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -499,7 +496,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image44">
+              <object class="GtkImage" id="image_34">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -511,7 +508,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image45">
+              <object class="GtkImage" id="image_35">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -523,7 +520,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image46">
+              <object class="GtkImage" id="image_36">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -535,7 +532,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image47">
+              <object class="GtkImage" id="image_37">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -547,7 +544,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image48">
+              <object class="GtkImage" id="image_38">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -559,7 +556,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image49">
+              <object class="GtkImage" id="image_39">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -571,7 +568,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image50">
+              <object class="GtkImage" id="image_310">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -583,7 +580,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image51">
+              <object class="GtkImage" id="image_311">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
@@ -595,7 +592,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="image52">
+              <object class="GtkImage" id="image_312">
                 <property name="visible">True</property>
                 <property name="stock">gtk-missing-image</property>
               </object>
