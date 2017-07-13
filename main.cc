@@ -30,7 +30,6 @@ int main( int argc, char * argv[] ) {
   Model model(seed, players); // Create model
   Controller controller( &model ); // Create controller
   //View view( &controller, &model); // Create the view
-
   
   GameWindow window(app, &controller, &model);
 
