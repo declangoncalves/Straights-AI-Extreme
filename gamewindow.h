@@ -35,7 +35,7 @@ private:
   Gtk::Button* p2_RQ = nullptr;
   Gtk::Button* p3_RQ = nullptr;
   Gtk::Button* p4_RQ = nullptr;
-  Gtk::Frame* glade_window = nullptr;
+  Gtk::Frame* glade_frame = nullptr;
   Gtk::Box m_Box;
   Controller* controller_;
   std::vector<Gtk::Button> handButtons_;

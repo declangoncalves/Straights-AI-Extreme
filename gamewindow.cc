@@ -21,8 +21,8 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
     controller_ = c;
     model_ = m;
     model_->subscribe(this);
-    m_refBuilder->get_widget("glade_window", glade_window);
-    if (!glade_window) {
+    m_refBuilder->get_widget("glade_frame", glade_frame);
+    if (!glade_frame) {
       std::cout << "this didn't work" << std::endl;
     }
     else {
