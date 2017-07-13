@@ -16,7 +16,7 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
     {
         std::cerr << "ERROR ADDING FROM: glade_project" <<  ex.what();
     }
-    
+
     // Prepare MVC
     controller_ = c;
     model_ = m;
@@ -33,13 +33,12 @@ void GameWindow::update() {
 		if (model_->getGameState() != 0){ // Round Finished
 			roundEnd();
 		}
-
 		else { // Round not finished
 			playerTurn();
 	  }
 }
 
-void GameWindow::executeCommand(Command c){
+void GameWindow::executeCommand(Command c) {
   // If command is valid, send to controller_
 
   // If commmand is invalid, update widgets and do nothing
@@ -88,8 +87,13 @@ void GameWindow::executeCommand(Command c){
 			}
 		}
 	}
-
 }
+
+void GameWindow::updateTable() {
+  return;
+}
+
+
 
   //add(m_Box); //We can put a MenuBar at the top of the box and other stuff below it.
 
@@ -206,7 +210,7 @@ void GameWindow::executeCommand(Command c){
 //     g_warning("GtkToolbar not found");
 //   else
 //     m_Box.pack_start(*toolbar, Gtk::PACK_SHRINK);
-    
+
 //   show_all_children();
 // }
 
