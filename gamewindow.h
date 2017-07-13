@@ -25,7 +25,8 @@ private:
 
   //Child widgets:
   Gtk::Box m_Box;
-
+  Controller* controller_;
+  Model* model_;
   Glib::RefPtr<Gtk::Builder> m_refBuilder;
   //Glib::RefPtr<Gio::SimpleActionGroup> m_refActionGroup;
   //Glib::RefPtr<Gio::SimpleAction> m_refActionRain;
