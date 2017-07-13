@@ -10,16 +10,22 @@
 
 using namespace std;
 
-View::View(Controller* c, Model* m) {
+View::View(Controller* c, Model* m, int argc, char * argv[]) {
 	controller_ = c;
 	model_ = m;
 	model_->subscribe(this);
 	roundStart();
 
     // Load the glade file
+	auto app = Gtk::Application::create(argc, argv);
+
 	pWindow = nullptr;
   Glib::RefPtr<Gtk::Builder> builder = Gtk::Builder::create_from_file("glade_project.glade");
 	builder->get_widget("glade_window", pWindow);
+	pWindow->show();
+
+	app->run(pWindow);
+	
 	pWindow->show();
 	//builder->get_widget("glade_window", window);
 }
@@ -27,10 +33,6 @@ View::View(Controller* c, Model* m) {
 View::~View() {
 	delete model_;
 	delete controller_;
-}
-
-Gtk::Window* View::getWindow(){
-	return pWindow;
 }
 
 void View::update() {

@@ -16,7 +16,7 @@ using namespace std;
 
 int main( int argc, char * argv[] ) {
 
-    auto app = Gtk::Application::create(argc, argv, "org.gtkmm.example");
+
 
     std::istringstream seedstring(argv[1] == nullptr ?  "0" : argv[1]); //
     int seed;
@@ -37,8 +37,8 @@ int main( int argc, char * argv[] ) {
     }
     Model model(seed, players); // Create model
     Controller controller( &model ); // Create controller
-    View view( &controller, &model ); // Create the view
+    View view( &controller, &model, argc, argv ); // Create the view
 
-    return app->run(*view.getWindow());
+    return 0;
 
 } // main

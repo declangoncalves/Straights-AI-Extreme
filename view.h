@@ -29,7 +29,7 @@ class Model;
 class View : public Observer, public Gtk::Window {
   public:
 
-    View( Controller*, Model* );
+    View( Controller*, Model*, int argc, char * argv[] );
     ~View();
     void update() override;
 
@@ -48,8 +48,6 @@ class View : public Observer, public Gtk::Window {
 
 	Command receiveCommand();
 	const void printDeck();
-
-	Gtk::Window* getWindow();
 
 	private:
 		Glib::RefPtr<Gtk::Builder> builder;
