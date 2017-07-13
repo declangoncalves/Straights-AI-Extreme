@@ -29,7 +29,7 @@ class Model;
 class View : public Observer, public Gtk::Window {
   public:
 
-    View( Controller*, Model*, Gtk::Application );
+    View( Controller*, Model*, Glib::RefPtr<Gtk::Application>& );
     ~View();
     void update() override;
 
