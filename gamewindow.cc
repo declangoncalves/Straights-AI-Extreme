@@ -26,7 +26,7 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
       std::cout << "this didn't work" << std::endl;
     }
     else {
-      this.pack_start(*glade_window, Gtk::PACK_SHRINK);
+      this->pack_start(*glade_window, Gtk::PACK_SHRINK);
     }
     m_refBuilder->get_widget("end_game_btn", end_game_btn);
     m_refBuilder->get_widget("p1_RQ", p1_RQ);
