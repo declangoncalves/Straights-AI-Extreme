@@ -4,6 +4,7 @@
 #include "subject.h"
 #include "Deck.h"
 #include "Player.h"
+#include "Command.h"
 #include "Card.h"
 
 class Model : public Subject {

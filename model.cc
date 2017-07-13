@@ -35,7 +35,13 @@ void Model::rageQuit() {
   replacement = new Computer(*(players_[i]));
   delete players_[i];
   players_[i] = replacement;
-  cout << "hello" << endl;
+  Command c = getCurrentPlayer->getMove();
+  if (c.type == Command::Type::Play) {
+    playCard(c.card);
+  }
+  else {
+    discardCard(c.card);
+  }
 }
 
 void Model::incrementPlayerTurn() {
@@ -46,6 +52,18 @@ void Model::incrementPlayerTurn() {
   while (players_[playerturn_]->getHand().size() == 0) {
     playerturn_++;
     if (playerturn_ > max_index) playerturn_ = 0;
+  }
+  if (players_[playerturn_]->getType() == 'c') {
+    Command c = getCurrentPlayer->makeMove();
+    if (c.type == Command::Type::Play) {
+      playCard(c.card);
+    }
+    else {
+      discardCard(c.card);
+    }
+  }
+  else {
+    notify();
   }
   return;
 }
@@ -135,7 +153,6 @@ void Model::playCard(Card c) {
   cardstable_[suit][rank + 1] = c;
   if (getCurrentPlayer()->getHand().size() == 0) emptyhands_++;
   incrementPlayerTurn();
-  notify();
   return;
 }
 
@@ -145,7 +162,6 @@ void Model::discardCard(Card c) {
   getCurrentPlayer()->discard(c);
   if (getCurrentPlayer()->getHand().size() == 0) emptyhands_++;
   incrementPlayerTurn();
-  notify();
   return;
 }
 

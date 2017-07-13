@@ -84,15 +84,10 @@ void GameWindow::executeCommand(Command c) {
 						// Update window widgets
 					}
 					break;
-				case Command::Type::DECK:
-					printDeck();
-					break;
 				case Command::Type::QUIT:
 					exit(0);
 				case Command::Type::RAGEQUIT:
-					cout << "Player " << model_->getCurrentPlayerIndex() + 1 << " ragequits. A computer will now take over.\n";
-					validCommand = true;
-					break;
+					controller_->executeCommand(my_command);
 			}
 		}
 	}

@@ -22,12 +22,10 @@ void Controller::executeCommand(Command my_command) {
 				case Command::Type::RAGEQUIT:
 					model_->rageQuit();
 					if (model_->getLegalPlays().size() > 0){
-						cout << "Player " << model_->getCurrentPlayerIndex() + 1 << " plays	" << model_->getLegalPlays()[0] << "\n";
 						Command my_command = Command("play", model_->getLegalPlays()[0]);
 						executeCommand(my_command);
 					}
 					else {
-						cout << "Player " << model_->getCurrentPlayerIndex() + 1 << " discards	" << model_->getPlayerHand()[0] << "\n";
 						Command my_command = Command("discard", model_->getPlayerHand()[0]);
 						executeCommand(my_command);
 					}
