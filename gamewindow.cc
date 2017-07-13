@@ -21,13 +21,12 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
     controller_ = c;
     model_ = m;
     model_->subscribe(this);
-    add(m_Box);
     m_refBuilder->get_widget("glade_window", glade_window);
     if (!glade_window) {
       std::cout << "this didn't work" << std::endl;
     }
     else {
-      m_Box.pack_start(*glade_window, Gtk::PACK_SHRINK);
+      this->pack_start(*glade_window, Gtk::PACK_SHRINK);
     }
     m_refBuilder->get_widget("end_game_btn", end_game_btn);
     m_refBuilder->get_widget("p1_RQ", p1_RQ);
