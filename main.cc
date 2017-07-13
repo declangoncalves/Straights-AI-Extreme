@@ -11,12 +11,14 @@
 #include <sstream>
 
 #include <gtkmm.h>
+#include <gtk/gtk.h>
 
 using namespace std;
 
 int main( int argc, char * argv[] ) {
 
-	  auto app = Gtk::Application::create(argc, argv);
+	auto app = Gtk::Application::create(argc, argv);
+  ExampleWindow window(app);
 
     std::istringstream seedstring(argv[1] == nullptr ?  "0" : argv[1]); //
     int seed;
@@ -39,6 +41,6 @@ int main( int argc, char * argv[] ) {
     Controller controller( &model ); // Create controller
     View view( &controller, &model, app ); // Create the view
 
-    return 0;
+    return app->run(window);
 
 } // main

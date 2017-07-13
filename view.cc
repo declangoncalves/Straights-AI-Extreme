@@ -25,7 +25,7 @@ View::View(Controller* c, Model* m, Glib::RefPtr<Gtk::Application>& app) {
 	//pWindow->show();
 
 	cout << "Got here3\n";
-	app->run(*pWindow);
+	//app->run(*pWindow);
 	
 	cout << "Got here4\n";
 	pWindow->show();

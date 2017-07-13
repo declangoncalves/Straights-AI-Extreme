@@ -29,9 +29,9 @@ class Model;
 class View : public Observer, public Gtk::Window {
   public:
 
-    View( Controller*, Model*, Glib::RefPtr<Gtk::Application>& );
-    ~View();
-    void update() override;
+	View( Controller*, Model*, Glib::RefPtr<Gtk::Application>& );
+	~View();
+	void update() override;
 
 	void roundStart();
 	void playerTurn();
