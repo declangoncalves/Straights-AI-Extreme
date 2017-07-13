@@ -11,9 +11,12 @@ class GameWindow : public Gtk::Window, public Observer
 public:
   GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c, Model* m);
   void updateTable();
+  void resetTable();
   void executeCommand(Command c);
   void updatePlayerHand();
   void update();
+  void roundEnd();
+  void playerTurn();
   ~GameWindow();
 
 private:

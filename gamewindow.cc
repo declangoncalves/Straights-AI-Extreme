@@ -38,6 +38,15 @@ void GameWindow::update() {
 	  }
 }
 
+void GameWindow::playerTurn() {
+  updateTable();
+  return;
+}
+
+void GameWindow::resetTable() {
+  return;
+}
+
 void GameWindow::executeCommand(Command c) {
   // If command is valid, send to controller_
 
