@@ -27,7 +27,7 @@ int main( int argc, char * argv[] ) {
       players.push_back(a);
   }
 
-  Model model(); // Create model
+  Model model; // Create model
   Controller controller( &model ); // Create controller
   //View view( &controller, &model); // Create the view
 

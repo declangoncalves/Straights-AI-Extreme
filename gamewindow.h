@@ -9,7 +9,7 @@
 class GameWindow : public Gtk::Window, public Observer
 {
 public:
-  GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c, Model* m);
+  GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c, Model*);
   void updateTable();
   void executeCommand(Command c);
   void updatePlayerHand();
