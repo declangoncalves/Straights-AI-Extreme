@@ -244,7 +244,7 @@ void GameWindow::playerTurn() {
   updateTable();
   updatePlayerHand();
   updateScores();
-  intTable = model_->intTable;
+  intTable_ = model_->getIntTable();
   return;
 }
 
@@ -275,21 +275,21 @@ void GameWindow::updatePlayerHand(){
 
 void GameWindow::updateScores() {
   // Iterate through and update labels for scores
-  p1_score->set_text("Score: " + model_->getPlayerScores[0]);
-  p2_score->set_text("Score: " + model_->getPlayerScores[1]);
-  p3_score->set_text("Score: " + model_->getPlayerScores[2]);
-  p4_score->set_text("Score: " + model_->getPlayerScores[3]);
-  p1_discards->set_text("Discards: " + model_->getPlayerDiscards[0]);
-  p2_discards->set_text("Discards: " + model_->getPlayerDiscards[1]);
-  p3_discards->set_text("Discards: " + model_->getPlayerDiscards[2]);
-  p4_discards->set_text("Discards: " + model_->getPlayerDiscards[3]);
+  p1_score->set_text("Score: " + model_->getPlayerScores()[0]);
+  p2_score->set_text("Score: " + model_->getPlayerScores()[1]);
+  p3_score->set_text("Score: " + model_->getPlayerScores()[2]);
+  p4_score->set_text("Score: " + model_->getPlayerScores()[3]);
+  p1_discards->set_text("Discards: " + model_->getPlayerDiscards()[0]);
+  p2_discards->set_text("Discards: " + model_->getPlayerDiscards()[1]);
+  p3_discards->set_text("Discards: " + model_->getPlayerDiscards()[2]);
+  p4_discards->set_text("Discards: " + model_->getPlayerDiscards()[3]);
   show_all_children();
 }
 
 void GameWindow::updateTable(){
   for (int i=0; i < 4; i++){
     for (int j=1; j < 14; j++){
-      if (intTable[i][j] - model_->intTable[i][j] != 0){
+      if (intTable_[i][j] - model_->getIntTable()[i][j] != 0){
         imgTable_[i][j-1]->set("./img/" + std::to_string(i) + "_" + std::to_string(j-1) + ".png");
         imgTable_[i][j-1]->show();
       }
