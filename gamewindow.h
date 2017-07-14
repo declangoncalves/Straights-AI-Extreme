@@ -26,6 +26,7 @@ private:
   void endGame();
   void rageQuit();
   void handView();
+  void setPlayer(int);
   void handClicked(int);
 
   //Child widgets:
