@@ -52,8 +52,7 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
     // refActionGroup->add_action("p4_type", sigc::mem_fun(*this, &GameWindow::setPlayer(3)) );
 
 
-    add(container);
-    container.add(*start_screen);
+    add(*start_screen);
     show_all_children();
 }
 
@@ -133,8 +132,8 @@ void GameWindow::startGame() {
   }
 
   //remove(*start_screen);
-  container.remove(*start_screen);
-  container.add(*glade_window);
+  remove(*start_screen);
+  add(*glade_window);
 
   std::cout << "In here!!!!\n";
 
