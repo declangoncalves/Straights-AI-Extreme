@@ -115,7 +115,7 @@ void GameWindow::handClicked(int i) {
 
 void GameWindow::startGame() {
   int seed = 0;
-  gchar* seed_str = gtk_entry_get_text(GTK_ENTRY(seed_input));
+  const gchar* seed_str = gtk_entry_get_text(GTK_ENTRY(seed_input));
   seed = atoi(seed_str);
 
   try
