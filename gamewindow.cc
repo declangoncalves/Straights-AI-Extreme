@@ -112,7 +112,7 @@ void GameWindow::handClicked(int i) {
   if (i >= model_->getCurrentPlayerHand().size()) {
     return;
   }
-  Card card = getCurrentPlayerHand()[i];
+  Card card = model_->getCurrentPlayerHand()[i];
   Command c;
   c.type = Command::Type::CLICK;
   c.card = card;

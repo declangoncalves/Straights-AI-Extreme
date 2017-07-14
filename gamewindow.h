@@ -46,8 +46,17 @@ private:
   Gtk::Button* p3_choice = nullptr;
   Gtk::Button* p4_choice = nullptr;
   Gtk::Entry* seed_input = nullptr;
+  Gtk::Label* p1_score = nullptr;
+  Gtk::Label* p2_score = nullptr;
+  Gtk::Label* p3_score = nullptr;
+  Gtk::Label* p4_score = nullptr;
+  Gtk::Label* p1_discards = nullptr;
+  Gtk::Label* p2_discards = nullptr;
+  Gtk::Label* p3_discards = nullptr;
+  Gtk::Label* p4_discards = nullptr;
   std::vector<Gtk::Button*> handButtons_;
   std::vector<std::vector<Gtk::Image*> > imgTable_;
+  std::vector<std::vector<int> > intTable_;
   Gtk::Box* start_screen = nullptr;
   Gtk::Box m_Box;
   Gtk::Box container;
