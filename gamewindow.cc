@@ -164,7 +164,7 @@ void GameWindow::startGame() {
   refBuilder->get_widget("hand_btn_12", handButtons_[11]);
   refBuilder->get_widget("hand_btn_13", handButtons_[12]);
 
-  std::vector<Card> hand = model_->getCurrentPlayer().getHand();
+  std::vector<Card> hand = model_->getCurrentPlayerHand();
 
   for (int i = 0; i < 13; i ++){
     int suit = hand[i].suit().suit();
@@ -258,7 +258,7 @@ void GameWindow::playerTurn() {
 }
 
 void GameWindow::updatePlayerHand(){
-    std::vector<Card> playerHand = model_->getPlayerHand();
+    std::vector<Card> playerHand = model_->getCurrentPlayerHand();
     int suit;
     int value;
     int i = 0;
@@ -295,7 +295,7 @@ void GameWindow::executeCommand(Command c) {
   // If commmand is invalid, update widgets and do nothing
   Command my_command;
 	std::vector<Card> legalPlays = model_->getLegalPlays();
-	std::vector<Card> playerHand = model_->getCurrentPlayer()->getHand();
+	std::vector<Card> playerHand = model_->getCurrentPlayerHand();
 
 	// First check if computer or human player
 	// if (model_->getCurrentPlayer()->getType() == 'c') {
