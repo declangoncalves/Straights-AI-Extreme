@@ -30,12 +30,16 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
     refBuilder->get_widget("p3_type", p3_choice);
     refBuilder->get_widget("p4_type", p4_choice);
 
+    p1_choice.signal_clicked().connect( sigc::bind<Glib::uint>( sigc::mem_fun(*this, &GameWindow::setPlayer), 0) );
+    p2_choice.signal_clicked().connect( sigc::bind<Glib::uint>( sigc::mem_fun(*this, &GameWindow::setPlayer), 1) );
+    p3_choice.signal_clicked().connect( sigc::bind<Glib::uint>( sigc::mem_fun(*this, &GameWindow::setPlayer), 2) );
+    p4_choice.signal_clicked().connect( sigc::bind<Glib::uint>( sigc::mem_fun(*this, &GameWindow::setPlayer), 3) );
 
-    start_game_btn->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::startGame));
-    p1_choice->signal_clicked().connect(sigc::mem_fun(*this, GameWindow::setPlayer, n)
-    p2_choice->signal_clicked().connect(sigc::mem_fun(*this, GameWindow::setPlayer);
-    p3_choice->signal_clicked().connect(sigc::mem_fun(*this, GameWindow::setPlayer(2)));
-    p4_choice->signal_clicked().connect(sigc::mem_fun(*this, GameWindow::setPlayer(3)));
+    //start_game_btn->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::startGame));
+    //p1_choice->signal_clicked().connect(sigc::mem_fun(*this, GameWindow::setPlayer, n)
+    //p2_choice->signal_clicked().connect(sigc::mem_fun(*this, GameWindow::setPlayer);
+    //p3_choice->signal_clicked().connect(sigc::mem_fun(*this, GameWindow::setPlayer(2)));
+    //p4_choice->signal_clicked().connect(sigc::mem_fun(*this, GameWindow::setPlayer(3)));
 
 
     // refActionGroup->add_action("start_game_btn", sigc::mem_fun(*this, &GameWindow::startGame) );
