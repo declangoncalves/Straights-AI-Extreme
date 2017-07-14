@@ -40,6 +40,7 @@ private:
   std::vector<Gtk::Button*> handButtons_;
   Gtk::Table* table_ = nullptr;
   Gtk::Box* start_screen = nullptr;
+  Gtk::Box m_Box;
 
   Glib::RefPtr<Gio::SimpleActionGroup> refActionGroup;
   Glib::RefPtr<Gio::SimpleAction> refActionRain;
