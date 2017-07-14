@@ -313,21 +313,17 @@ void GameWindow::updateTable(){
 }
 
 void GameWindow::roundEnd() {
-  try
-  {
-    refBuilder->add_from_file("dialog.glade");
-  }
-  catch(const Glib::Error& ex)
-  {
-    std::cerr << "ERROR ADDING FROM: dialog.glade" <<  ex.what();
-  }
+  string myResults = "works";
 
-  refBuilder->get_widget("dialog1", dialog_window);
-  if (!dialog_window) {
-    std::cout << "this didn't work" << std::endl;
-  }
+  Glib::ustring roundResults(myResults.c_str());
+  Gtk::MessageDialog myDialog(*this, roundResults);
+  myDialog.run();
 
-	*dialog_window.run();
+  Command c;
+  c.type = NEXT_ROUND;
+  controller_->executeCommand(c);
+  playerTurn();
+
   return;
 }
 
