@@ -314,7 +314,7 @@ void GameWindow::resetTable() {
       imgTable_[i][j]->show();
     }
   }
-  show_all_children()
+  show_all_children();
   return;
 }
 
