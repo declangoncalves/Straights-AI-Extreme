@@ -272,6 +272,7 @@ void GameWindow::updatePlayerHand(){
       handButtons_[i]->set_image(*image);
       image->show();
       i++;
+      cout << "this image worked" << i << endl;
     }
     cout << "setting images worked" << endl;
     for (i; i < 13; i++){
