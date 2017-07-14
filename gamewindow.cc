@@ -292,47 +292,47 @@ void GameWindow::resetTable() {
 void GameWindow::executeCommand(Command c) {
   // If command is valid, send to controller_
 
-  // If commmand is invalid, update widgets and do nothing
-  Command my_command;
-	std::vector<Card> legalPlays = model_->getLegalPlays();
-	std::vector<Card> playerHand = model_->getCurrentPlayerHand();
-
-	// First check if computer or human player
-	// if (model_->getCurrentPlayer()->getType() == 'c') {
-	// 	my_command = model_->getCurrentPlayer()->makeMove(legalPlays);
-	// }
-	else { // Human Player
-
-		bool validCommand = false;
-
-		while (!validCommand){
-			std::cout << ">";
-			std::cin >> my_command;
-
-			switch(my_command.type){
-				case Command::Type::PLAY:
-					if (std::find(legalPlays.begin(), legalPlays.end(), my_command.card) != legalPlays.end()){
-						controller_->executeCommand(my_command);
-					}
-					else {
-            // Update window widgets
-					}
-					break;
-				case Command::Type::DISCARD:
-					if (legalPlays.size() == 0) {
-					  controller_->executeCommand(my_command);
-					}
-					else {
-						// Update window widgets
-					}
-					break;
-				case Command::Type::QUIT:
-					exit(0);
-				case Command::Type::RAGEQUIT:
-					controller_->executeCommand(my_command);
-			}
-		}
-	}
+  // // If commmand is invalid, update widgets and do nothing
+  // Command my_command;
+	// std::vector<Card> legalPlays = model_->getLegalPlays();
+	// std::vector<Card> playerHand = model_->getCurrentPlayerHand();
+  //
+	// // First check if computer or human player
+	// // if (model_->getCurrentPlayer()->getType() == 'c') {
+	// // 	my_command = model_->getCurrentPlayer()->makeMove(legalPlays);
+	// // }
+	// // else { // Human Player
+  //
+	// 	bool validCommand = false;
+  //
+	// 	while (!validCommand){
+	// 		std::cout << ">";
+	// 		std::cin >> my_command;
+  //
+	// 		switch(my_command.type){
+	// 			case Command::Type::PLAY:
+	// 				if (std::find(legalPlays.begin(), legalPlays.end(), my_command.card) != legalPlays.end()){
+	// 					controller_->executeCommand(my_command);
+	// 				}
+	// 				else {
+  //           // Update window widgets
+	// 				}
+	// 				break;
+	// 			case Command::Type::DISCARD:
+	// 				if (legalPlays.size() == 0) {
+	// 				  controller_->executeCommand(my_command);
+	// 				}
+	// 				else {
+	// 					// Update window widgets
+	// 				}
+	// 				break;
+	// 			case Command::Type::QUIT:
+	// 				exit(0);
+	// 			case Command::Type::RAGEQUIT:
+	// 				controller_->executeCommand(my_command);
+	// 		}
+	// 	}
+	// // }
 }
 
 void GameWindow::updateTable() {
