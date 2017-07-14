@@ -173,17 +173,24 @@ void GameWindow::startGame() {
     // std::cout << "hello this is really not fine bruh" << std::endl;
   }
 
+  std::cout << "this worked 3" << std::endl;
 
   for (int i = 0; i < 4; i++) {
     for (int j = 0; j < 13; j++) {
       imgTable_[i].push_back(nullptr);
     }
   }
+
+  std::cout << "this worked 4" << std::endl;
+
   for (int i = 0; i < 4; i ++) {
     for (int j = 0; j < 13; j++) {
       refBuilder->get_widget("hand_btn" + i + j, imgTable_[i][j]);
     }
   }
+
+  std::cout << "this worked 5" << std::endl;
+
 
 
   // for (int i = 0; i < 13; i++) {
