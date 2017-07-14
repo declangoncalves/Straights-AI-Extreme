@@ -272,7 +272,7 @@ void GameWindow::updatePlayerHand(){
       Gtk::Image image("./img/nothing.png");
       handButtons_[i]->set_image(image);
     }
-    
+
     return;
 }
 
@@ -280,10 +280,6 @@ void GameWindow::updateScores() {
 
 }
 
-void GameWindow::updateTable() {
-
-
-}
 
 void GameWindow::roundEnd() {
   return;
