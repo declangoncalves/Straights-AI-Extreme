@@ -279,6 +279,7 @@ void GameWindow::updatePlayerHand(){
     for (i; i < 13; i++){
       Gtk::Image image("./img/nothing.png");
       handButtons_[i]->set_image(image);
+      image->show();
     }
     cout << "setting images for buttons to nothing worked" << endl;
     show_all_children();
