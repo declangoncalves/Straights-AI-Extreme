@@ -19,32 +19,34 @@ public:
   void roundEnd();
   void playerTurn();
   ~GameWindow();
-  Gtk::Window* glade_window = nullptr;
 
 private:
   //Signal handlers:
-//   void on_action_file_new();
-//   void on_action_file_quit();
-//   void on_action_others();
-//   void on_action_toggle();
+  void startGame();
+  void endGame();
+  void rageQuit();
+  void handClicked(int);
 
   //Child widgets:
-
+  Gtk::Box* glade_window = nullptr;
   Gtk::Button* start_game_btn = nullptr;
   Gtk::Button* end_game_btn = nullptr;
   Gtk::Button* p1_RQ = nullptr;
   Gtk::Button* p2_RQ = nullptr;
   Gtk::Button* p3_RQ = nullptr;
   Gtk::Button* p4_RQ = nullptr;
-  Gtk::Box m_Box;
-  Controller* controller_;
-  std::vector<Gtk::Button> handButtons_;
+  Gtk::Entry* seed_input = nullptr;
+  std::vector<Gtk::Button*> handButtons_;
   Gtk::Table table_;
 
+
+  Glib::RefPtr<Gio::SimpleActionGroup> refActionGroup;
+  Glib::RefPtr<Gio::SimpleAction> refActionRain;
+  Glib::RefPtr<Gtk::Builder> refBuilder;
+
+  //mvc
+  Controller* controller_;
   Model* model_;
-  Glib::RefPtr<Gtk::Builder> m_refBuilder;
-  //Glib::RefPtr<Gio::SimpleActionGroup> m_refActionGroup;
-  //Glib::RefPtr<Gio::SimpleAction> m_refActionRain;
 };
 
 #endif //GTKMM_GAMEWINDOW_H

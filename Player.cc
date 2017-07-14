@@ -3,7 +3,9 @@
 #include "Player.h"
 using namespace std;
 
-Player::Player(): type_{'c'} {}
+Player::Player(): type_{'c'} {
+
+}
 
 Player::Player(const Player &player) : hand_(player.hand_), discards_(player.discards_), roundscore_{player.roundscore_}, totalscore_{player.totalscore_}, type_{'c'} {}
 

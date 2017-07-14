@@ -7,29 +7,59 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
     // Prepare game window
     set_title("Straights EXTREME");
     set_default_size(600, 600);
-    m_refBuilder = Gtk::Builder::create();
+    refBuilder = Gtk::Builder::create();
+    refActionGroup = Gio::SimpleActionGroup::create();
     try
     {
-        m_refBuilder->add_from_file("glade_project.glade");
+      refBuilder->add_from_file("glade_project.glade");
     }
     catch(const Glib::Error& ex)
     {
-        std::cerr << "ERROR ADDING FROM: glade_project" <<  ex.what();
+      std::cerr << "ERROR ADDING FROM: glade_project" <<  ex.what();
     }
 
     // Prepare MVC
     controller_ = c;
     model_ = m;
     model_->subscribe(this);
-    m_refBuilder->get_widget("glade_window", glade_window);
+    refBuilder->get_widget("glade_window", glade_window);
     if (!glade_window) {
       std::cout << "this didn't work" << std::endl;
     }
-    m_refBuilder->get_widget("end_game_btn", end_game_btn);
-    m_refBuilder->get_widget("p1_RQ", p1_RQ);
-    m_refBuilder->get_widget("p1_RQ", p2_RQ);
-    m_refBuilder->get_widget("p1_RQ", p3_RQ);
-    m_refBuilder->get_widget("p1_RQ", p4_RQ);
+    refBuilder->get_widget("start_game_btn", start_game_btn);
+    refBuilder->get_widget("end_game_btn", end_game_btn);
+    refBuilder->get_widget("p1_RQ", p1_RQ);
+    refBuilder->get_widget("p2_RQ", p2_RQ);
+    refBuilder->get_widget("p3_RQ", p3_RQ);
+    refBuilder->get_widget("p4_RQ", p4_RQ);
+    for (int i = 0; i < 13; i++) {
+      Gtk::Button* handButton;
+      refBuilder->get_widget("hand_" + i, handButton);
+      handButtons_.push_back(handButton);
+    }
+    refBuilder->get_widget("seed_input", seed_input);
+    //action groups
+    refActionGroup->add_action("start_game_btn", sigc::mem_fun(*this, &GameWindow::startGame) );
+    refActionGroup->add_action("end_game_btn", sigc::mem_fun(*this, &GameWindow::endGame) );
+    refActionGroup->add_action("p1_RQ", sigc::mem_fun(*this, &GameWindow::rageQuit) );
+    refActionGroup->add_action("p2_RQ", sigc::mem_fun(*this, &GameWindow::rageQuit) );
+    refActionGroup->add_action("p3_RQ", sigc::mem_fun(*this, &GameWindow::rageQuit) );
+    refActionGroup->add_action("P4_RQ", sigc::mem_fun(*this, &GameWindow::rageQuit) );
+
+    handButtons_[0]->signal_clicked().connect(sigc::mem_fun(*this, &HandView::handClicked(0)));
+    handButtons_[1]->signal_clicked().connect(sigc::mem_fun(*this, &HandView::handClicked(1)));
+    handButtons_[2]->signal_clicked().connect(sigc::mem_fun(*this, &HandView::handClicked(2)));
+    handButtons_[3]->signal_clicked().connect(sigc::mem_fun(*this, &HandView::handClicked(3)));
+    handButtons_[4]->signal_clicked().connect(sigc::mem_fun(*this, &HandView::handClicked(4)));
+    handButtons_[5]->signal_clicked().connect(sigc::mem_fun(*this, &HandView::handClicked(5)));
+    handButtons_[6]->signal_clicked().connect(sigc::mem_fun(*this, &HandView::handClicked(6)));
+    handButtons_[7]->signal_clicked().connect(sigc::mem_fun(*this, &HandView::handClicked(7)));
+    handButtons_[8]->signal_clicked().connect(sigc::mem_fun(*this, &HandView::handClicked(8)));
+    handButtons_[9]->signal_clicked().connect(sigc::mem_fun(*this, &HandView::handClicked(9)));
+    handButtons_[10]->signal_clicked().connect(sigc::mem_fun(*this, &HandView::handClicked(10)));
+    handButtons_[11]->signal_clicked().connect(sigc::mem_fun(*this, &HandView::handClicked(11)));
+    handButtons_[12]->signal_clicked().connect(sigc::mem_fun(*this, &HandView::handClicked(12)));
+
 
     show_all_children();
 }
@@ -38,6 +68,17 @@ GameWindow::~GameWindow()
 {
   delete model_;
   delete controller_;
+
+}
+
+GameWindow::
+
+void GameWindow::updatePlayerHand() {
+
+}
+
+void GameWindow::startGame() {
+
 }
 
 void GameWindow::update() {
