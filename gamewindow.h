@@ -38,8 +38,8 @@ private:
   Gtk::Button* p4_RQ = nullptr;
   Gtk::Entry* seed_input = nullptr;
   std::vector<Gtk::Button*> handButtons_;
-  Gtk::Table table_;
-  Gtk::Box m_Box;
+  Gtk::Table* table_ = nullptr;
+  Gtk::Box* start_screen = nullptr;
 
   Glib::RefPtr<Gio::SimpleActionGroup> refActionGroup;
   Glib::RefPtr<Gio::SimpleAction> refActionRain;
