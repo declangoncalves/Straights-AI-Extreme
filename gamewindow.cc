@@ -146,9 +146,13 @@ void GameWindow::startGame() {
   refBuilder->get_widget("p3_RQ", p3_RQ);
   refBuilder->get_widget("p4_RQ", p4_RQ);
 
+  cout << "this worked after get widget" << endl;
+
   for (int i=0; i < 13; i++){
     handButtons_.push_back(nullptr);
   }
+
+  cout << "this worked after setting handbuttons to nullptr" << endl;
 
   refBuilder->get_widget("hand_btn_1", handButtons_[0]);
   refBuilder->get_widget("hand_btn_2", handButtons_[1]);
@@ -164,7 +168,7 @@ void GameWindow::startGame() {
   refBuilder->get_widget("hand_btn_12", handButtons_[11]);
   refBuilder->get_widget("hand_btn_13", handButtons_[12]);
 
-  cout << "this worked before getting image table" << end;;
+  cout << "this worked after setting handButtons[i]" << end;;
 
   for (int i = 0; i < 4; i++) {
     std::vector<Gtk::Image*> item;
