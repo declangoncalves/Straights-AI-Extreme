@@ -27,7 +27,7 @@ private:
   void updatePlayerHand();
   void playerTurn();
   void roundEnd();
-  void endGame();
+  void gameEnd();
   void rageQuit();
   void handView();
   void setPlayer(int);

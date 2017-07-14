@@ -188,7 +188,6 @@ void Model::endRound() {
     }
   }
   notify();
-  initializeRound();
 }
 
 Model::~Model() {}

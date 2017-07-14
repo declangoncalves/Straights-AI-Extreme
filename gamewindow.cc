@@ -235,7 +235,7 @@ void GameWindow::startGame() {
   return;
 }
 
-void GameWindow::endGame() {
+void GameWindow::gameEnd() {
   return;
 }
 
