@@ -136,11 +136,11 @@ void GameWindow::startGame() {
   // }
   refBuilder->get_widget("seed_input", seed_input);
   //action groups
-  refActionGroup->add_action("end_game_btn", sigc::mem_fun(*this, &GameWindow::endGame) );
-  refActionGroup->add_action("p1_RQ", sigc::mem_fun(*this, &GameWindow::rageQuit) );
-  refActionGroup->add_action("p2_RQ", sigc::mem_fun(*this, &GameWindow::rageQuit) );
-  refActionGroup->add_action("p3_RQ", sigc::mem_fun(*this, &GameWindow::rageQuit) );
-  refActionGroup->add_action("P4_RQ", sigc::mem_fun(*this, &GameWindow::rageQuit) );
+  //refActionGroup->add_action("end_game_btn", sigc::mem_fun(*this, &GameWindow::endGame) );
+  //refActionGroup->add_action("p1_RQ", sigc::mem_fun(*this, &GameWindow::rageQuit) );
+  //refActionGroup->add_action("p2_RQ", sigc::mem_fun(*this, &GameWindow::rageQuit) );
+  //refActionGroup->add_action("p3_RQ", sigc::mem_fun(*this, &GameWindow::rageQuit) );
+  //refActionGroup->add_action("P4_RQ", sigc::mem_fun(*this, &GameWindow::rageQuit) );
 
   // add(*glade_window);
 
