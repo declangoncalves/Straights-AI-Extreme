@@ -118,7 +118,7 @@ void GameWindow::startGame() {
   seed = std::stoi(seed_str);
   std::cout << "this worked with seed: " << seed <<  std::endl;
 
-  controller_->startGame(seed, chocies_);
+  controller_->startGame(seed, choices_);
   try
   {
     refBuilder->add_from_file("glade_project.glade");
