@@ -25,39 +25,39 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
 
     add(*start_screen);
 
-    try
-    {
-      refBuilder->add_from_file("glade_project.glade");
-    }
-    catch(const Glib::Error& ex)
-    {
-      std::cerr << "ERROR ADDING FROM: glade_project" <<  ex.what();
-    }
-
-
-    refBuilder->get_widget("glade_window", glade_window);
-    if (!glade_window) {
-      std::cout << "this didn't work" << std::endl;
-    }
-    refBuilder->get_widget("start_game_btn", start_game_btn);
-    refBuilder->get_widget("end_game_btn", end_game_btn);
-    refBuilder->get_widget("p1_RQ", p1_RQ);
-    refBuilder->get_widget("p2_RQ", p2_RQ);
-    refBuilder->get_widget("p3_RQ", p3_RQ);
-    refBuilder->get_widget("p4_RQ", p4_RQ);
-    // for (int i = 0; i < 13; i++) {
-    //   Gtk::Button* handButton;
-    //   refBuilder->get_widget("hand_" + i, handButton);
-    //   handButtons_.push_back(handButton);
+    // try
+    // {
+    //   refBuilder->add_from_file("glade_project.glade");
     // }
-    refBuilder->get_widget("seed_input", seed_input);
-    //action groups
-    refActionGroup->add_action("start_game_btn", sigc::mem_fun(*this, &GameWindow::startGame) );
-    refActionGroup->add_action("end_game_btn", sigc::mem_fun(*this, &GameWindow::endGame) );
-    refActionGroup->add_action("p1_RQ", sigc::mem_fun(*this, &GameWindow::rageQuit) );
-    refActionGroup->add_action("p2_RQ", sigc::mem_fun(*this, &GameWindow::rageQuit) );
-    refActionGroup->add_action("p3_RQ", sigc::mem_fun(*this, &GameWindow::rageQuit) );
-    refActionGroup->add_action("P4_RQ", sigc::mem_fun(*this, &GameWindow::rageQuit) );
+    // catch(const Glib::Error& ex)
+    // {
+    //   std::cerr << "ERROR ADDING FROM: glade_project" <<  ex.what();
+    // }
+
+
+    // refBuilder->get_widget("glade_window", glade_window);
+    // if (!glade_window) {
+    //   std::cout << "this didn't work" << std::endl;
+    // }
+    // refBuilder->get_widget("start_game_btn", start_game_btn);
+    // refBuilder->get_widget("end_game_btn", end_game_btn);
+    // refBuilder->get_widget("p1_RQ", p1_RQ);
+    // refBuilder->get_widget("p2_RQ", p2_RQ);
+    // refBuilder->get_widget("p3_RQ", p3_RQ);
+    // refBuilder->get_widget("p4_RQ", p4_RQ);
+    // // for (int i = 0; i < 13; i++) {
+    // //   Gtk::Button* handButton;
+    // //   refBuilder->get_widget("hand_" + i, handButton);
+    // //   handButtons_.push_back(handButton);
+    // // }
+    // refBuilder->get_widget("seed_input", seed_input);
+    // //action groups
+    // refActionGroup->add_action("start_game_btn", sigc::mem_fun(*this, &GameWindow::startGame) );
+    // refActionGroup->add_action("end_game_btn", sigc::mem_fun(*this, &GameWindow::endGame) );
+    // refActionGroup->add_action("p1_RQ", sigc::mem_fun(*this, &GameWindow::rageQuit) );
+    // refActionGroup->add_action("p2_RQ", sigc::mem_fun(*this, &GameWindow::rageQuit) );
+    // refActionGroup->add_action("p3_RQ", sigc::mem_fun(*this, &GameWindow::rageQuit) );
+    // refActionGroup->add_action("P4_RQ", sigc::mem_fun(*this, &GameWindow::rageQuit) );
 
     // add(*glade_window);
 
