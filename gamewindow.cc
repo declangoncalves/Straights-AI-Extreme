@@ -132,7 +132,7 @@ void GameWindow::startGame() {
   }
 
   //remove(*start_screen);
-  remove(*start_screen);
+  remove(start_screen);
   add(*glade_window);
 
   std::cout << "In here!!!!\n";
