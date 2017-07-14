@@ -18,8 +18,11 @@ void Model::startGame(int seed, std::vector<char> players) {
       players_.push_back(a);
     }
   }
+  cout << "this part worked" << endl;
   deck_ = Deck(seed);
+  cout << "building a deck worked" << endl;
   initializeRound();
+  cout << "initializing round worked" << endl;
 }
 
 const std::vector<std::vector<Card> > Model::getCardTable() {
