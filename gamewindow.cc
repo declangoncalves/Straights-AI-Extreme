@@ -310,6 +310,8 @@ void GameWindow::updateTable(){
 
 void GameWindow::roundEnd() {
   resetTable();
+  updatePlayerHand();
+  controller_->newRound();
 }
 
 void GameWindow::resetTable() {
