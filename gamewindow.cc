@@ -163,7 +163,7 @@ void GameWindow::startGame() {
 
   for (auto button : handButtons_){
     Gtk::Image image("./img/nothing.png");
-    button.set_image(image);
+    button->set_image(image);
     // std::cout << "hello this is fine bruh" << std::endl;
     // GtkWidget *image = gtk_image_new_from_file("./img/nothing.png");
     // std::cout << "hello this is not fine bruh" << std::endl;
