@@ -241,9 +241,11 @@ void GameWindow::gameEnd() {
 
 void GameWindow::update() {
 		if (model_->getGameState() == 1){ // Round Finished
+      cout << "roundEnd() is being called" << endl;
 			roundEnd();
 		}
     if (model_->getGameState() == 2){
+      cout << "gameEnd() is being called" << endl;
       gameEnd();
     }
 		else { // Round not finished
