@@ -3,14 +3,10 @@
   <requires lib="gtk+" version="2.16"/>
   <!-- interface-naming-policy project-wide -->
   <!-- interface-local-resource-path C:\Users\Declan\OneDrive\Documents\Assignments\CS -->
-<<<<<<< HEAD
   <object class="GtkBox" id="glade_window">
-=======
-  <object class="GtkWindow" id="glade_window">
     <property name="width_request">800</property>
     <property name="height_request">500</property>
     <property name="resizable">False</property>
->>>>>>> afc2f6b4512c96be5f8b32e32fae6708c2ae3121
     <child>
       <object class="GtkFixed" id="fixed1">
         <property name="visible">True</property>
