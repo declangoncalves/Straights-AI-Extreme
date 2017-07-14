@@ -241,10 +241,6 @@ void GameWindow::endGame() {
   return;
 }
 
-void GameWindow::updatePlayerHand() {
-  return;
-}
-
 void GameWindow::update() {
 		if (model_->getGameState() != 0){ // Round Finished
 			roundEnd();
