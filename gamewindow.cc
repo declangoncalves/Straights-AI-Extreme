@@ -112,7 +112,7 @@ void GameWindow::handClicked(int i) {
   return;
 }
 
-void GameWindow::startGame() {
+void GameWindow::startGame(int i) {
   int seed = 0;
 
   try
