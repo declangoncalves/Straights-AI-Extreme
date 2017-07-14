@@ -107,7 +107,7 @@ void Model::incrementPlayerTurn() {
     playerturn_++;
     if (playerturn_ > max_index) playerturn_ = 0;
   }
-  // notify();
+  notify();
   return;
 }
 
