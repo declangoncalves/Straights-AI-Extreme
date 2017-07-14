@@ -68,17 +68,22 @@ GameWindow::~GameWindow()
 {
   delete model_;
   delete controller_;
-
 }
 
-GameWindow::
-
-void GameWindow::updatePlayerHand() {
-
+void GameWindow::handClicked(int i) {
+  return;
 }
 
 void GameWindow::startGame() {
+  return;
+}
 
+void GameWindow::endGame() {
+  return;
+}
+
+void GameWindow::updatePlayerHand() {
+  return;
 }
 
 void GameWindow::update() {
@@ -150,6 +155,10 @@ void GameWindow::executeCommand(Command c) {
 }
 
 void GameWindow::updateTable() {
+  return;
+}
+
+void GameWindow::rageQuit() {
   return;
 }
 
