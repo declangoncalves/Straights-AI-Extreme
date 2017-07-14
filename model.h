@@ -15,7 +15,7 @@ class Model : public Subject {
   void playCard(Card);
   void discardCard(Card);
   void rageQuit();
-  const Player* getCurrentPlayer();
+  Player* getCurrentPlayer();
   std::vector<int> getPlayerScores();
   std::vector<int> getPlayerDiscards();
   const int getCurrentPlayerIndex();
