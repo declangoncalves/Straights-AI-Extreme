@@ -29,6 +29,7 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
     refBuilder->get_widget("p2_type", p2_choice);
     refBuilder->get_widget("p3_type", p3_choice);
     refBuilder->get_widget("p4_type", p4_choice);
+    refBuilder->get_widget("seed_input", seed_input);
 
     p1_choice->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::setPlayer), 0) );
     p2_choice->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::setPlayer), 1) );
@@ -110,6 +111,8 @@ void GameWindow::handClicked(int i) {
 }
 
 void GameWindow::startGame() {
+  int seed = 0;
+
   try
   {
     refBuilder->add_from_file("glade_project.glade");
@@ -134,7 +137,6 @@ void GameWindow::startGame() {
   //   refBuilder->get_widget("hand_" + i, handButton);
   //   handButtons_.push_back(handButton);
   // }
-  refBuilder->get_widget("seed_input", seed_input);
   //action groups
   //refActionGroup->add_action("end_game_btn", sigc::mem_fun(*this, &GameWindow::endGame) );
   //refActionGroup->add_action("p1_RQ", sigc::mem_fun(*this, &GameWindow::rageQuit) );
