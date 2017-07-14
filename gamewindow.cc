@@ -310,10 +310,11 @@ void GameWindow::roundEnd() {
 void GameWindow::resetTable() {
   for (int i = 0; i < 4; i ++) {
     for (int j = 0; j < 13; j++) {
-      refBuilder->get_widget("image_" + std::to_string(i) + std::to_string(j), imgTable_[i][j]);
       imgTable_[i][j]->set("./img/nothing.png");
+      imgTable_[i][j].show();
     }
   }
+  show_all_children()
   return;
 }
 
