@@ -44,6 +44,7 @@ private:
   Gtk::Button* p4_choice = nullptr;
   Gtk::Entry* seed_input = nullptr;
   std::vector<Gtk::Button*> handButtons_;
+  std::vector<Card> hand_;
   std::vector<std::vector<Gtk::Image*> > imgTable_;
   std::vector<std::vector<int> > intTable_;
   Gtk::Box* start_screen = nullptr;

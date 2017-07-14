@@ -192,7 +192,11 @@ void GameWindow::startGame() {
     }
   }
 
+  
+
   std::cout << "this worked 5" << std::endl;
+
+
 
 
 
