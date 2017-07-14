@@ -217,6 +217,14 @@ void GameWindow::startGame() {
       imgTable_[i][j]->set("./img/nothing.png");
     }
   }
+
+  for (int i = 0; i < 4; i++) {
+    std::vector<int> ints;
+    intTable_.push_back(ints);
+    for (int j = 0; j < 15; j++) {
+      intsTable[i].push_back(0);
+    }
+  }
   cout << " this worked after setting to nothing" << endl;
 
   controller_->startGame(seed, choices_);
