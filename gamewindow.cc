@@ -31,6 +31,25 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
     refBuilder->get_widget("p4_type", p4_choice);
     refBuilder->get_widget("seed_input", seed_input);
 
+    refBuilder->get_widget("hand_btn_1", handButtons_[0]);
+    refBuilder->get_widget("hand_btn_2", handButtons_[1]);
+    refBuilder->get_widget("hand_btn_3", handButtons_[2]);
+    refBuilder->get_widget("hand_btn_4", handButtons_[3]);
+    refBuilder->get_widget("hand_btn_5", handButtons_[4]);
+    refBuilder->get_widget("hand_btn_6", handButtons_[5]);
+    refBuilder->get_widget("hand_btn_7", handButtons_[6]);
+    refBuilder->get_widget("hand_btn_8", handButtons_[7]);
+    refBuilder->get_widget("hand_btn_9", handButtons_[8]);
+    refBuilder->get_widget("hand_btn_10", handButtons_[9]);
+    refBuilder->get_widget("hand_btn_11", handButtons_[10]);
+    refBuilder->get_widget("hand_btn_12", handButtons_[11]);
+    refBuilder->get_widget("hand_btn_13", handButtons_[12]);
+
+    for (auto button : handButtons_){
+      Gtk::Widget* image = gtk_button_get_image(button);
+      gtk_image_set_from_file(image, "./img/nothing.png");
+      gtk_button_set_image(button, image);
+    }
 
     start_game_btn->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::startGame));
     p1_choice->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::setPlayer), 0) );
@@ -136,8 +155,6 @@ void GameWindow::startGame() {
   //remove(*start_screen);
   container.remove(*start_screen);
   container.add(*glade_window);
-
-  std::cout << "In here!!!!\n";
 
   refBuilder->get_widget("end_game_btn", end_game_btn);
   refBuilder->get_widget("p1_RQ", p1_RQ);
