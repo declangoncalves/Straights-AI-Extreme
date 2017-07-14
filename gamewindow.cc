@@ -31,7 +31,7 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
     refBuilder->get_widget("p4_type", p4_choice);
 
 
-    start_game_btn->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::startGame(0)));
+    start_game_btn->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::startGame));
     p1_choice->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::setPlayer(0)));
     p2_choice->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::setPlayer(1)));
     p3_choice->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::setPlayer(2)));
