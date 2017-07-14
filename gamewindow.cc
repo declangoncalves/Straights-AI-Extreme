@@ -176,6 +176,8 @@ void GameWindow::startGame() {
   std::cout << "this worked 3" << std::endl;
 
   for (int i = 0; i < 4; i++) {
+    std::vector<Gtk::Image*> item;
+    imgTable.push_back(item);
     for (int j = 0; j < 13; j++) {
       imgTable_[i].push_back(nullptr);
     }
