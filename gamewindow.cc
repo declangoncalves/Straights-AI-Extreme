@@ -211,12 +211,7 @@ void GameWindow::startGame() {
     }
   }
 
-  for (int i = 0; i < 4; i ++) {
-    for (int j = 0; j < 13; j++) {
-      refBuilder->get_widget("image_" + std::to_string(i) + std::to_string(j), imgTable_[i][j]);
-      imgTable_[i][j]->set("./img/nothing.png");
-    }
-  }
+  resetTable();
 
   for (int i = 0; i < 4; i++) {
     std::vector<int> ints;
@@ -266,10 +261,8 @@ void GameWindow::updatePlayerHand(){
     cout << "before setting images" << endl;
     for (auto card : playerHand){
       Gtk::Image* image = new Gtk::Image("./img/" + std::to_string(card.suit().suit()) + "_" + std::to_string(card.rank().rank()) + ".png");
-      cout << "./img/" << card.suit().suit() << "_" << card.rank().rank() << ".png" << endl;
       handButtons_[i]->set_image(*image);
       image->show();
-      cout << handButtons_[i]->get_image() << endl;
       i++;
     }
     cout << "setting images worked" << endl;
@@ -310,10 +303,17 @@ void GameWindow::updateTable(){
 }
 
 void GameWindow::roundEnd() {
-  return;
+  resetTable();
+  controller_->newRound();
 }
 
 void GameWindow::resetTable() {
+  for (int i = 0; i < 4; i ++) {
+    for (int j = 0; j < 13; j++) {
+      refBuilder->get_widget("image_" + std::to_string(i) + std::to_string(j), imgTable_[i][j]);
+      imgTable_[i][j]->set("./img/nothing.png");
+    }
+  }
   return;
 }
 
