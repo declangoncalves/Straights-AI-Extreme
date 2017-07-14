@@ -129,9 +129,10 @@ void GameWindow::startGame() {
     std::cout << "this didn't work" << std::endl;
   }
 
-  //remove(*start_screen);
-  gtk_container_remove(*start_screen);
+  remove(*start_screen);
   add(*glade_window);
+
+  cout << "In here!!!!\n";
 
   refBuilder->get_widget("end_game_btn", end_game_btn);
   refBuilder->get_widget("p1_RQ", p1_RQ);
