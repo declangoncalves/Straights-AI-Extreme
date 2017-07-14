@@ -43,7 +43,7 @@ std::vector<int> Model::getPlayerScores() {
 
 std::vector<int> Model::getPlayerDiscards() {
   std::vector<int> discards;
-  cout << "discards size is: " << discards.size(); << endl
+  cout << "discards size is: " << discards.size(); << endl;
   for (auto player : players_) {
     cout << "each player's discard size is : " << player->getDiscards().size() << endl;
     discards.push_back(player->getDiscards().size());
