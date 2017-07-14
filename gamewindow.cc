@@ -46,19 +46,19 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
     refActionGroup->add_action("p3_RQ", sigc::mem_fun(*this, &GameWindow::rageQuit) );
     refActionGroup->add_action("P4_RQ", sigc::mem_fun(*this, &GameWindow::rageQuit) );
 
-    handButtons_[0]->signal_clicked().connect(sigc::mem_fun(*this, &HandView::handClicked(0)));
-    handButtons_[1]->signal_clicked().connect(sigc::mem_fun(*this, &HandView::handClicked(1)));
-    handButtons_[2]->signal_clicked().connect(sigc::mem_fun(*this, &HandView::handClicked(2)));
-    handButtons_[3]->signal_clicked().connect(sigc::mem_fun(*this, &HandView::handClicked(3)));
-    handButtons_[4]->signal_clicked().connect(sigc::mem_fun(*this, &HandView::handClicked(4)));
-    handButtons_[5]->signal_clicked().connect(sigc::mem_fun(*this, &HandView::handClicked(5)));
-    handButtons_[6]->signal_clicked().connect(sigc::mem_fun(*this, &HandView::handClicked(6)));
-    handButtons_[7]->signal_clicked().connect(sigc::mem_fun(*this, &HandView::handClicked(7)));
-    handButtons_[8]->signal_clicked().connect(sigc::mem_fun(*this, &HandView::handClicked(8)));
-    handButtons_[9]->signal_clicked().connect(sigc::mem_fun(*this, &HandView::handClicked(9)));
-    handButtons_[10]->signal_clicked().connect(sigc::mem_fun(*this, &HandView::handClicked(10)));
-    handButtons_[11]->signal_clicked().connect(sigc::mem_fun(*this, &HandView::handClicked(11)));
-    handButtons_[12]->signal_clicked().connect(sigc::mem_fun(*this, &HandView::handClicked(12)));
+    handButtons_[0]->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::handClicked(0)));
+    handButtons_[1]->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::handClicked(1)));
+    handButtons_[2]->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::handClicked(2)));
+    handButtons_[3]->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::handClicked(3)));
+    handButtons_[4]->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::handClicked(4)));
+    handButtons_[5]->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::handClicked(5)));
+    handButtons_[6]->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::handClicked(6)));
+    handButtons_[7]->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::handClicked(7)));
+    handButtons_[8]->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::handClicked(8)));
+    handButtons_[9]->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::handClicked(9)));
+    handButtons_[10]->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::handClicked(10)));
+    handButtons_[11]->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::handClicked(11)));
+    handButtons_[12]->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::handClicked(12)));
 
 
     show_all_children();
