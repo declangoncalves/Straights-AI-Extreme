@@ -165,7 +165,7 @@ void GameWindow::startGame() {
     std::cout << "hello this is fine bruh" << std::endl;
     GtkWidget *image = gtk_image_new_from_file("./img/nothing.png");
     std::cout << "hello this is not fine bruh" << std::endl;
-    gtk_button_set_image(GTK_BUTTON (button), *image);
+    gtk_button_set_image(button, image);
     std::cout << "hello this is really not fine bruh" << std::endl;
   }
 
