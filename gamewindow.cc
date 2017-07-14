@@ -15,15 +15,16 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
 
     refBuilder = Gtk::Builder::create();
     refActionGroup = Gio::SimpleActionGroup::create();
-    // try {
-    //   refBuilder->add_from_file("start_screen.glade");
-    // }
-    // catch(const Glib::Error& ex)
-    // {
-    //   std::cerr << "ERROR ADDING FROM: glade_project" <<  ex.what();
-    // }
+    try {
+      refBuilder->add_from_file("start_screen.glade");
+    }
+    catch(const Glib::Error& ex)
+    {
+      std::cerr << "ERROR ADDING FROM: glade_project" <<  ex.what();
+    }
 
-    // add(*start_screen);
+    refBuilder->get_widget("window1", start_screen);
+    add(*start_screen);
 
     try
     {
