@@ -176,7 +176,7 @@ void GameWindow::startGame() {
 
   for (int i = 0; i < 4; i++) {
     for (int j = 0; j < 13; j++) {
-      table_.push_back(nullptr);
+      imgTable_.push_back(nullptr);
     }
   }
   for (int i = 0; i < 4; i ++) {
