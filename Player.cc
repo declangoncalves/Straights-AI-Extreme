@@ -3,27 +3,25 @@
 #include "Player.h"
 using namespace std;
 
-Player::Player(): type_{'c'} {
-
-}
+Player::Player(): type_{'c'} {}
 
 Player::Player(const Player &player) : hand_(player.hand_), discards_(player.discards_), roundscore_{player.roundscore_}, totalscore_{player.totalscore_}, type_{'c'} {}
 
-std::vector<Card> Player::getHand() { // Returns the hand vector
+const std::vector<Card> Player::getHand() { // Returns the hand vector
 	return hand_;
 }
 
 Command Player::makeMove(std::vector<Card> legalPlays) {}
 
-std::vector<Card> Player::getDiscards() { // Returns the discard vector
+const std::vector<Card> Player::getDiscards() { // Returns the discard vector
 	return discards_;
 }
 
-char Player::getType() {
+const char Player::getType() {
 	return type_;
 }
 
-int Player::getRoundScore() { // Returns player score
+const int Player::getRoundScore() { // Returns player score
 	return roundscore_;
 }
 
@@ -31,7 +29,7 @@ void Player::rageQuit() {
 	return;
 }
 
-int Player::getTotalScore() { // Returns player score
+const int Player::getTotalScore() { // Returns player score
 	return totalscore_;
 }
 
