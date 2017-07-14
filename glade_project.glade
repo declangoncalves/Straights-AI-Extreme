@@ -655,6 +655,7 @@
                 <child>
                   <object class="GtkLabel" id="p1_score">
                     <property name="visible">True</property>
+                    <property name="ypad">2</property>
                     <property name="label" translatable="yes">Score: 0</property>
                   </object>
                   <packing>
@@ -701,7 +702,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="label5">
+                  <object class="GtkLabel" id="p2_score">
                     <property name="visible">True</property>
                     <property name="label" translatable="yes">Score: 0</property>
                   </object>
@@ -710,7 +711,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="label8">
+                  <object class="GtkLabel" id="p2_discards">
                     <property name="visible">True</property>
                     <property name="label" translatable="yes">Discards: 0</property>
                   </object>
@@ -748,7 +749,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="label6">
+                  <object class="GtkLabel" id="p3_score">
                     <property name="visible">True</property>
                     <property name="label" translatable="yes">Score: 0</property>
                   </object>
@@ -757,7 +758,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="label9">
+                  <object class="GtkLabel" id="p3_discards">
                     <property name="visible">True</property>
                     <property name="label" translatable="yes">Discards: 0</property>
                   </object>
@@ -795,7 +796,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="label7">
+                  <object class="GtkLabel" id="p4_score">
                     <property name="visible">True</property>
                     <property name="label" translatable="yes">Score: 0</property>
                   </object>
@@ -804,7 +805,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="label10">
+                  <object class="GtkLabel" id="p4_discards">
                     <property name="visible">True</property>
                     <property name="label" translatable="yes">Discards: 0</property>
                   </object>
