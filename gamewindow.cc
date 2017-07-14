@@ -313,6 +313,8 @@ void GameWindow::updateTable(){
 }
 
 void GameWindow::roundEnd() {
+
+  cout << "roundEnd() is being called" << endl;
   string myResults = "works";
 
   Glib::ustring roundResults(myResults.c_str());
