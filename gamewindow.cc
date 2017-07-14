@@ -180,6 +180,8 @@ void GameWindow::startGame() {
     // std::cout << "hello this is really not fine bruh" << std::endl;
   }
 
+  cout << "this worked after setting images" << endl;
+
   for (int i = 0; i < 4; i++) {
     std::vector<Gtk::Image*> item;
     imgTable_.push_back(item);
