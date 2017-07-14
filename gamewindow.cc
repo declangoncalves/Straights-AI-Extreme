@@ -50,6 +50,7 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
 
 
     add(*start_screen);
+    show_all_children();
 }
 
 void GameWindow::setPlayer(int i) {
