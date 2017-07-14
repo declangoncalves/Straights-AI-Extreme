@@ -118,7 +118,7 @@ void GameWindow::startGame() {
   seed = std::stoi(seed_str);
   std::cout << "this worked with seed: " << seed <<  std::endl;
 
-  controller_->startGame(seed, players_);
+  controller_->startGame(seed, chocies_);
   try
   {
     refBuilder->add_from_file("glade_project.glade");
@@ -179,11 +179,6 @@ void GameWindow::startGame() {
     Gtk::Image image("./img/" + to_string(suit) + "_" + to_string(rank) + ".png");
 
     handButtons_[i]->set_image(image);
-    // std::cout << "hello this is fine bruh" << std::endl;
-    // GtkWidget *image = gtk_image_new_from_file("./img/nothing.png");
-    // std::cout << "hello this is not fine bruh" << std::endl;
-    // gtk_button_set_image(button, image);
-    // std::cout << "hello this is really not fine bruh" << std::endl;
   }
 
   cout << "this worked after setting images" << endl;
@@ -204,39 +199,6 @@ void GameWindow::startGame() {
   }
 
   std::cout << "this worked 5" << std::endl;
-
-
-
-
-
-  // for (int i = 0; i < 13; i++) {
-  //   Gtk::Button* handButton;
-  //   refBuilder->get_widget("hand_" + i, handButton);
-  //   handButtons_.push_back(handButton);
-  // }
-  //action groups
-  //refActionGroup->add_action("end_game_btn", sigc::mem_fun(*this, &GameWindow::endGame) );
-  //refActionGroup->add_action("p1_RQ", sigc::mem_fun(*this, &GameWindow::rageQuit) );
-  //refActionGroup->add_action("p2_RQ", sigc::mem_fun(*this, &GameWindow::rageQuit) );
-  //refActionGroup->add_action("p3_RQ", sigc::mem_fun(*this, &GameWindow::rageQuit) );
-  //refActionGroup->add_action("P4_RQ", sigc::mem_fun(*this, &GameWindow::rageQuit) );
-
-  // add(*glade_window);
-
-  // handButtons_[0]->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::handClicked(0)));
-  // handButtons_[1]->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::handClicked(1)));
-  // handButtons_[2]->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::handClicked(2)));
-  // handButtons_[3]->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::handClicked(3)));
-  // handButtons_[4]->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::handClicked(4)));
-  // handButtons_[5]->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::handClicked(5)));
-  // handButtons_[6]->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::handClicked(6)));
-  // handButtons_[7]->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::handClicked(7)));
-  // handButtons_[8]->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::handClicked(8)));
-  // handButtons_[9]->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::handClicked(9)));
-  // handButtons_[10]->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::handClicked(10)));
-  // handButtons_[11]->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::handClicked(11)));
-  // handButtons_[12]->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::handClicked(12)));
-
 
   show_all_children();
   return;
