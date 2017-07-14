@@ -225,6 +225,7 @@ void GameWindow::updatePlayerHand(){
       Gtk::Image image("./img/" + std::to_string(card.suit().suit()) + "_" + std::to_string(card.rank().rank()) + ".png");
       cout << "./img/" << card.suit().suit() << "_" << card.rank().rank() << ".png" << endl;
       handButtons_[i]->set_image(image);
+      image.show();
       cout << handButtons_[i]->get_image() << endl;
       i++;
     }
