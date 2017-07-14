@@ -51,8 +51,8 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
     // refActionGroup->add_action("p3_type", sigc::mem_fun(*this, &GameWindow::setPlayer(2)) );
     // refActionGroup->add_action("p4_type", sigc::mem_fun(*this, &GameWindow::setPlayer(3)) );
 
-
-    add(*start_screen);
+    add(container);
+    container.add(*start_screen);
     show_all_children();
 }
 
@@ -113,8 +113,10 @@ void GameWindow::handClicked(int i) {
 }
 
 void GameWindow::startGame() {
-  int seed = 0;
-
+  // int seed = 0;
+  // const gchar* seed_str = gtk_entry_get_text(GTK_ENTRY(seed_input));
+  // seed = atoi(seed_str);
+  std::cout << "this worked" << std::endl;
   try
   {
     refBuilder->add_from_file("glade_project.glade");
@@ -124,13 +126,16 @@ void GameWindow::startGame() {
     std::cerr << "ERROR ADDING FROM: glade_project" <<  ex.what();
   }
 
+  std::cout << "this worked 2" << std::endl;
+
   refBuilder->get_widget("glade_window", glade_window);
   if (!glade_window) {
     std::cout << "this didn't work" << std::endl;
   }
 
   //remove(*start_screen);
-  add(*glade_window);
+  container.remove(*start_screen);
+  container.add(*glade_window);
 
   std::cout << "In here!!!!\n";
 

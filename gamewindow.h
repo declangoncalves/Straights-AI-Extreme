@@ -6,6 +6,7 @@
 #include "model.h"
 #include "controller.h"
 #include <vector>
+#include <string>
 
 class GameWindow : public Gtk::Window, public Observer
 {
@@ -46,6 +47,7 @@ private:
   Gtk::Table* table_ = nullptr;
   Gtk::Box* start_screen = nullptr;
   Gtk::Box m_Box;
+  Gtk::Box container;
 
   Glib::RefPtr<Gio::SimpleActionGroup> refActionGroup;
   Glib::RefPtr<Gio::SimpleAction> refActionRain;
