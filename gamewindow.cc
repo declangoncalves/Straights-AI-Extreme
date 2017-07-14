@@ -165,11 +165,16 @@ void GameWindow::startGame() {
   refBuilder->get_widget("hand_btn_13", handButtons_[12]);
 
   std::vector<Card> hand = model_->getCurrentPlayerHand();
+  for (auto card : hand) {
+    cout << card << " ";
+    cout << endl;
+  }
 
   for (int i = 0; i < 13; i ++){
     int suit = hand[i].suit().suit();
     int rank = hand[i].rank().rank();
-
+    cout << suit << endl;
+    cout << rank << endl;
     Gtk::Image image("./img/" + to_string(suit) + "_" + to_string(rank) + ".png");
 
     handButtons_[i]->set_image(image);
