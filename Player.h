@@ -19,8 +19,8 @@ protected:
 		Player(const Player &player);
 		char getType(); // Returns the type of player: 'h' - human | 'c' - computer
 
-		std::vector<Card> getHand(); // Returns the hand vector
-		std::vector<Card> getDiscards(); // Returns the discard vector
+		const std::vector<Card> getHand(); // Returns the hand vector
+		const std::vector<Card> getDiscards(); // Returns the discard vector
 
 		void rageQuit();
 		virtual Command makeMove(std::vector<Card> legalPlays);
@@ -31,8 +31,8 @@ protected:
 		void discard(Card); // Remove from hand / add to discards
 		void play(Card); // Remove from hand
 
-		int getRoundScore(); // Returns player score
-		int getTotalScore(); // Returns player score
+		const int getRoundScore(); // Returns player score
+		const int getTotalScore(); // Returns player score
 		void setRoundScore(int score); // Sets player score
 		void setTotalScore(int score); // Sets player score
 
