@@ -32,7 +32,7 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
     refBuilder->get_widget("seed_input", seed_input);
 
 
-    start_game_btn->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::startGame), 0) );
+    start_game_btn->signal_clicked().connect(sigc::mem_fun(*this, GameWindow::startGame);
     p1_choice->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::setPlayer), 0) );
     p2_choice->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::setPlayer), 1) );
     p3_choice->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::setPlayer), 2) );
@@ -112,7 +112,7 @@ void GameWindow::handClicked(int i) {
   return;
 }
 
-void GameWindow::startGame(int i) {
+void GameWindow::startGame() {
   int seed = 0;
 
   try
