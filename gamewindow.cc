@@ -139,7 +139,7 @@ void GameWindow::startGame() {
   container.add(*glade_window);
 
   cout << "this worked after glade" << endl;
-  
+
   refBuilder->get_widget("end_game_btn", end_game_btn);
   refBuilder->get_widget("p1_RQ", p1_RQ);
   refBuilder->get_widget("p2_RQ", p2_RQ);
@@ -195,7 +195,6 @@ void GameWindow::startGame() {
     }
   }
 
-  for (int i = 0)
   std::cout << "this worked 5" << std::endl;
 
 
