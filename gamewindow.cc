@@ -320,7 +320,7 @@ void GameWindow::roundEnd() {
   }
 
   refBuilder->get_widget("dialog_window", dialog1);
-  if (!dialog2) {
+  if (!dialog1) {
     std::cout << "this didn't work" << std::endl;
   }
 
