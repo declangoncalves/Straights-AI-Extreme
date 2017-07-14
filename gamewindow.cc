@@ -320,7 +320,7 @@ void GameWindow::roundEnd() {
   myDialog.run();
 
   Command c;
-  c.type = NEXT_ROUND;
+  c.type = Command::Type::NEXT_ROUND;
   controller_->executeCommand(c);
   playerTurn();
 
