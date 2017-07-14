@@ -308,13 +308,15 @@ void GameWindow::roundEnd() {
 }
 
 void GameWindow::resetTable() {
+
   for (int i = 0; i < 4; i ++) {
+    cout << imgTable[i].size();
     for (int j = 0; j < 13; j++) {
       imgTable_[i][j]->set("./img/nothing.png");
       imgTable_[i][j]->show();
     }
   }
-  // show_all_children();
+  show_all_children();
   return;
 }
 
