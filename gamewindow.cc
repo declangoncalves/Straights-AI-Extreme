@@ -321,6 +321,7 @@ void GameWindow::resetTable() {
       imgTable_[i][j]->show();
     }
   }
+  intTable_ = model_->getIntTable();
   return;
 }
 
