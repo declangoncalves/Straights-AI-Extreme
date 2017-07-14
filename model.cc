@@ -134,17 +134,21 @@ void Model::initializeRound() {
   for (auto player : players_) {
     player->emptyHand();
   }
+  cout << "Emptying hand worked" << endl;
   for (int j = 0; j < players_.size(); j++) {
     for (int i = 0; i < 13; i ++) {
       players_[j]->dealCard(deck_.getCard(i + 13*j));
     }
   }
+  cout << "dealing cards worked" << endl;
   for (int i = 0; i < players_.size(); i++) {
     for (auto card : players_[i]->getHand()) {
       if (card.suit().suit() == 3 && card.rank().rank() == 6) playerturn_ = i;
     }
   }
+  cout << "picking the player turn worked" << endl;
   notify();
+  cout << "notify worked" << endl;
 }
 
 void Model::endRound() {
