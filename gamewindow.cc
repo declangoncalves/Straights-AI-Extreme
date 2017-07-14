@@ -32,8 +32,8 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
 
 
     start_game_btn->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::startGame));
-    p1_choice->signal_clicked().connect(sigc::mem_fun(*this, GameWindow::setPlayer(0)));
-    p2_choice->signal_clicked().connect(sigc::mem_fun(*this, GameWindow::setPlayer(1)));
+    p1_choice->signal_clicked().connect(sigc::mem_fun(*this, GameWindow::setPlayer, n)
+    p2_choice->signal_clicked().connect(sigc::mem_fun(*this, GameWindow::setPlayer);
     p3_choice->signal_clicked().connect(sigc::mem_fun(*this, GameWindow::setPlayer(2)));
     p4_choice->signal_clicked().connect(sigc::mem_fun(*this, GameWindow::setPlayer(3)));
 
