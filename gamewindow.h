@@ -51,15 +51,6 @@ private:
   Gtk::Box* start_screen = nullptr;
   Gtk::Box m_Box;
   Gtk::Box container;
-  Gtk::Label p1_score;
-  Gtk::Label p2_score;
-  Gtk::Label p3_score;
-  Gtk::Label p4_score;
-  Gtk::Label p1_discards;
-  Gtk::Label p2_discards;
-  Gtk::Label p3_discards;
-  Gtk::Label p4_discards;
-
   Glib::RefPtr<Gio::SimpleActionGroup> refActionGroup;
   Glib::RefPtr<Gio::SimpleAction> refActionRain;
   Glib::RefPtr<Gtk::Builder> refBuilder;

@@ -69,14 +69,19 @@ void Model::rageQuit() {
 }
 
 void Model::pickChoice(Card c) {
-  bool play = false;
-  bool discard = false;
   vector<Card> plays = getLegalPlays();
   if (plays.size() == 0) {
     discardCard(c);
     return;
   }
-  for (card c )
+  else {
+    if (find(plays.begin(), plays.end(), card) !=  plays.end()) {
+      playCard(c);
+    }
+    else {
+      return;
+    }
+  }
 }
 
 void Model::incrementPlayerTurn() {
