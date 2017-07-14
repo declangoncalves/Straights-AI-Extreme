@@ -261,12 +261,27 @@ void GameWindow::playerTurn() {
   return;
 }
 
+void GameWindow::updatePlayerHand(){
+    std::vector<Card> playerHand = model_->getPlayerHand();
+    int suit;
+    int value;
+    int i = 0;
+    for (auto card : playerHand){
+      Gtk::Image image("./img/" + std::to_string(card.suit().suit()) + "_" + std::to_string(ard.rank().rank()));
+      handButtons_[i]->set_image(image);
+      i++;
+    }
+    
+    return;
+}
+
 void GameWindow::updateScores() {
 
 }
 
 void GameWindow::updateTable() {
 
+>>>>>>> 8608a8f64ed652d0f07ece401fd04b542f6a1f4b
 }
 
 void GameWindow::roundEnd() {
