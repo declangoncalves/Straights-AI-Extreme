@@ -113,9 +113,9 @@ void GameWindow::handClicked(int i) {
 }
 
 void GameWindow::startGame() {
-  int seed = 0;
-  const gchar* seed_str = gtk_entry_get_text(GTK_ENTRY(seed_input));
-  seed = atoi(seed_str);
+  // int seed = 0;
+  // const gchar* seed_str = gtk_entry_get_text(GTK_ENTRY(seed_input));
+  // seed = atoi(seed_str);
   std::cout << "this worked" << std::endl;
   try
   {
