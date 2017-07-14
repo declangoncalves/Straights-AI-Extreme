@@ -11,8 +11,8 @@ class Player {
 protected:
 		std::vector<Card> hand_;
 		std::vector<Card> discards_;
-		int roundscore_;
-		int totalscore_;
+		int roundscore_ = 0;
+		int totalscore_ = 0;
 		char type_;
 	public:
 		Player();
