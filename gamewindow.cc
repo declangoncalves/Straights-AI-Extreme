@@ -143,6 +143,7 @@ void GameWindow::startGame() {
   refBuilder->get_widget("end_game_btn", end_game_btn);
   refBuilder->get_widget("p1_RQ", p1_RQ);
   refBuilder->get_widget("p2_RQ", p2_RQ);
+  cout << "this worked" << endl;
   refBuilder->get_widget("p3_RQ", p3_RQ);
   refBuilder->get_widget("p4_RQ", p4_RQ);
 
