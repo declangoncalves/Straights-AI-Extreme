@@ -228,11 +228,11 @@ void GameWindow::updatePlayerHand(){
       cout << handButtons_[i]->get_image() << endl;
       i++;
     }
-    cout << "setting images worked" << endl;
-    for (i; i < 13; i++){
-      Gtk::Image image("./img/nothing.png");
-      handButtons_[i]->set_image(image);
-    }
+    // cout << "setting images worked" << endl;
+    // for (i; i < 13; i++){
+    //   Gtk::Image image("./img/nothing.png");
+    //   handButtons_[i]->set_image(image);
+    // }
     cout << "setting images for buttons to nothing worked" << endl;
 
     return;
