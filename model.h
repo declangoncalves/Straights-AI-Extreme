@@ -12,9 +12,8 @@ class Model : public Subject {
   Model();
   void initializeRound();
   void startGame(int seed, std::vector<char> players);
-  void playCard(Card);
-  void discardCard(Card);
   void rageQuit();
+  void pickChoice(Card);
   const std::vector<Card> getCurrentPlayerHand();
   std::vector<int> getPlayerScores();
   std::vector<int> getPlayerDiscards();
@@ -33,7 +32,8 @@ class Model : public Subject {
   Player* getCurrentPlayer();
   void endRound();
   void incrementPlayerTurn();
-  void pickChoice(Card);
+  void playCard(Card);
+  void discardCard(Card);
 	Deck deck_;
   std::vector<Player*> players_;
   std::vector<std::vector<int> > intstable_;

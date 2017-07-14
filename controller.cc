@@ -17,12 +17,12 @@ void Controller::startGame(int seed, vector<char> players) {
 void Controller::executeCommand(Command my_command) {
 
 	switch(my_command.type){
-				case Command::Type::PLAY:
-				model_->playCard(my_command.card);
-				break;
-				case Command::Type::DISCARD:
-				model_->discardCard(my_command.card);
-				break;
+				// case Command::Type::PLAY:
+				// model_->playCard(my_command.card);
+				// break;
+				// case Command::Type::DISCARD:
+				// model_->discardCard(my_command.card);
+				// break;
 				case Command::Type::RAGEQUIT:
 				model_->rageQuit();
 				case Command::Type::CLICK:
