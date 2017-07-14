@@ -302,9 +302,9 @@ void GameWindow::executeCommand(Command c) {
 	std::vector<Card> playerHand = model_->getCurrentPlayer()->getHand();
 
 	// First check if computer or human player
-	if (model_->getCurrentPlayer()->getType() == 'c') {
-		my_command = model_->getCurrentPlayer()->makeMove(legalPlays);
-	}
+	// if (model_->getCurrentPlayer()->getType() == 'c') {
+	// 	my_command = model_->getCurrentPlayer()->makeMove(legalPlays);
+	// }
 	else { // Human Player
 
 		bool validCommand = false;
