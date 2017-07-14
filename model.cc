@@ -166,7 +166,7 @@ void Model::endRound() {
 
 Model::~Model() {}
 
-std::vector<Card> Model::getCurrentPlayerHand() {
+const std::vector<Card> Model::getCurrentPlayerHand() {
   return getCurrentPlayer()->getHand();
 }
 
