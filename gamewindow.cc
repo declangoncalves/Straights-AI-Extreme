@@ -130,7 +130,7 @@ void GameWindow::startGame() {
   }
 
   //remove(*start_screen);
- // add(*glade_window);
+  add(*glade_window);
 
   refBuilder->get_widget("end_game_btn", end_game_btn);
   refBuilder->get_widget("p1_RQ", p1_RQ);
