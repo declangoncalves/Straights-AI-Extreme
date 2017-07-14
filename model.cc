@@ -32,7 +32,7 @@ const std::vector<std::vector<int> > Model::getIntTable() {
 
 std::vector<int> getPlayerScores() {
   std::vector<int> scores;
-  for (auto player: players_) {
+  for (auto player : players_) {
     scores.push_back(player->getTotalScore());
   }
   return scores;
@@ -40,7 +40,7 @@ std::vector<int> getPlayerScores() {
 
 std::vector<int> getPlayerDiscards() {
   std::vector<int> discards;
-  for (auto player: players_) {
+  for (auto player : players_) {
     discards.push_back(player->getDiscards());
   }
   return scores;

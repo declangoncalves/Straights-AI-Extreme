@@ -26,8 +26,6 @@ class Model : public Subject {
   const std::vector<Card> getPlayerHand();
   const std::vector<Card> getLegalPlays();
   const std::vector<Card> getDeck();
-
-
   void nextRound();
   ~Model();
 
