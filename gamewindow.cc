@@ -1,6 +1,4 @@
 #include "gamewindow.h"
-#include <gtkmm.h>
-#include <iostream>
 
 GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c, Model* m) : m_Box(Gtk::ORIENTATION_VERTICAL)
 {
@@ -113,10 +111,11 @@ void GameWindow::handClicked(int i) {
 }
 
 void GameWindow::startGame() {
-  // int seed = 0;
-  // const gchar* seed_str = gtk_entry_get_text(GTK_ENTRY(seed_input));
-  // seed = atoi(seed_str);
+  int seed = 0;
+  std::string seed_str = seed_input.get_text();
+  seed = std::stoi(seed_str);
   std::cout << "this worked" << std::endl;
+
   try
   {
     refBuilder->add_from_file("glade_project.glade");
@@ -192,7 +191,7 @@ void GameWindow::startGame() {
     }
   }
 
-  
+
 
   std::cout << "this worked 5" << std::endl;
 
