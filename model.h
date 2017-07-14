@@ -17,6 +17,7 @@ class Model : public Subject {
   void computerMove();
   const std::vector<Card> getCurrentPlayerHand();
   char getCurrentPlayerType();
+  Command getPlayerMove();
   std::vector<int> getPlayerScores();
   std::vector<int> getPlayerDiscards();
   const int getCurrentPlayerIndex();
