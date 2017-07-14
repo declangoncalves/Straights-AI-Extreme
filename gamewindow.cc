@@ -52,7 +52,8 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
     // refActionGroup->add_action("p4_type", sigc::mem_fun(*this, &GameWindow::setPlayer(3)) );
 
 
-    add(*start_screen);
+    add(container);
+    container.add(start_screen);
     show_all_children();
 }
 
@@ -114,6 +115,7 @@ void GameWindow::handClicked(int i) {
 
 void GameWindow::startGame() {
   int seed = 0;
+  seed = <int> seed_input->Text;
 
   try
   {
@@ -130,7 +132,8 @@ void GameWindow::startGame() {
   }
 
   //remove(*start_screen);
-  add(*glade_window);
+  container.remove(*start_screen);
+  container.add(*glade_window);
 
   std::cout << "In here!!!!\n";
 

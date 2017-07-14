@@ -46,6 +46,7 @@ private:
   Gtk::Table* table_ = nullptr;
   Gtk::Box* start_screen = nullptr;
   Gtk::Box m_Box;
+  Gtk::Box container;
 
   Glib::RefPtr<Gio::SimpleActionGroup> refActionGroup;
   Glib::RefPtr<Gio::SimpleAction> refActionRain;
