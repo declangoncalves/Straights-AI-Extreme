@@ -2,7 +2,7 @@
 #include <gtkmm.h>
 #include <iostream>
 
-GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c, Model* m) : m_Box(Gtk::ORIENTATION_VERTICAL)
+GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c, Model* m)
 {
     // Prepare game window
     set_title("Straights EXTREME");
