@@ -266,7 +266,7 @@ void GameWindow::updatePlayerHand(){
     int suit;
     int value;
     int i = 0;
-    cout << "fucking hand size: " playerHand.size() << endl;
+    cout << "fucking hand size: " << playerHand.size() << endl;
     cout << "before setting images" << endl;
     for (auto card : playerHand){
       Gtk::Image* image = new Gtk::Image("./img/" + std::to_string(card.suit().suit()) + "_" + std::to_string(card.rank().rank()) + ".png");
