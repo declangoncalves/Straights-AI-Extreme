@@ -16,7 +16,7 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
     refBuilder = Gtk::Builder::create();
     refActionGroup = Gio::SimpleActionGroup::create();
     try {
-      refBuilder->add_from_file("start_screen.glade"):
+      refBuilder->add_from_file("start_screen.glade");
     }
     catch(const Glib::Error& ex)
     {
