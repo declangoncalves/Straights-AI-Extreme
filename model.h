@@ -14,7 +14,9 @@ class Model : public Subject {
   void startGame(int seed, std::vector<char> players);
   void rageQuit();
   void pickChoice(Card);
+  void computerMove();
   const std::vector<Card> getCurrentPlayerHand();
+  char getCurrentPlayerType();
   std::vector<int> getPlayerScores();
   std::vector<int> getPlayerDiscards();
   const int getCurrentPlayerIndex();

@@ -92,6 +92,26 @@ void Model::pickChoice(Card c) {
   }
 }
 
+void Model::computerMove() {
+  std::vector<Card> legal = getCurrentPlayer()->getLegalPlays();
+  std::vector<Card> hand = getCurrentPlayer()->getHand();
+  if (legal.size() == 0) {
+    discardCard(hand[0]);
+  }
+  else {
+    playCard(legal[0]);
+  }
+  return;
+}
+
+Command Model::getPlayerMove() {
+  return getCurrentPlayer()->makeMove();
+}
+
+char Model::getCurrentPlayerType() {
+  return getCurrentPlayer()->getType();
+}
+
 void Model::incrementPlayerTurn() {
   if (emptyhands_ == 4) endRound();
   const int max_index = 3;
@@ -101,18 +121,7 @@ void Model::incrementPlayerTurn() {
     playerturn_++;
     if (playerturn_ > max_index) playerturn_ = 0;
   }
-  if (players_[playerturn_]->getType() == 'c') {
-    Command c = players_[getCurrentPlayerIndex()]->makeMove(getLegalPlays());
-    if (c.type == Command::Type::PLAY) {
-      playCard(c.card);
-    }
-    else {
-      discardCard(c.card);
-    }
-  }
-  else {
-    notify();
-  }
+  notify();
   return;
 }
 

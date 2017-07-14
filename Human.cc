@@ -6,6 +6,6 @@ Human::Human() {
 
 Command Human::makeMove(std::vector<Card> legalPlays) {
   Command c;
-  std::cin >> c;
+  c.type = Command::Type::CLICK;
   return c;
 }

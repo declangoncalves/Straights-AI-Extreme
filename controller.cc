@@ -25,6 +25,10 @@ void Controller::executeCommand(Command my_command) {
 				// break;
 				case Command::Type::RAGEQUIT:
 				model_->rageQuit();
+				case Command::Type::NOTHING:
+				return;
+				case Command::Type::COMPUTER:
+				model_->computerMove();
 				case Command::Type::CLICK:
 				model_->pickChoice(my_command.card);
 	}
