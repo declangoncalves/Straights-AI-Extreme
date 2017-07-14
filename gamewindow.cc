@@ -46,8 +46,9 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
     refBuilder->get_widget("hand_btn_13", handButtons_[12]);
 
     for (auto button : handButtons_){
-      Gtk::Widget* image = gtk_button_get_image(button).Image();
-      gtk_image_set_from_file(image, "./img/nothing.png");
+      GtkWidget *image = gtk_image_new_from_file("./img/nothing.png");
+      gtk_button_set_image(GTK_BUTTON (button), image);
+      //gtk_image_set_from_file(image, "./img/nothing.png");
       //gtk_button_set_image(button, image);
     }
 
