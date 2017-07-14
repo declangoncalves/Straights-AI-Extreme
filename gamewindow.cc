@@ -288,14 +288,14 @@ void GameWindow::updatePlayerHand(){
 
 void GameWindow::updateScores() {
   // Iterate through and update labels for scores
-  p1_score->set_text("Score: " + model_->getPlayerScores()[0]);
-  p2_score->set_text("Score: " + model_->getPlayerScores()[1]);
-  p3_score->set_text("Score: " + model_->getPlayerScores()[2]);
-  p4_score->set_text("Score: " + model_->getPlayerScores()[3]);
-  p1_discards->set_text("Discards: " + model_->getPlayerDiscards()[0]);
-  p2_discards->set_text("Discards: " + model_->getPlayerDiscards()[1]);
-  p3_discards->set_text("Discards: " + model_->getPlayerDiscards()[2]);
-  p4_discards->set_text("Discards: " + model_->getPlayerDiscards()[3]);
+  p1_score->set_text("Score: " + to_string(model_->getPlayerScores()[0]));
+  p2_score->set_text("Score: " + to_string(model_->getPlayerScores()[1]));
+  p3_score->set_text("Score: " + to_string(model_->getPlayerScores()[2]));
+  p4_score->set_text("Score: " + to_string(model_->getPlayerScores()[3]));
+  p1_discards->set_text("Discards: " + to_string(model_->getPlayerDiscards()[0]));
+  p2_discards->set_text("Discards: " + to_string(model_->getPlayerDiscards()[1]));
+  p3_discards->set_text("Discards: " + to_string(model_->getPlayerDiscards()[2]));
+  p4_discards->set_text("Discards: " + to_string(model_->getPlayerDiscards()[3]));
   show_all_children();
 }
 
