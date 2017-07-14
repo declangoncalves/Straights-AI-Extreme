@@ -254,6 +254,7 @@ void GameWindow::update() {
 
 void GameWindow::playerTurn() {
   Command c = model_->getPlayerMove();
+  cout << Command::Type::EMPTY == c.type << endl;
   controller_->executeCommand(c);
   intTable_ = model_->getIntTable();
   updatePlayerHand();
