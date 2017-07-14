@@ -99,7 +99,11 @@ char Model::getCurrentPlayerType() {
 }
 
 void Model::incrementPlayerTurn() {
-  if (emptyhands_ == 4) endRound();
+  if (emptyhands_ == 4) {
+    endRound();
+    notify();
+    return;
+  }
   const int max_index = 3;
   playerturn_++;
   if (playerturn_ > max_index) playerturn_ = 0;
@@ -172,6 +176,7 @@ void Model::initializeRound() {
 }
 
 void Model::endRound() {
+  cout << "ROUND ENDING HAS BEGUN"
   gamestate_ = 1;
   std::vector<int> scores;
   for (auto player : players_) {

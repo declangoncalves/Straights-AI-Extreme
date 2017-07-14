@@ -241,6 +241,7 @@ void GameWindow::endGame() {
 
 void GameWindow::update() {
 		if (model_->getGameState() != 0){ // Round Finished
+      cout << "ROUND DID END PROPERLY" << endl;
 			roundEnd();
 		}
 		else { // Round not finished
