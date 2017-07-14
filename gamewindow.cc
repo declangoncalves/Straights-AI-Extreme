@@ -241,10 +241,15 @@ void GameWindow::update() {
 }
 
 void GameWindow::playerTurn() {
+  cout << "before updateTable()" << endl;
   updateTable();
+  cout << "before updatePlayerHand()" << endl;
   updatePlayerHand();
+  cout << "before updateScores()" << endl;
   updateScores();
+  cout << "before intsTable gets set" << endl;
   intTable_ = model_->getIntTable();
+  cout << "after intsTable gets set" << endl;
   return;
 }
 
