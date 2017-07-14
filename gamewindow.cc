@@ -50,13 +50,10 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
     refBuilder->get_widget("hand_btn_13", handButtons_[12]);
 
     for (auto button : handButtons_){
-      std::cerr << "Error 1\n";
       GtkWidget *image = gtk_image_new_from_file("./img/nothing.png");
-      std::cerr << "Error 2\n";
+
       gtk_button_set_image(GTK_BUTTON (button), image);
-      std::cerr << "Error 3\n";
-      gtk_image_set_from_file(image, "./img/nothing.png");
-      gtk_button_set_image(button, image);
+
     }
 
     start_game_btn->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::startGame));
