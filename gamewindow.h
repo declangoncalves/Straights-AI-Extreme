@@ -8,7 +8,7 @@
 #include <vector>
 #include <string>
 
-class GameWindow : public Gtk::Container, public Observer
+class GameWindow : public Gtk::Window, public Observer
 {
 public:
   GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c, Model* m);
