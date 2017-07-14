@@ -313,6 +313,21 @@ void GameWindow::updateTable(){
 }
 
 void GameWindow::roundEnd() {
+  try
+  {
+    refBuilder->add_from_file("dialog.glade");
+  }
+  catch(const Glib::Error& ex)
+  {
+    std::cerr << "ERROR ADDING FROM: dialog.glade" <<  ex.what();
+  }
+
+  refBuilder->get_widget("dialog_window", dialog1);
+  if (!dialog1) {
+    std::cout << "this didn't work" << std::endl;
+  }
+
+	*dialog1.run();
   return;
 }
 
