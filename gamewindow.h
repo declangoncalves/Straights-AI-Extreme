@@ -27,7 +27,7 @@ private:
   void updatePlayerHand();
   void playerTurn();
   void roundEnd();
-  void endGame();
+  void gameEnd();
   void rageQuit();
   void handView();
   void setPlayer(int);
@@ -63,6 +63,7 @@ private:
   Glib::RefPtr<Gio::SimpleActionGroup> refActionGroup;
   Glib::RefPtr<Gio::SimpleAction> refActionRain;
   Glib::RefPtr<Gtk::Builder> refBuilder;
+  Gtk::Dialog* dialog_window = nullptr;
 
   //mvc
   Controller* controller_;

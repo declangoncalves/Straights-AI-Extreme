@@ -20,7 +20,6 @@ void Model::startGame(int seed, std::vector<char> players) {
   }
   deck_ = Deck(seed);
   initializeRound();
-  cout << "initializing round worked" << endl;
 }
 
 const std::vector<std::vector<Card> > Model::getCardTable() {
@@ -61,6 +60,7 @@ void Model::rageQuit() {
 }
 
 void Model::pickChoice(Card c) {
+  cout << "picking choice worked" << endl;
   vector<Card> plays = getLegalPlays();
   if (plays.size() == 0) {
     discardCard(c);
@@ -149,6 +149,7 @@ void Model::initializeRound() {
   gamestate_ = 0;
   playerturn_ = 0;
   emptyhands_ = 0;
+  cout << players_.size() << endl;
   deck_.shuffle();
   for (auto player : players_) {
     player->emptyHand();
@@ -171,6 +172,7 @@ void Model::initializeRound() {
 }
 
 void Model::endRound() {
+  cout << "Round is considered to be ending for some reason" << endl;
   gamestate_ = 1;
   std::vector<int> scores;
   for (auto player : players_) {
@@ -197,6 +199,7 @@ const std::vector<Card> Model::getCurrentPlayerHand() {
 }
 
 void Model::playCard(Card c) {
+  cout << "We are playing card " << c << endl;
   int suit = c.suit().suit();
   int rank = c.rank().rank();
   players_[getCurrentPlayerIndex()]->play(c);
@@ -208,6 +211,7 @@ void Model::playCard(Card c) {
 }
 
 void Model::discardCard(Card c) {
+  cout << "We are discarding card " << c << endl;
   int suit = c.suit().suit();
   int rank = c.rank().rank();
   players_[getCurrentPlayerIndex()]->discard(c);

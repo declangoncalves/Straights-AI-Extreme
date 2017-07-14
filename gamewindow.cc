@@ -235,26 +235,33 @@ void GameWindow::startGame() {
   return;
 }
 
-void GameWindow::endGame() {
+void GameWindow::gameEnd() {
   return;
 }
 
 void GameWindow::update() {
-		if (model_->getGameState() != 0){ // Round Finished
+		if (model_->getGameState() == 1){ // Round Finished
+      cout << "roundEnd() is being called" << endl;
 			roundEnd();
 		}
+    if (model_->getGameState() == 2){
+      cout << "gameEnd() is being called" << endl;
+      gameEnd();
+    }
 		else { // Round not finished
+      cout << "Player Turn being Called" << endl;
 			playerTurn();
 	  }
 }
 
 void GameWindow::playerTurn() {
+  Command c = model_->getPlayerMove();
+  cout << (Command::Type::NOTHING == c.type) << endl;
+  controller_->executeCommand(c);
+  intTable_ = model_->getIntTable();
   updatePlayerHand();
   updateTable();
   updateScores();
-  Command c = model_->getPlayerMove();
-  controller_->executeCommand(c);
-  intTable_ = model_->getIntTable();
   return;
 }
 
@@ -263,14 +270,14 @@ void GameWindow::updatePlayerHand(){
     int suit;
     int value;
     int i = 0;
+    cout << "fucking hand size: " << playerHand.size() << endl;
     cout << "before setting images" << endl;
     for (auto card : playerHand){
       Gtk::Image* image = new Gtk::Image("./img/" + std::to_string(card.suit().suit()) + "_" + std::to_string(card.rank().rank()) + ".png");
-      cout << "./img/" << card.suit().suit() << "_" << card.rank().rank() << ".png" << endl;
       handButtons_[i]->set_image(*image);
       image->show();
-      cout << handButtons_[i]->get_image() << endl;
       i++;
+      cout << "this image worked" << i << endl;
     }
     cout << "setting images worked" << endl;
     for (i; i < 13; i++){
@@ -310,6 +317,19 @@ void GameWindow::updateTable(){
 }
 
 void GameWindow::roundEnd() {
+
+  cout << "roundEnd() is being called" << endl;
+  string myResults = "works";
+
+  Glib::ustring roundResults(myResults.c_str());
+  Gtk::MessageDialog myDialog(*this, roundResults);
+  myDialog.run();
+
+  Command c;
+  c.type = Command::Type::NEXT_ROUND;
+  controller_->executeCommand(c);
+  playerTurn();
+
   return;
 }
 
