@@ -64,6 +64,7 @@ void GameWindow::setPlayer(int i) {
         p1_choice->set_label("Computer");
         choices_[0] = 'c';
       }
+      break;
     case 1:
       if (choices_[1] == 'c') {
         p2_choice->set_label("Human");
@@ -73,6 +74,7 @@ void GameWindow::setPlayer(int i) {
         p2_choice->set_label("Computer");
         choices_[1] = 'c';
       }
+      break;
     case 2:
       if (choices_[2] == 'c') {
         p3_choice->set_label("Human");
@@ -82,6 +84,7 @@ void GameWindow::setPlayer(int i) {
         p3_choice->set_label("Computer");
         choices_[2] = 'c';
       }
+      break;
     case 3:
       if (choices_[3] == 'c') {
         p4_choice->set_label("Human");
@@ -91,6 +94,7 @@ void GameWindow::setPlayer(int i) {
         p4_choice->set_label("Computer");
         choices_[3] = 'c';
       }
+      break;
   }
   return;
 }
