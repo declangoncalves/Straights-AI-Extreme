@@ -75,7 +75,7 @@ void Model::pickChoice(Card c) {
     return;
   }
   else {
-    if (find(plays.begin(), plays.end(), card) !=  plays.end()) {
+    if (find(plays.begin(), plays.end(), c) !=  plays.end()) {
       playCard(c);
     }
     else {
