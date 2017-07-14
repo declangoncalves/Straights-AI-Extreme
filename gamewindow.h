@@ -48,22 +48,6 @@ private:
   Gtk::Box* start_screen = nullptr;
   Gtk::Box m_Box;
   Gtk::Box container;
-
-  // Hand Button
-  Gtk::Button* hand_btn_1 = nullptr;
-  Gtk::Button* hand_btn_2 = nullptr;
-  Gtk::Button* hand_btn_3 = nullptr;
-  Gtk::Button* hand_btn_4 = nullptr;
-  Gtk::Button* hand_btn_5 = nullptr;
-  Gtk::Button* hand_btn_6 = nullptr;
-  Gtk::Button* hand_btn_7 = nullptr;
-  Gtk::Button* hand_btn_8 = nullptr;
-  Gtk::Button* hand_btn_9 = nullptr;
-  Gtk::Button* hand_btn_10 = nullptr;
-  Gtk::Button* hand_btn_11 = nullptr;
-  Gtk::Button* hand_btn_12 = nullptr;
-  Gtk::Button* hand_btn_13 = nullptr;
-
   Glib::RefPtr<Gio::SimpleActionGroup> refActionGroup;
   Glib::RefPtr<Gio::SimpleAction> refActionRain;
   Glib::RefPtr<Gtk::Builder> refBuilder;
