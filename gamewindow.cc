@@ -49,12 +49,12 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
     refBuilder->get_widget("hand_btn_12", handButtons_[11]);
     refBuilder->get_widget("hand_btn_13", handButtons_[12]);
 
-    // for (auto button : handButtons_){
-    //   GtkWidget *image = gtk_image_new_from_file("./img/nothing.png");
+    for (auto button : handButtons_){
+      GtkWidget *image = gtk_image_new_from_file("./img/nothing.png");
 
-    //   gtk_button_set_image(GTK_BUTTON (button), image);
+      gtk_button_set_image(GTK_BUTTON (button), image);
 
-    // }
+    }
 
     start_game_btn->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::startGame));
     p1_choice->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::setPlayer), 0) );
