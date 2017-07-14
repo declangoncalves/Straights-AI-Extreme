@@ -56,7 +56,7 @@ void Model::rageQuit() {
   replacement = new Computer(*(players_[i]));
   delete players_[i];
   players_[i] = replacement;
-  Command c = getCurrentPlayer()->makeMove(getLegalPlays());
+  Command c = players_[getCurrentPlayerIndex()]->makeMove(getLegalPlays());
   if (c.type == Command::Type::PLAY) {
     playCard(c.card);
   }
@@ -75,7 +75,7 @@ void Model::incrementPlayerTurn() {
     if (playerturn_ > max_index) playerturn_ = 0;
   }
   if (players_[playerturn_]->getType() == 'c') {
-    Command c = getCurrentPlayer()->makeMove(getLegalPlays());
+    Command c = players_[getCurrentPlayerIndex()]->makeMove(getLegalPlays());
     if (c.type == Command::Type::PLAY) {
       playCard(c.card);
     }
@@ -89,13 +89,13 @@ void Model::incrementPlayerTurn() {
   return;
 }
 
-Player* Model::getCurrentPlayer() {
+const Player* Model::getCurrentPlayer() {
   return (players_[playerturn_]);
 }
 
 const std::vector<Card> Model::getLegalPlays() {
   std::vector<Card> plays;
-  for (auto card : getCurrentPlayer()->getHand()) {
+  for (auto card : players_[getCurrentPlayerIndex()]->getHand()) {
     int suit = card.suit().suit();
     int rank = card.rank().rank();
     if ((intstable_[suit][rank] == 1 || intstable_[suit][rank + 2] == 1) || (rank == 6)) {
@@ -112,7 +112,7 @@ const std::vector<Card> Model::getLegalPlays() {
 
 const std::vector<Card> Model::getPlayerHand() {
   std::vector<Card> hand;
-  for (auto card : getCurrentPlayer()->getHand()) {
+  for (auto card : players_[getCurrentPlayerIndex()]->getHand()) {
     hand.push_back(card);
   }
   return hand;
@@ -169,10 +169,10 @@ Model::~Model() {}
 void Model::playCard(Card c) {
   int suit = c.suit().suit();
   int rank = c.rank().rank();
-  getCurrentPlayer()->play(c);
+  players_[getCurrentPlayerIndex()]->play(c);
   intstable_[suit][rank + 1] = 1;
   cardstable_[suit][rank + 1] = c;
-  if (getCurrentPlayer()->getHand().size() == 0) emptyhands_++;
+  if (players_[getCurrentPlayerIndex()]->getHand().size() == 0) emptyhands_++;
   incrementPlayerTurn();
   return;
 }
@@ -180,8 +180,8 @@ void Model::playCard(Card c) {
 void Model::discardCard(Card c) {
   int suit = c.suit().suit();
   int rank = c.rank().rank();
-  getCurrentPlayer()->discard(c);
-  if (getCurrentPlayer()->getHand().size() == 0) emptyhands_++;
+  players_[getCurrentPlayerIndex()]->discard(c);
+  if (players_[getCurrentPlayerIndex()]->getHand().size() == 0) emptyhands_++;
   incrementPlayerTurn();
   return;
 }
