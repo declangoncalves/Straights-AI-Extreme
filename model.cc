@@ -61,6 +61,7 @@ void Model::rageQuit() {
 }
 
 void Model::pickChoice(Card c) {
+  cout << "picking choice worked" << endl;
   vector<Card> plays = getLegalPlays();
   if (plays.size() == 0) {
     discardCard(c);
