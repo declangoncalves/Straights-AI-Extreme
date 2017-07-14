@@ -176,7 +176,7 @@ void Model::initializeRound() {
 }
 
 void Model::endRound() {
-  cout << "ROUND ENDING HAS BEGUN"
+  cout << "ROUND ENDING HAS BEGUN";
   gamestate_ = 1;
   std::vector<int> scores;
   for (auto player : players_) {
