@@ -249,12 +249,12 @@ void GameWindow::update() {
 }
 
 void GameWindow::playerTurn() {
-  Command c = model_->getPlayerMove();
-  controller_->executeCommand(c);
-  intTable_ = model_->getIntTable();
   updatePlayerHand();
   updateTable();
   updateScores();
+  Command c = model_->getPlayerMove();
+  controller_->executeCommand(c);
+  intTable_ = model_->getIntTable();
   return;
 }
 
