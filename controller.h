@@ -11,6 +11,7 @@ class Controller {
 
 	void executeCommand(Command);
 	void newRound();
+  void startGame();
 
   private:
     Model *model_;
