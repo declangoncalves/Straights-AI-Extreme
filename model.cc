@@ -23,6 +23,7 @@ void Model::startGame(int seed, std::vector<char> players) {
   cout << "building a deck worked" << endl;
   initializeRound();
   cout << "initializing round worked" << endl;
+  cout << "nunmber of players: " << players_.size() << endl;
 }
 
 const std::vector<std::vector<Card> > Model::getCardTable() {
