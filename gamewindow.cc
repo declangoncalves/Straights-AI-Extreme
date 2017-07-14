@@ -132,7 +132,7 @@ void GameWindow::startGame() {
   //remove(*start_screen);
   add(*glade_window);
 
-  cout << "In here!!!!\n";
+  std::cout << "In here!!!!\n";
 
   refBuilder->get_widget("end_game_btn", end_game_btn);
   refBuilder->get_widget("p1_RQ", p1_RQ);
