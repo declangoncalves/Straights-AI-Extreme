@@ -18,15 +18,7 @@ void Model::startGame(int seed, std::vector<char> players) {
       players_.push_back(a);
     }
   }
-  cout << "this part worked" << endl;
   deck_ = Deck(seed);
-  cout << "building a deck worked" << endl;
-  cout << "nunmber of players: " << players_.size() << endl;
-  for (int i = 0; i < players_.size(); i++) {
-    cout << players_[i]->getTotalScore() << endl;
-    cout << players_[i]->getDiscards().size() << endl;
-    cout << "printed score for p" << i + 1 << endl;
-  }
   initializeRound();
   cout << "initializing round worked" << endl;
 }
@@ -49,9 +41,7 @@ std::vector<int> Model::getPlayerScores() {
 
 std::vector<int> Model::getPlayerDiscards() {
   std::vector<int> discards;
-  cout << "discards size is: " << discards.size() << endl;
   for (auto player : players_) {
-    cout << "each player's discard size is : " << player->getDiscards().size() << endl;
     discards.push_back(player->getDiscards().size());
   }
   return discards;
