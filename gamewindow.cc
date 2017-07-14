@@ -130,6 +130,7 @@ void GameWindow::startGame() {
   }
 
   //remove(*start_screen);
+  gtk_container_remove(*start_screen);
   add(*glade_window);
 
   refBuilder->get_widget("end_game_btn", end_game_btn);
