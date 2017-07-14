@@ -1,6 +1,6 @@
 #include "model.h"
 #include "controller.h"
-#include "view.h"
+// #include "view.h"
 #include "Player.h"
 #include "Computer.h"
 #include "Human.h"
