@@ -10,6 +10,10 @@ void Controller::newRound() {
 	model_->initializeRound();
 }
 
+void Controller::startGame(int seed, std:vector<char> players) {
+	model_->startGame(int seed, std:vector<char> players);
+}
+
 void Controller::executeCommand(Command my_command) {
 
 	switch(my_command.type){
