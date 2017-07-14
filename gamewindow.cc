@@ -1,5 +1,7 @@
 #include "gamewindow.h"
 
+using namespace std;
+
 GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c, Model* m) : m_Box(Gtk::ORIENTATION_VERTICAL)
 {
     // Prepare game window
@@ -162,11 +164,15 @@ void GameWindow::startGame() {
   refBuilder->get_widget("hand_btn_12", handButtons_[11]);
   refBuilder->get_widget("hand_btn_13", handButtons_[12]);
 
+  std::vector<Card> hand = model_->getCurrentPlayer->getHand();
 
+  for (int i = 0; i < 13; i ++){
+    int suit = hand[i].suit().suit();
+    int rank = hand[i].rank().rank();
 
-  for (auto button : handButtons_){
-    Gtk::Image image("./img/nothing.png");
-    button->set_image(image);
+    Gtk::Image image("./img/" + to_string(suit) + "_" + to_string(rank) + ".png");
+
+    handButtons_[i]->set_image(image);
     // std::cout << "hello this is fine bruh" << std::endl;
     // GtkWidget *image = gtk_image_new_from_file("./img/nothing.png");
     // std::cout << "hello this is not fine bruh" << std::endl;
@@ -267,6 +273,15 @@ void GameWindow::updatePlayerHand(){
     }
     
     return;
+}
+
+void GameWindow::updateScores() {
+
+}
+
+void GameWindow::updateTable() {
+
+>>>>>>> 8608a8f64ed652d0f07ece401fd04b542f6a1f4b
 }
 
 void GameWindow::roundEnd() {

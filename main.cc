@@ -21,11 +21,11 @@ int main( int argc, char * argv[] ) {
 
   std::vector<Player*> players;
 
-  int seed = 0;
-  for (int i = 0; i < 4; i ++) {
-      Human *a = new Human();
-      players.push_back(a);
-  }
+  // int seed = 0;
+  // for (int i = 0; i < 4; i ++) {
+  //     Human *a = new Human();
+  //     players.push_back(a);
+  // }
 
   Model model; // Create model
   Controller controller( &model ); // Create controller
