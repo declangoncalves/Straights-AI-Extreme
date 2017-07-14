@@ -23,8 +23,8 @@ void Model::startGame(int seed, std::vector<char> players) {
   cout << "building a deck worked" << endl;
   cout << "nunmber of players: " << players_.size() << endl;
   for (int i = 0; i < players_.size(); i++) {
-    cout << players_[i].getTotalScore() << endl;
-    cout << players_[i].getDiscards().size() << endl;
+    cout << players_[i]->getTotalScore() << endl;
+    cout << players_[i]->getDiscards().size() << endl;
     cout << "printed score for p" << i + 1 << endl;
   }
   initializeRound();
