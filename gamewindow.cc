@@ -118,8 +118,6 @@ void GameWindow::startGame() {
   seed = std::stoi(seed_str);
   std::cout << "this worked with seed: " << seed <<  std::endl;
 
-  controller_->startGame(seed, players_);
-
   try
   {
     refBuilder->add_from_file("glade_project.glade");
@@ -180,8 +178,6 @@ void GameWindow::startGame() {
     // std::cout << "hello this is really not fine bruh" << std::endl;
   }
 
-  std::cout << "this worked 3" << std::endl;
-
   for (int i = 0; i < 4; i++) {
     std::vector<Gtk::Image*> item;
     imgTable_.push_back(item);
@@ -190,14 +186,16 @@ void GameWindow::startGame() {
     }
   }
 
+  for (int i = 0; i < 4; i++) {
+    
+  }
+
   for (int i = 0; i < 4; i ++) {
     for (int j = 0; j < 13; j++) {
       refBuilder->get_widget("image_" + std::to_string(i) + std::to_string(j), imgTable_[i][j]);
       imgTable_[i][j]->set("./img/nothing.png");
     }
   }
-
-
   std::cout << "this worked 5" << std::endl;
 
 
