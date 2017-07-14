@@ -161,6 +161,8 @@ void GameWindow::startGame() {
   refBuilder->get_widget("hand_btn_12", handButtons_[11]);
   refBuilder->get_widget("hand_btn_13", handButtons_[12]);
 
+
+
   for (auto button : handButtons_){
     Gtk::Image image("./img/nothing.png");
     button->set_image(image);
@@ -169,6 +171,18 @@ void GameWindow::startGame() {
     // std::cout << "hello this is not fine bruh" << std::endl;
     // gtk_button_set_image(button, image);
     // std::cout << "hello this is really not fine bruh" << std::endl;
+  }
+
+
+  for (int i = 0; i < 4; i++) {
+    for (int j = 0; j < 13; j++) {
+      table_.push_back(nullptr);
+    }
+  }
+  for (int i = 0; i < 4; i ++) {
+    for (int j = 0; j < 13; j++) {
+      refBuilder->get_widget("hand_btn" + i + j, imgTable_[i][j]);
+    }
   }
 
 
