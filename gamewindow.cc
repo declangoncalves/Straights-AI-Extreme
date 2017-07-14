@@ -291,11 +291,12 @@ void GameWindow::updateScores() {
   cout << model_->getPlayerScores()[0] << endl;
   cout << model_->getPlayerDiscards()[0] << endl;
   p1_score->set_text("Score: " + to_string(model_->getPlayerScores()[0]));
-  cout << "setting scores worked" << endl;
   p2_score->set_text("Score: " + to_string(model_->getPlayerScores()[1]));
   p3_score->set_text("Score: " + to_string(model_->getPlayerScores()[2]));
   p4_score->set_text("Score: " + to_string(model_->getPlayerScores()[3]));
+  cout << "setting scores worked" << endl;
   p1_discards->set_text("Discards: " + to_string(model_->getPlayerDiscards()[0]));
+  cout << "discards did not fuck up " << endl;
   p2_discards->set_text("Discards: " + to_string(model_->getPlayerDiscards()[1]));
   p3_discards->set_text("Discards: " + to_string(model_->getPlayerDiscards()[2]));
   p4_discards->set_text("Discards: " + to_string(model_->getPlayerDiscards()[3]));
