@@ -36,6 +36,10 @@ private:
   Gtk::Button* p2_RQ = nullptr;
   Gtk::Button* p3_RQ = nullptr;
   Gtk::Button* p4_RQ = nullptr;
+  Gtk::Button* p1_choice = nullptr;
+  Gtk::Button* p2_choice = nullptr;
+  Gtk::Button* p3_choice = nullptr;
+  Gtk::Button* p4_choice = nullptr;
   Gtk::Entry* seed_input = nullptr;
   std::vector<Gtk::Button*> handButtons_;
   Gtk::Table* table_ = nullptr;
@@ -49,6 +53,8 @@ private:
   //mvc
   Controller* controller_;
   Model* model_;
+
+  std::vector<char> choices_;
 };
 
 #endif //GTKMM_GAMEWINDOW_H
