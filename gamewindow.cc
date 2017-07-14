@@ -118,9 +118,6 @@ void GameWindow::startGame() {
   seed = std::stoi(seed_str);
   std::cout << "this worked with seed: " << seed <<  std::endl;
 
-  controller_->startGame(seed, choices_);
-  cout << "starting the game worked" << endl;
-
   try
   {
     refBuilder->add_from_file("glade_project.glade");
@@ -200,6 +197,10 @@ void GameWindow::startGame() {
     }
   }
 
+  controller_->startGame(seed, choices_);
+  cout << "starting the game worked" << endl;
+
+
   std::cout << "this worked 5" << std::endl;
 
   show_all_children();
@@ -234,6 +235,7 @@ void GameWindow::updatePlayerHand(){
     cout << "before setting images" << endl;
     for (auto card : playerHand){
       Gtk::Image image("./img/" + std::to_string(card.suit().suit()) + "_" + std::to_string(card.rank().rank()));
+
       handButtons_[i]->set_image(image);
       i++;
     }
