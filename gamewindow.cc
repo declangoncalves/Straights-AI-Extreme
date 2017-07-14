@@ -241,23 +241,27 @@ void GameWindow::gameEnd() {
 
 void GameWindow::update() {
 		if (model_->getGameState() == 1){ // Round Finished
+      cout << "roundEnd() is being called" << endl;
 			roundEnd();
 		}
     if (model_->getGameState() == 2){
+      cout << "gameEnd() is being called" << endl;
       gameEnd();
     }
 		else { // Round not finished
+      cout << "Player Turn being Called" << endl;
 			playerTurn();
 	  }
 }
 
 void GameWindow::playerTurn() {
+  Command c = model_->getPlayerMove();
+  cout << (Command::Type::NOTHING == c.type) << endl;
+  controller_->executeCommand(c);
+  intTable_ = model_->getIntTable();
   updatePlayerHand();
   updateTable();
   updateScores();
-  Command c = model_->getPlayerMove();
-  controller_->executeCommand(c);
-  intTable_ = model_->getIntTable();
   return;
 }
 
