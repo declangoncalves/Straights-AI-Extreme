@@ -198,6 +198,7 @@ const std::vector<Card> Model::getCurrentPlayerHand() {
 }
 
 void Model::playCard(Card c) {
+  cout << "We are playing card " << c << endl;
   int suit = c.suit().suit();
   int rank = c.rank().rank();
   players_[getCurrentPlayerIndex()]->play(c);
@@ -209,6 +210,7 @@ void Model::playCard(Card c) {
 }
 
 void Model::discardCard(Card c) {
+  cout << "We are discarding card " << c << endl;
   int suit = c.suit().suit();
   int rank = c.rank().rank();
   players_[getCurrentPlayerIndex()]->discard(c);
