@@ -91,9 +91,11 @@ void Model::computerMove() {
   std::vector<Card> hand = getCurrentPlayer()->getHand();
   if (legal.size() == 0) {
     discardCard(hand[0]);
+    cout << "computer discarded " << hand[0] << endl;
   }
   else {
     playCard(legal[0]);
+    cout << "computer played " << legal[0] << endl;
   }
   return;
 }
