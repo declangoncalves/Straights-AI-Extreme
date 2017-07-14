@@ -8,7 +8,7 @@
 class Human : public Player {
 public:
   Human();
-  Command makeMove(std::vector<Card> legalPlays);
+  Command makeMove();
 };
 
 #endif

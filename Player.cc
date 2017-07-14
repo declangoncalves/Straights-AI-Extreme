@@ -11,7 +11,7 @@ const std::vector<Card> Player::getHand() { // Returns the hand vector
 	return hand_;
 }
 
-Command Player::makeMove(std::vector<Card> legalPlays) {}
+Command Player::makeMove() {}
 
 const std::vector<Card> Player::getDiscards() { // Returns the discard vector
 	return discards_;

@@ -4,8 +4,8 @@ Human::Human() {
   type_ = 'h';
 }
 
-Command Human::makeMove(std::vector<Card> legalPlays) {
+Command Human::makeMove() {
   Command c;
-  c.type = Command::Type::CLICK;
+  c.type = Command::Type::NOTHING;
   return c;
 }
