@@ -297,20 +297,20 @@ void GameWindow::updateScores() {
     cout << i + 1 << model_->getPlayerDiscards()[i] << endl;
   }
 
-  p1_score->set_text("Score: " + to_string(model_->getPlayerScores()[0]));
+  p1_score->set_label("Score: " + to_string(model_->getPlayerScores()[0]));
   cout << "setting scores worked for p1" << endl;
-  p2_score->set_text("Score: " + to_string(model_->getPlayerScores()[1]));
+  p2_score->set_label("Score: " + to_string(model_->getPlayerScores()[1]));
   cout << "setting scores worked for p2" << endl;
-  p3_score->set_text("Score: " + to_string(model_->getPlayerScores()[2]));
+  p3_score->set_label("Score: " + to_string(model_->getPlayerScores()[2]));
   cout << "setting scores worked for p3" << endl;
-  p4_score->set_text("Score: " + to_string(model_->getPlayerScores()[3]));
+  p4_score->set_label("Score: " + to_string(model_->getPlayerScores()[3]));
   cout << "setting scores worked for p4" << endl;
   cout << "getting model's getPlayerDiscards: " << model_->getPlayerDiscards()[0] << endl;
-  p1_discards->set_text("Discards: " + to_string(model_->getPlayerDiscards()[0]));
+  p1_discards->set_label("Discards: " + to_string(model_->getPlayerDiscards()[0]));
   cout << "discards did not fuck up " << endl;
-  p2_discards->set_text("Discards: " + to_string(model_->getPlayerDiscards()[1]));
-  p3_discards->set_text("Discards: " + to_string(model_->getPlayerDiscards()[2]));
-  p4_discards->set_text("Discards: " + to_string(model_->getPlayerDiscards()[3]));
+  p2_discards->set_label("Discards: " + to_string(model_->getPlayerDiscards()[1]));
+  p3_discards->set_label("Discards: " + to_string(model_->getPlayerDiscards()[2]));
+  p4_discards->set_label("Discards: " + to_string(model_->getPlayerDiscards()[3]));
   show_all_children();
 }
 
