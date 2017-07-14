@@ -116,7 +116,7 @@ void GameWindow::startGame() {
   int seed = 0;
   const gchar* seed_str = gtk_entry_get_text(GTK_ENTRY(seed_input));
   seed = atoi(seed_str);
-
+  std::cout << "this worked" << endl;
   try
   {
     refBuilder->add_from_file("glade_project.glade");
@@ -125,6 +125,8 @@ void GameWindow::startGame() {
   {
     std::cerr << "ERROR ADDING FROM: glade_project" <<  ex.what();
   }
+
+  std::cout << "this worked 2" << endl;
 
   refBuilder->get_widget("glade_window", glade_window);
   if (!glade_window) {
