@@ -164,7 +164,7 @@ void GameWindow::startGame() {
   refBuilder->get_widget("hand_btn_12", handButtons_[11]);
   refBuilder->get_widget("hand_btn_13", handButtons_[12]);
 
-  std::vector<Card> hand = model_->getCurrentPlayer->getHand();
+  std::vector<Card> hand = model_->getCurrentPlayer().getHand();
 
   for (int i = 0; i < 13; i ++){
     int suit = hand[i].suit().suit();
