@@ -271,6 +271,11 @@ void GameWindow::updatePlayerHand(){
       handButtons_[i]->set_image(image);
       i++;
     }
+
+    for (i; i < 13; i++){
+      Gtk::Image image("./img/nothing.png");
+      handButtons_[i]->set_image(image);
+    }
     
     return;
 }
