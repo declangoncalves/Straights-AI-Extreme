@@ -319,7 +319,7 @@ void GameWindow::roundEnd() {
     std::cerr << "ERROR ADDING FROM: dialog.glade" <<  ex.what();
   }
 
-  refBuilder->get_widget("dialog_window", dialog1);
+  refBuilder->get_widget("dialog1", dialog_window);
   if (!dialog1) {
     std::cout << "this didn't work" << std::endl;
   }
