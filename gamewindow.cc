@@ -32,11 +32,11 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
     refBuilder->get_widget("p2_RQ", p2_RQ);
     refBuilder->get_widget("p3_RQ", p3_RQ);
     refBuilder->get_widget("p4_RQ", p4_RQ);
-    for (int i = 0; i < 13; i++) {
-      Gtk::Button* handButton;
-      refBuilder->get_widget("hand_" + i, handButton);
-      handButtons_.push_back(handButton);
-    }
+    // for (int i = 0; i < 13; i++) {
+    //   Gtk::Button* handButton;
+    //   refBuilder->get_widget("hand_" + i, handButton);
+    //   handButtons_.push_back(handButton);
+    // }
     refBuilder->get_widget("seed_input", seed_input);
     //action groups
     refActionGroup->add_action("start_game_btn", sigc::mem_fun(*this, &GameWindow::startGame) );
