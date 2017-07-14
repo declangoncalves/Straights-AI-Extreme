@@ -46,7 +46,7 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
     refActionGroup->add_action("p3_RQ", sigc::mem_fun(*this, &GameWindow::rageQuit) );
     refActionGroup->add_action("P4_RQ", sigc::mem_fun(*this, &GameWindow::rageQuit) );
 
-    add(glade_window);
+    add(*glade_window);
 
     // handButtons_[0]->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::handClicked(0)));
     // handButtons_[1]->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::handClicked(1)));
