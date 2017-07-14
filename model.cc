@@ -11,6 +11,11 @@ void Model::startGame(int seed, std::vector<char> players) {
   for (int i = 0; i < 4; i++) {
     if (players[i] == 'c') {
       Computer *a = new Computer();
+      players_.push_back(a);
+    }
+    else {
+      Human *a = new Human();
+      players_.push_back(a);
     }
   }
   deck_ = Deck(seed);
