@@ -215,6 +215,10 @@ void GameWindow::playerTurn() {
   return;
 }
 
+void GameWindow::playerClick(int i) {
+  
+}
+
 void GameWindow::updatePlayerHand(){
     std::vector<Card> playerHand = model_->getCurrentPlayerHand();
     int suit;
@@ -230,11 +234,11 @@ void GameWindow::updatePlayerHand(){
       i++;
     }
     show_all_children();
-    // cout << "setting images worked" << endl;
-    // for (i; i < 13; i++){
-    //   Gtk::Image image("./img/nothing.png");
-    //   handButtons_[i]->set_image(image);
-    // }
+    cout << "setting images worked" << endl;
+    for (i; i < 13; i++){
+      Gtk::Image image("./img/nothing.png");
+      handButtons_[i]->set_image(image);
+    }
     cout << "setting images for buttons to nothing worked" << endl;
 
     return;
