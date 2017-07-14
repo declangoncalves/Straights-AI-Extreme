@@ -146,6 +146,7 @@ const int Model::getGameState() {
 }
 
 void Model::initializeRound() {
+  cout << "New Round is Initializing" << endl;
   gamestate_ = 0;
   playerturn_ = 0;
   emptyhands_ = 0;
