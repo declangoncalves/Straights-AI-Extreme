@@ -115,7 +115,7 @@ void GameWindow::handClicked(int i) {
 
 void GameWindow::startGame() {
   int seed = 0;
-  std::string seed_str = seed_input->Text;
+  std::string seed_str = atoi(gtk_entry_get_text(seed_input));
   seed = std::stoi(seed_str);
 
   try
