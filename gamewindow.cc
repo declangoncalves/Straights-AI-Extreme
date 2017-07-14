@@ -169,7 +169,7 @@ void GameWindow::startGame() {
   refBuilder->get_widget("hand_btn_12", handButtons_[11]);
   refBuilder->get_widget("hand_btn_13", handButtons_[12]);
 
-  cout << "this worked after setting handButtons[i]" << end;;
+  cout << "this worked after setting handButtons[i]" << endl;
 
   for (int i = 0; i < 4; i++) {
     std::vector<Gtk::Image*> item;
