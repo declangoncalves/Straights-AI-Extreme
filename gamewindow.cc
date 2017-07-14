@@ -240,9 +240,12 @@ void GameWindow::endGame() {
 }
 
 void GameWindow::update() {
-		if (model_->getGameState() != 0){ // Round Finished
+		if (model_->getGameState() == 1){ // Round Finished
 			roundEnd();
 		}
+    if (model_->getGameState() == 2){
+      gameEnd();
+    }
 		else { // Round not finished
 			playerTurn();
 	  }

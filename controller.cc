@@ -31,5 +31,7 @@ void Controller::executeCommand(Command my_command) {
 				model_->computerMove();
 				case Command::Type::CLICK:
 				model_->pickChoice(my_command.card);
+				case Command::Type::NEXT_ROUND:
+				model_->initializeRound();
 	}
 }
