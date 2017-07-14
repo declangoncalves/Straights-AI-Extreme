@@ -68,6 +68,17 @@ void Model::rageQuit() {
   }
 }
 
+void Model::pickChoice(Card c) {
+  bool play = false;
+  bool discard = false;
+  vector<Card> plays = getLegalPlays();
+  if (plays.size() == 0) {
+    discardCard(c);
+    return;
+  }
+  for (card c )
+}
+
 void Model::incrementPlayerTurn() {
   if (emptyhands_ == 4) endRound();
   const int max_index = 3;

@@ -195,7 +195,7 @@ void GameWindow::startGame() {
   cout << " this worked after setting to nothing" << endl;
 
   controller_->startGame(seed, choices_);
-
+  
   cout << "starting the game worked" << endl;
 
   show_all_children();

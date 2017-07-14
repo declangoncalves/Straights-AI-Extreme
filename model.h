@@ -33,6 +33,7 @@ class Model : public Subject {
   Player* getCurrentPlayer();
   void endRound();
   void incrementPlayerTurn();
+  void pickChoice(Card);
 	Deck deck_;
   std::vector<Player*> players_;
   std::vector<std::vector<int> > intstable_;
