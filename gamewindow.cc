@@ -138,6 +138,8 @@ void GameWindow::startGame() {
   container.remove(*start_screen);
   container.add(*glade_window);
 
+  cout << "this worked after glade" << endl;
+  
   refBuilder->get_widget("end_game_btn", end_game_btn);
   refBuilder->get_widget("p1_RQ", p1_RQ);
   refBuilder->get_widget("p2_RQ", p2_RQ);
@@ -186,16 +188,14 @@ void GameWindow::startGame() {
     }
   }
 
-  for (int i = 0; i < 4; i++) {
-    
-  }
-
   for (int i = 0; i < 4; i ++) {
     for (int j = 0; j < 13; j++) {
       refBuilder->get_widget("image_" + std::to_string(i) + std::to_string(j), imgTable_[i][j]);
       imgTable_[i][j]->set("./img/nothing.png");
     }
   }
+
+  for (int i = 0)
   std::cout << "this worked 5" << std::endl;
 
 
