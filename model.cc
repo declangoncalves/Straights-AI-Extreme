@@ -20,7 +20,6 @@ void Model::startGame(int seed, std::vector<char> players) {
   }
   deck_ = Deck(seed);
   initializeRound();
-  cout << "initializing round worked" << endl;
 }
 
 const std::vector<std::vector<Card> > Model::getCardTable() {
