@@ -187,7 +187,7 @@ void GameWindow::startGame() {
 
   for (int i = 0; i < 4; i ++) {
     for (int j = 0; j < 13; j++) {
-      refBuilder->get_widget("hand_btn" + i + j, imgTable_[i][j]);
+      refBuilder->get_widget("hand_btn" + std::to_string(i) + std::to_string(j), imgTable_[i][j]);
     }
   }
 
