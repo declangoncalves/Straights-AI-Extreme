@@ -11,7 +11,7 @@ class Model : public Subject {
   public:
   Model();
   void initializeRound();
-  void startGame(int seed, std::vector<Player*> players);
+  void startGame(int seed, std::vector<char> players);
   void playCard(Card);
   void discardCard(Card);
   void rageQuit();
