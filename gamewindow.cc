@@ -175,8 +175,19 @@ void GameWindow::startGame() {
   refBuilder->get_widget("hand_btn_11", handButtons_[10]);
   refBuilder->get_widget("hand_btn_12", handButtons_[11]);
   refBuilder->get_widget("hand_btn_13", handButtons_[12]);
+  refBuilder->get_widget("hand_btn_12", handButtons_[11]);
+  refBuilder->get_widget("hand_btn_13", handButtons_[12]);
 
   cout << "this worked after setting handButtons[i]" << endl;
+  
+  refBuilder->get_widget("p1_score", p1_score);
+  refBuilder->get_widget("p2_score", p2_score);
+  refBuilder->get_widget("p3_score", p3_score);
+  refBuilder->get_widget("p4_score", p4_score);
+  refBuilder->get_widget("p1_discards", p1_discards);
+  refBuilder->get_widget("p2_discards", p2_discards);
+  refBuilder->get_widget("p3_discards", p3_discards);
+  refBuilder->get_widget("p4_discards", p4_discards);
 
   for (int i = 0; i < 4; i++) {
     std::vector<Gtk::Image*> item;
@@ -248,7 +259,16 @@ void GameWindow::updatePlayerHand(){
 }
 
 void GameWindow::updateScores() {
-
+  // Iterate through and update labels for scores
+  p1_score->set_text("Score: " + model_->getPlayerScores[0]);
+  p2_score->set_text("Score: " + model_->getPlayerScores[1]);
+  p3_score->set_text("Score: " + model_->getPlayerScores[2]);
+  p4_score->set_text("Score: " + model_->getPlayerScores[3]);
+  p1_discards->set_text("Discards: " + model_->getPlayerDiscards[0]);
+  p2_discards->set_text("Discards: " + model_->getPlayerDiscards[1]);
+  p3_discards->set_text("Discards: " + model_->getPlayerDiscards[2]);
+  p4_discards->set_text("Discards: " + model_->getPlayerDiscards[3]);
+  show_all_children();
 }
 
 
