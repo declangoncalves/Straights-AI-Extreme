@@ -17,7 +17,7 @@ protected:
 	public:
 		Player();
 		Player(const Player &player);
-		char getType(); // Returns the type of player: 'h' - human | 'c' - computer
+		const char getType(); // Returns the type of player: 'h' - human | 'c' - computer
 
 		const std::vector<Card> getHand(); // Returns the hand vector
 		const std::vector<Card> getDiscards(); // Returns the discard vector
