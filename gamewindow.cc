@@ -53,7 +53,7 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
 
 
     add(container);
-    container.add(start_screen);
+    container.add(*start_screen);
     show_all_children();
 }
 
