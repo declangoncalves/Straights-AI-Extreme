@@ -108,7 +108,7 @@ void Model::incrementPlayerTurn() {
     playerturn_++;
     if (playerturn_ > max_index) playerturn_ = 0;
   }
-  notify();
+  // notify();
   return;
 }
 
@@ -150,6 +150,7 @@ void Model::initializeRound() {
   gamestate_ = 0;
   playerturn_ = 0;
   emptyhands_ = 0;
+  cout << players_.size() << endl;
   deck_.shuffle();
   for (auto player : players_) {
     player->emptyHand();
@@ -172,6 +173,7 @@ void Model::initializeRound() {
 }
 
 void Model::endRound() {
+  cout << "Round is considered to be ending for some reason" << endl;
   gamestate_ = 1;
   std::vector<int> scores;
   for (auto player : players_) {
