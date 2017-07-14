@@ -7,9 +7,13 @@ using namespace std;
 
 Model::Model() : intstable_(4, std::vector<int>(15, 0)) , cardstable_(4, std::vector<Card>(15)) {}
 
-void Model::startGame(int seed, std::vector<Player*> players) {
+void Model::startGame(int seed, std::vector<char> players) {
+  for (int i = 0; i < 4; i++) {
+    if (players[i] == 'c') {
+      Computer *a = new Computer();
+    }
+  }
   deck_ = Deck(seed);
-  players_ = players;
   initializeRound();
 }
 
