@@ -67,13 +67,7 @@ void Model::rageQuit() {
   replacement = new Computer(*(players_[i]));
   delete players_[i];
   players_[i] = replacement;
-  Command c = players_[getCurrentPlayerIndex()]->makeMove(getLegalPlays());
-  if (c.type == Command::Type::PLAY) {
-    playCard(c.card);
-  }
-  else {
-    discardCard(c.card);
-  }
+  computerMove();
 }
 
 void Model::pickChoice(Card c) {
