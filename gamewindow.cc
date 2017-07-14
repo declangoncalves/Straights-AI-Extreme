@@ -127,7 +127,7 @@ void GameWindow::startGame() {
     std::cout << "this didn't work" << std::endl;
   }
 
-  remove(*start_screen);
+  //remove(*start_screen);
   add(*glade_window);
 
   refBuilder->get_widget("end_game_btn", end_game_btn);
