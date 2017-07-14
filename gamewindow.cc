@@ -250,7 +250,7 @@ void GameWindow::update() {
 
 void GameWindow::playerTurn() {
   updatePlayerHand();
-  Commad c = model_->getPlayerMove();
+  Command c = model_->getPlayerMove();
   controller_->executeCommand(c);
   intTable_ = model_->getIntTable();
   updateTable();
