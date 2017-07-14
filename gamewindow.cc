@@ -119,6 +119,8 @@ void GameWindow::startGame() {
   std::cout << "this worked with seed: " << seed <<  std::endl;
 
   controller_->startGame(seed, choices_);
+  cout << "starting the game worked" << endl;
+  
   try
   {
     refBuilder->add_from_file("glade_project.glade");
