@@ -230,6 +230,7 @@ void GameWindow::playerTurn() {
   updateTable();
   updatePlayerHand();
   updateScores();
+  intTable = model_->intTable;
   return;
 }
 
@@ -272,10 +273,15 @@ void GameWindow::updateScores() {
 }
 
 void GameWindow::updateTable(){
-  // Iterate through intTable
-  
-
-  // If int table contains a 1, then set the corresponding card image
+  for (int i=0; i < 4; i++){
+    for (int j=1; j < 14; j++){
+      if (intTable[i][j] - model_->intTable[i][j] != 0){
+        imgTable_[i][j-1]->set("./img/" + std::to_string(i) + "_" + std::to_string(j-1) + ".png");
+        imgTable_[i][j-1]->show();
+      }
+    }
+  }
+  show_all_children();
 }
 
 void GameWindow::roundEnd() {
