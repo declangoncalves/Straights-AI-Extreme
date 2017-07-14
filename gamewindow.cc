@@ -179,12 +179,12 @@ void GameWindow::startGame() {
     }
   }
 
-  // for (int i = 0; i < 4; i ++) {
-  //   for (int j = 0; j < 13; j++) {
-  //     refBuilder->get_widget("image_" + std::to_string(i) + std::to_string(j), imgTable_[i][j]);
-  //     imgTable_[i][j]->set("./img/nothing.png");
-  //   }
-  // }
+  for (int i = 0; i < 4; i ++) {
+    for (int j = 0; j < 13; j++) {
+      refBuilder->get_widget("image_" + std::to_string(i) + std::to_string(j), imgTable_[i][j]);
+      imgTable_[i][j]->set("./img/nothing.png");
+    }
+  }
   cout << " this worked after setting to nothing" << endl;
 
   controller_->startGame(seed, choices_);
