@@ -41,7 +41,7 @@ std::vector<int> Model::getPlayerScores() {
 std::vector<int> Model::getPlayerDiscards() {
   std::vector<int> discards;
   for (auto player : players_) {
-    discards.push_back(player->getDiscards());
+    discards.push_back(player->getDiscards().size());
   }
   return discards;
 }
