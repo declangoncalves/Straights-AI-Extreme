@@ -43,7 +43,7 @@ std::vector<int> Model::getPlayerDiscards() {
   for (auto player : players_) {
     discards.push_back(player->getDiscards());
   }
-  return scores;
+  return discards;
 }
 
 const int Model::getCurrentPlayerIndex() {
