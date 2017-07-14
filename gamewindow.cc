@@ -122,11 +122,14 @@ void GameWindow::startGame() {
     std::cerr << "ERROR ADDING FROM: glade_project" <<  ex.what();
   }
 
-
   refBuilder->get_widget("glade_window", glade_window);
   if (!glade_window) {
     std::cout << "this didn't work" << std::endl;
   }
+
+  remove(*start_screen);
+  add(*glade_window);
+
   refBuilder->get_widget("end_game_btn", end_game_btn);
   refBuilder->get_widget("p1_RQ", p1_RQ);
   refBuilder->get_widget("p2_RQ", p2_RQ);
