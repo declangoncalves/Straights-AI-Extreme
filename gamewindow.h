@@ -48,7 +48,6 @@ private:
   Gtk::Entry* seed_input = nullptr;
   std::vector<Gtk::Button*> handButtons_;
   std::vector<std::vector<Gtk::Image*> > imgTable_;
-  std::vector<std::vector<int> > intTable_;
   Gtk::Box* start_screen = nullptr;
   Gtk::Box m_Box;
   Gtk::Box container;

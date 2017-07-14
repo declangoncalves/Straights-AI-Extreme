@@ -271,6 +271,12 @@ void GameWindow::updateScores() {
   show_all_children();
 }
 
+void GameWindow::updateTable(){
+  // Iterate through intTable
+  
+
+  // If int table contains a 1, then set the corresponding card image
+}
 
 void GameWindow::roundEnd() {
   return;
@@ -324,10 +330,6 @@ void GameWindow::executeCommand(Command c) {
 	// 		}
 	// 	}
 	// // }
-}
-
-void GameWindow::updateTable() {
-  return;
 }
 
 void GameWindow::rageQuit() {
