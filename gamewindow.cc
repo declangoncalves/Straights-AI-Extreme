@@ -6,7 +6,7 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
 {
     // Prepare game window
     set_title("Straights EXTREME");
-    set_default_size(600, 600);
+    set_default_size(800, 500);
     refBuilder = Gtk::Builder::create();
     refActionGroup = Gio::SimpleActionGroup::create();
     try

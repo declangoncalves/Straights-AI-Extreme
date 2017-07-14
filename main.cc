@@ -33,7 +33,7 @@ int main( int argc, char * argv[] ) {
 
   GameWindow window(app, &controller, &model);
 
-  app->run(*window.glade_window);
+  app->run(window);
 
   return 0;
 
