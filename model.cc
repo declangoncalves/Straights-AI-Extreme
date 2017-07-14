@@ -30,12 +30,24 @@ const std::vector<std::vector<int> > Model::getIntTable() {
   return intstable_;
 }
 
-const int Model::getCurrentPlayerIndex() {
-  return playerturn_;
+std::vector<int> getPlayerScores() {
+  std::vector<int> scores;
+  for (auto player: players_) {
+    scores.push_back(player->getTotalScore());
+  }
+  return scores;
 }
 
-std::vector<Player*> Model::getPlayers() {
-  return players_;
+std::vector<int> getPlayerDiscards() {
+  std::vector<int> discards;
+  for (auto player: players_) {
+    discards.push_back(player->getDiscards());
+  }
+  return scores;
+}
+
+const int Model::getCurrentPlayerIndex() {
+  return playerturn_;
 }
 
 void Model::rageQuit() {

@@ -250,6 +250,8 @@ void GameWindow::update() {
 
 void GameWindow::playerTurn() {
   updateTable();
+  updatePlayerHand();
+  updateScores();
   return;
 }
 
