@@ -24,6 +24,8 @@ void Controller::executeCommand(Command my_command) {
 				model_->discardCard(my_command.card);
 				break;
 				case Command::Type::RAGEQUIT:
-					model_->rageQuit();
+				model_->rageQuit();
+				case Command::Type::CLICK:
+				model_->pickChoice(my_command.card);
 	}
 }
