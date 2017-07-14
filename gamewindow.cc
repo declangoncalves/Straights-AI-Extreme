@@ -109,7 +109,14 @@ GameWindow::~GameWindow()
 }
 
 void GameWindow::handClicked(int i) {
-  return;
+  if (i >= model_->getCurrentPlayerHand().size()) {
+    return;
+  }
+  Card card = getCurrentPlayerHand()[i];
+  Command c;
+  c.type = Command::Type::CLICK;
+  c.card = card;
+  controller_->executeCommand(c);
 }
 
 void GameWindow::startGame() {
@@ -213,10 +220,6 @@ void GameWindow::playerTurn() {
   updatePlayerHand();
   updateScores();
   return;
-}
-
-void GameWindow::playerClick(int i) {
-  
 }
 
 void GameWindow::updatePlayerHand(){
