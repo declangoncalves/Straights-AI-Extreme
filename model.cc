@@ -170,7 +170,7 @@ void Model::initializeRound() {
   cout << "notify worked" << endl;
 }
 
-void Model::endRound() {
+void Model::s {
   gamestate_ = 1;
   std::vector<int> scores;
   for (auto player : players_) {
