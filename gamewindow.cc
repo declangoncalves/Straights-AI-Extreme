@@ -286,7 +286,7 @@ void GameWindow::updateScores() {
 
 void GameWindow::updateTable() {
 
->>>>>>> 8608a8f64ed652d0f07ece401fd04b542f6a1f4b
+
 }
 
 void GameWindow::roundEnd() {
