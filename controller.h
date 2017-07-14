@@ -11,7 +11,7 @@ class Controller {
 
 	void executeCommand(Command);
 	void newRound();
-  void startGame();
+  void startGame(int seed, std::vector<char> players);
 
   private:
     Model *model_;
