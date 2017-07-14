@@ -23,7 +23,7 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
       std::cerr << "ERROR ADDING FROM: glade_project" <<  ex.what();
     }
 
-    add(start_screen);
+    add(*start_screen);
 
     try
     {
