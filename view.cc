@@ -72,32 +72,32 @@ void View::playerTurn() {
 }
 
 void View::roundEnd() {
-	std::vector<Player*> players = model_->getPlayers();
-	int minScore = players[0]->getTotalScore();
-
-	for (int i=0; i < players.size(); i++){
-		cout << "Player " << i + 1 << "\'s discards:";
-		printPlayerDiscards(players[i]);
-		cout << endl;
-		cout << "Player " << i + 1 << "\'s score: " << (players[i]->getTotalScore() - players[i]->getRoundScore()) << " + " << (players[i]->getRoundScore()) - (players[i]->getTotalScore() - players[i]->getRoundScore())  << " = " << players[i]->getTotalScore() - (players[i]->getTotalScore() - players[i]->getRoundScore()) << "\n";
-		if (players[i]->getTotalScore() < minScore){
-			minScore = players[i]->getTotalScore();
-		}
-	}
-
-	if (model_->getGameState() == 2){
-		for (int i=0; i < players.size(); i++){
-			if (players[i]->getTotalScore() == minScore) {
-				cout << "Player " << i + 1 << " wins!\n";
-			}
-		}
-		exit(0);
-	}
-
-	else {
-		gamePhase_ = 1;
-		controller_->newRound();
-	}
+	// int minScore = players[0]->getTotalScore();
+	//
+	// for (int i=0; i < players.size(); i++){
+	// 	cout << "Player " << i + 1 << "\'s discards:";
+	// 	printPlayerDiscards(players[i]);
+	// 	cout << endl;
+	// 	cout << "Player " << i + 1 << "\'s score: " << (players[i]->getTotalScore() - players[i]->getRoundScore()) << " + " << (players[i]->getRoundScore()) - (players[i]->getTotalScore() - players[i]->getRoundScore())  << " = " << players[i]->getTotalScore() - (players[i]->getTotalScore() - players[i]->getRoundScore()) << "\n";
+	// 	if (players[i]->getTotalScore() < minScore){
+	// 		minScore = players[i]->getTotalScore();
+	// 	}
+	// }
+	//
+	// if (model_->getGameState() == 2){
+	// 	for (int i=0; i < players.size(); i++){
+	// 		if (players[i]->getTotalScore() == minScore) {
+	// 			cout << "Player " << i + 1 << " wins!\n";
+	// 		}
+	// 	}
+	// 	exit(0);
+	// }
+	//
+	// else {
+	// 	gamePhase_ = 1;
+	// 	controller_->newRound();
+	// }
+	return;
 }
 
 Command View::receiveCommand() {
