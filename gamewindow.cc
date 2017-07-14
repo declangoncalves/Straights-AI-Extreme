@@ -114,7 +114,7 @@ void GameWindow::startGame() {
   int seed = 0;
   std::string seed_str = seed_input->get_text();
   seed = std::stoi(seed_str);
-  std::cout << "this worked" << std::endl;
+  std::cout << "this worked with seed: " << seed <<  std::endl;
 
   try
   {
