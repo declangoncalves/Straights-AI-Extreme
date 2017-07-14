@@ -15,7 +15,7 @@ class Model : public Subject {
   void playCard(Card);
   void discardCard(Card);
   void rageQuit();
-  const Player* getCurrentPlayer();
+  const std::vector<Card> getCurrentPlayerHand();
   std::vector<int> getPlayerScores();
   std::vector<int> getPlayerDiscards();
   const int getCurrentPlayerIndex();
@@ -30,6 +30,7 @@ class Model : public Subject {
   ~Model();
 
   private:
+  Player* getCurrentPlayer();
   void endRound();
   void incrementPlayerTurn();
 	Deck deck_;

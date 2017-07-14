@@ -89,7 +89,7 @@ void Model::incrementPlayerTurn() {
   return;
 }
 
-const Player* Model::getCurrentPlayer() {
+Player* Model::getCurrentPlayer() {
   return (players_[playerturn_]);
 }
 
@@ -165,6 +165,10 @@ void Model::endRound() {
 }
 
 Model::~Model() {}
+
+std::vector<Card> Model::getCurrentPlayerHand() {
+  return getCurrentPlayer()->getHand();
+}
 
 void Model::playCard(Card c) {
   int suit = c.suit().suit();
