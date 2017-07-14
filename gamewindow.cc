@@ -118,7 +118,7 @@ void GameWindow::startGame() {
   seed = std::stoi(seed_str);
   std::cout << "this worked with seed: " << seed <<  std::endl;
 
-  controller_->startGame(seed);
+  controller_->startGame(seed, players_);
 
   try
   {
