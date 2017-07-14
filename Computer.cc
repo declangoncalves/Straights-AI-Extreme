@@ -6,7 +6,7 @@ Computer::Computer() {
 
 Computer::Computer(Player &player): Player(player) {}
 
-Command Computer::makeMove(std::vector<Card> legalPlays) {
+Command Computer::makeMove() {
   Command my_command;
   my_command.type = Command::Type::COMPUTER;
   return my_command;

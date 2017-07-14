@@ -8,7 +8,7 @@ class Computer : public Player {
 public:
   Computer();
   Computer(Player &player);
-  Command makeMove(std::vector<Card> legalPlays);
+  Command makeMove();
 };
 
 #endif
