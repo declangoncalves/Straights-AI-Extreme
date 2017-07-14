@@ -3,7 +3,7 @@
   <requires lib="gtk+" version="2.16"/>
   <!-- interface-naming-policy project-wide -->
   <!-- interface-local-resource-path C:\Users\Declan\OneDrive\Documents\Assignments\CS -->
-  <object class="GtkBox" id="glade_window">
+  <object class="GtkWindow" id="glade_window">
     <child>
       <object class="GtkFixed" id="fixed1">
         <property name="visible">True</property>
