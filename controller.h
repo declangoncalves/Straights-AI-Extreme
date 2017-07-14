@@ -2,6 +2,7 @@
 #define MVC_CONTROLLER_H
 
 #include "Command.h"
+#include <vector>
 
 class Model;
 
