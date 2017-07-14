@@ -164,23 +164,7 @@ void GameWindow::startGame() {
   refBuilder->get_widget("hand_btn_12", handButtons_[11]);
   refBuilder->get_widget("hand_btn_13", handButtons_[12]);
 
-  std::vector<Card> hand = model_->getCurrentPlayerHand();
-  for (auto card : hand) {
-    cout << card << " ";
-    cout << endl;
-  }
-
-  for (int i = 0; i < 13; i ++){
-    int suit = hand[i].suit().suit();
-    int rank = hand[i].rank().rank();
-    cout << suit << endl;
-    cout << rank << endl;
-    Gtk::Image image("./img/" + to_string(suit) + "_" + to_string(rank) + ".png");
-
-    handButtons_[i]->set_image(image);
-  }
-
-  cout << "this worked after setting images" << endl;
+  cout << "this worked before getting image table" << end;;
 
   for (int i = 0; i < 4; i++) {
     std::vector<Gtk::Image*> item;
@@ -196,12 +180,11 @@ void GameWindow::startGame() {
       imgTable_[i][j]->set("./img/nothing.png");
     }
   }
+  cout << " this worked after setting to nothing" << endl;
 
   controller_->startGame(seed, choices_);
+
   cout << "starting the game worked" << endl;
-
-
-  std::cout << "this worked 5" << std::endl;
 
   show_all_children();
   return;
