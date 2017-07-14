@@ -222,7 +222,7 @@ void GameWindow::startGame() {
     std::vector<int> ints;
     intTable_.push_back(ints);
     for (int j = 0; j < 15; j++) {
-      intsTable[i].push_back(0);
+      intTable_[i].push_back(0);
     }
   }
   cout << " this worked after setting to nothing" << endl;
