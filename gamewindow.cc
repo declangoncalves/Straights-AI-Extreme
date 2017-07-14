@@ -297,10 +297,11 @@ void GameWindow::updateScores() {
   //   cout << i + 1 << model_->getPlayerDiscards()[i] << endl;
   // }
 
-  p1_score->set_label("Score: ");
-  p2_score->set_label("Score: ");
-  p3_score->set_label("Score: ");
-  p4_score->set_label("Score: ");
+  p1_score->set_text(( Glib::ustring) "Score: ");
+  p2_score->set_text(( Glib::ustring) "Score: ");
+  p3_score->set_text(( Glib::ustring) "Score: ");
+  p4_score->set_text(( Glib::ustring) "Score: ");
+
   cout << "setting only strings worked" << endl;
 
   // p1_score->set_label("Score: " + to_string(model_->getPlayerScores()[0]));
