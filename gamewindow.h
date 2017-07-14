@@ -6,6 +6,7 @@
 #include "model.h"
 #include "controller.h"
 #include <vector>
+#include <string>
 
 class GameWindow : public Gtk::Window, public Observer
 {

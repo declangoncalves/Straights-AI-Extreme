@@ -115,7 +115,8 @@ void GameWindow::handClicked(int i) {
 
 void GameWindow::startGame() {
   int seed = 0;
-  seed = <int> seed_input->Text;
+  std::string seed_str = seed_input->Text;
+  seed = std::stoi(seed_str);
 
   try
   {
