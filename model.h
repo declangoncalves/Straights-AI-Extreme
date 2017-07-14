@@ -43,8 +43,8 @@ class Model : public Subject {
   std::vector<std::vector<Card> > cardstable_;
   int playerturn_ = 0;
   int emptyhands_;
-  int seed_;
-  int gamestate_;
+  int seed_ = 0;
+  int gamestate_ = 0;
 
 }; // Model
 
