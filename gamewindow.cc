@@ -247,6 +247,7 @@ void GameWindow::update() {
       gameEnd();
     }
 		else { // Round not finished
+      cout << "Player Turn being Called" << endl;
 			playerTurn();
 	  }
 }
