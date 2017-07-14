@@ -290,6 +290,13 @@ void GameWindow::updateScores() {
   // Iterate through and update labels for scores
   cout << model_->getPlayerScores()[0] << endl;
   cout << model_->getPlayerDiscards()[0] << endl;
+  for (i = 0; i < 4; i ++) {
+    cout << i + 1 << model_->getPlayerScores()[i] << endl;
+  }
+  for (i = 0; i < 4; i ++) {
+    cout << i + 1 << model_->getPlayerDiscards()[i] << endl;
+  }
+
   p1_score->set_text("Score: " + to_string(model_->getPlayerScores()[0]));
   cout << "setting scores worked for p1" << endl;
   p2_score->set_text("Score: " + to_string(model_->getPlayerScores()[1]));
