@@ -288,7 +288,10 @@ void GameWindow::updatePlayerHand(){
 
 void GameWindow::updateScores() {
   // Iterate through and update labels for scores
+  cout << model_->getPlayerScores()[0] << endl;
+  cout << model_->getPlayerDiscards()[0] << endl;
   p1_score->set_text("Score: " + to_string(model_->getPlayerScores()[0]));
+  cout << "setting scores worked" << endl;
   p2_score->set_text("Score: " + to_string(model_->getPlayerScores()[1]));
   p3_score->set_text("Score: " + to_string(model_->getPlayerScores()[2]));
   p4_score->set_text("Score: " + to_string(model_->getPlayerScores()[3]));
