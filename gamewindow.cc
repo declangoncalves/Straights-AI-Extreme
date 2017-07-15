@@ -332,7 +332,6 @@ void GameWindow::roundEnd() {
 	}
 
   resetTable();
-  updatePlayerHand();
 
   next_round->set_sensitive(true);
 
