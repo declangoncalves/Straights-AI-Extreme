@@ -318,6 +318,8 @@ void GameWindow::playerTurn() {
 
 void GameWindow::updatePlayerHand(){
     std::vector<Card> playerHand = model_->getCurrentPlayerHand();
+    std::vector<Card> legalPlays = model_->getLegalPlays()
+
     int suit;
     int value;
     int i = 0;
@@ -327,6 +329,12 @@ void GameWindow::updatePlayerHand(){
       handButtons_[i]->set_image(*image);
       image->show();
       i++;
+      // Highlight legal plays
+      for (auto legalCard: legalPlays){
+        if (legalCard == card){
+          handButtons_[i]->set_relief(Gtk.ReliefStyle.NONE);
+        }
+      }
     }
     cout << "setting images worked" << endl;
     for (i; i < 13; i++){
