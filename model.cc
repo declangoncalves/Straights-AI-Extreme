@@ -244,7 +244,7 @@ const int Model::calculateWinner() {
   int player = 0;
   int min = players_[0]->getTotalScore();
   for (int i = 0; i < players_.size(); i++) {
-    if ((players_[i]->getTotalScore()) <= min) {
+    if ((players_[i]->getTotalScore()) < min) {
       min = players_[i]->getTotalScore();
       player = i;
     }
