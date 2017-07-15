@@ -210,7 +210,7 @@ void GameWindow::startGame() {
   std::string seed_str = seed_input->get_text();
   seed = std::stoi(seed_str);
   std::cout << "this worked with seed: " << seed <<  std::endl;
-  controller_->newRound(seed, choices_, recurring_);
+  controller_->startGame(seed, choices_, recurring_);
   recurring_ = true;
 }
 
