@@ -116,6 +116,7 @@ void Model::pickChoice(Card c) {
 void Model::computerMove() {
   std::vector<Card> legal = getLegalPlays();
   std::vector<Card> hand = getCurrentPlayer()->getHand();
+  cout << "did this get called? " << endl;
   if (legal.size() == 0) {
     int min = hand[0].rank().rank();
     int index = 0;
