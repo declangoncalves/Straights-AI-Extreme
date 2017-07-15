@@ -413,6 +413,10 @@ void GameWindow::roundEnd() {
   Gtk::MessageDialog msgdialog(*this, msg);
   msgdialog.run();
 
+  p1_RQ->set_sensitive(false);
+  p2_RQ->set_sensitive(false);
+  p3_RQ->set_sensitive(false);
+  p4_RQ->set_sensitive(false);
   next_round->set_sensitive(true);
   cout << "Third part of RoundEnd() gets called easily" << endl;
 
