@@ -309,9 +309,31 @@ void GameWindow::updateTable(){
 }
 
 void GameWindow::roundEnd() {
+  string score_text = "";
+  vector<int> scores = model_->getPlayerScores();
+  vector<int> discards = model_->getPlayerRoundScores();
+  vector<vector<Card> > allDiscards = model_->getAllDiscards();
+
+	for (int i=0; i < 4; i++){
+		score_text += "Player " + to_string(i + 1) + "\'s discards: " + listDiscards(allDiscards[i]);
+		score_text += "\n";
+		score_text += "Player " + to_string(i + 1) + "\'s score: " + to_string(scores[i]) + "\n";
+	}
+
   resetTable();
   updatePlayerHand();
-  controller_->newRound();
+
+
+  // controller_->newRound();
+}
+
+string GameWindow::listDiscards(std::vector<Card> discards) {
+  stringstream str;
+  for (auto card : discards) {
+    str << " " << card;
+  }
+  string retstr = str.str();
+  return retstr;
 }
 
 void GameWindow::resetTable() {

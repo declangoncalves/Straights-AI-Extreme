@@ -39,12 +39,36 @@ std::vector<int> Model::getPlayerScores() {
   return scores;
 }
 
+std::vector<int> Model::getRoundScores() {
+
+}
+
+std::vector<<vector<Card> > Model::getAllDiscards() {
+  std::vector<<vector<Card> > retv;
+  for (int i = 0; i < 4; i++) {
+    std::vector<Card> items;
+    retv.push_back(items);
+    for (card : players_[i]->getDiscards()) {
+      retv[i].push_back(card);
+    }
+  }
+  return retv;
+}
+
 std::vector<int> Model::getPlayerDiscards() {
   std::vector<int> discards;
   for (auto player : players_) {
     discards.push_back(player->getDiscards().size());
   }
   return discards;
+}
+
+std::vector<int> Model::getPlayerRoundScores() {
+  std::vector<int> scores;
+  for (auto player : players_) {
+    scores.push_back(player->getRoundScores().size());
+  }
+  return scores;
 }
 
 const int Model::getCurrentPlayerIndex() {
