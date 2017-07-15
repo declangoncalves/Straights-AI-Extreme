@@ -242,6 +242,7 @@ void GameWindow::update() {
 		roundEnd();
 	}
   if (model_->getGameState() == 2){ // Round Finished
+    cout << "announcing winner" << endl;
     announceWinner();
   }
 	else { // Round not finished
