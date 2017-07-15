@@ -10,8 +10,11 @@ void Controller::newRound() {
 	model_->initializeRound();
 }
 
-void Controller::startGame(int seed, vector<char> players) {
-	model_->startGame(seed, players);
+void Controller::startGame(int seed, vector<char> players, bool recurring) {
+	if (recurring) {model_->restartGame(seed)};
+	else {
+		model_->startGame(seed, players);
+	}
 }
 
 void Controller::executeCommand(Command my_command) {

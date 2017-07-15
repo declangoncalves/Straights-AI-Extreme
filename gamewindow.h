@@ -72,6 +72,7 @@ private:
   Model* model_;
 
   std::vector<char> choices_;
+  bool recurring_ = false;
 };
 
 #endif //GTKMM_GAMEWINDOW_H

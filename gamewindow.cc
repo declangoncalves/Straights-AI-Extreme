@@ -133,13 +133,12 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
 
     show_all_children();
 
-    controller_->startGame(seed, choices_);
-    add(container)
+    add(container);
     container.add(*glade_window);
 
     show_all_children();
+    startGame();
     return;
-
 }
 
 void GameWindow::setPlayer(int i) {
@@ -211,7 +210,8 @@ void GameWindow::startGame() {
   std::string seed_str = seed_input->get_text();
   seed = std::stoi(seed_str);
   std::cout << "this worked with seed: " << seed <<  std::endl;
-  controller_->newRound();
+  controller_->newRound(seed, players, recurring_);
+  recurring_ = true;
 }
 
 void GameWindow::endGame() {
