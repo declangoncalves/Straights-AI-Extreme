@@ -93,6 +93,8 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
 
     next_round->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::nextRoundClick));
 
+    end_game_btn->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::endGame));
+
     for (int i = 0; i < 4; i++) {
       std::vector<Gtk::Image*> item;
       imgTable_.push_back(item);
@@ -220,6 +222,7 @@ void GameWindow::startGame() {
 }
 
 void GameWindow::endGame() {
+  exit(0);
   return;
 }
 
