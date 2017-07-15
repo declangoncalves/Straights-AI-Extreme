@@ -54,6 +54,10 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
     refBuilder->get_widget("p3_RQ", p3_RQ);
     refBuilder->get_widget("p4_RQ", p4_RQ);
 
+    p1_RQ->set_sensitive(false);
+    p2_RQ->set_sensitive(false);
+    p3_RQ->set_sensitive(false);
+    p4_RQ->set_sensitive(false);
     cout << "this worked after get widget" << endl;
 
     for (int i=0; i < 13; i++){
@@ -247,6 +251,33 @@ void GameWindow::playerTurn() {
     updatePlayerHand();
     updateTable();
     updateScores();
+    int player = model_->getCurrentPlayerIndex();
+    switch player {
+      case 0:
+        p1_RQ->set_sensitive(true);
+        p2_RQ->set_sensitive(false);
+        p3_RQ->set_sensitive(false);
+        p4_RQ->set_sensitive(false);
+        break;
+      case 1:
+        p1_RQ->set_sensitive(false);
+        p2_RQ->set_sensitive(true);
+        p3_RQ->set_sensitive(false);
+        p4_RQ->set_sensitive(false);
+        break;
+      case 2:
+        p1_RQ->set_sensitive(false);
+        p2_RQ->set_sensitive(false);
+        p3_RQ->set_sensitive(true);
+        p4_RQ->set_sensitive(false);
+        break;
+      case 3:
+        p1_RQ->set_sensitive(false);
+        p2_RQ->set_sensitive(false);
+        p3_RQ->set_sensitive(false);
+        p4_RQ->set_sensitive(true);
+        break;
+    }
   }
   Command c = model_->getPlayerMove();
   controller_->executeCommand(c);
