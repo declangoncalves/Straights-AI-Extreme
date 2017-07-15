@@ -261,7 +261,7 @@ void GameWindow::announceWinner() {
   Glib::ustring msg(winner_text.c_str());
   Gtk::MessageDialog msgdialog(*this, msg);
   msgdialog.run();
-  next_round_btn->set_sensitive(false);
+  next_round->set_sensitive(false);
 }
 
 void GameWindow::nextRoundClick() {
