@@ -109,7 +109,7 @@ GameWindow::~GameWindow()
 }
 
 void GameWindow::handClicked(int i) {
-  cout << "Index of card being played: " << endl;
+  cout << "Index of card being played: " << i << endl;
   if (i >= model_->getCurrentPlayerHand().size()) {
     return;
   }
@@ -249,6 +249,7 @@ void GameWindow::update() {
 			roundEnd();
 		}
 		else { // Round not finished
+      cout << "Player Turn 2: " << model_->getCurrentPlayerIndex() << endl;
 			playerTurn();
 	  }
 }
@@ -259,9 +260,11 @@ void GameWindow::nextRoundClick() {
 }
 
 void GameWindow::playerTurn() {
-  updatePlayerHand();
-  updateTable();
-  updateScores();
+  if (model_->getCurrentPlayerType() == 'h') {
+    updatePlayerHand();
+    updateTable();
+    updateScores();
+  }
   Command c = model_->getPlayerMove();
   controller_->executeCommand(c);
   intTable_ = model_->getIntTable();
@@ -318,6 +321,7 @@ void GameWindow::updateTable(){
 }
 
 void GameWindow::roundEnd() {
+  cout << "this part of RoundEnd() gets called easily" << endl;
   string score_text = "";
   vector<int> scores = model_->getPlayerScores();
   vector<int> discards = model_->getPlayerRoundScores();
@@ -328,12 +332,13 @@ void GameWindow::roundEnd() {
 		score_text += "\n";
 		score_text += "Player " + to_string(i + 1) + "\'s score: " + to_string(scores[i]) + "\n";
 	}
-
-  resetTable();
+  cout << "2nd part of RoundEnd() gets called easily" << endl;
+  updateScores();
   updatePlayerHand();
+  resetTable();
 
   next_round->set_sensitive(true);
-
+  cout << "Third part of RoundEnd() gets called easily" << endl;
 
   // controller_->newRound();
 }
