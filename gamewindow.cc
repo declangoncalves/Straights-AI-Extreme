@@ -331,6 +331,8 @@ void GameWindow::roundEnd() {
 		score_text += "Player " + to_string(i + 1) + "\'s score: " + to_string(scores[i]) + "\n";
 	}
 
+  updateScores();
+  updatePlayerHand();
   resetTable();
 
   next_round->set_sensitive(true);
