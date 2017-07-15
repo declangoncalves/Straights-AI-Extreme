@@ -345,7 +345,7 @@ void GameWindow::updatePlayerHand(){
       // Highlight legal plays
       for (auto legalCard: legalPlays){
         if (legalCard == card){
-          handButtons_[i]->set_relief(Gtk.ReliefStyle.NONE);
+          handButtons_[i]->set_relief(Gtk::ReliefStyle::NONE);
         }
       }
     }
