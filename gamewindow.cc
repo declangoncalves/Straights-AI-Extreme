@@ -115,6 +115,11 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
       }
     }
 
+    for (auto hand : handButtons_) {
+      Gtk::Image* image = new Gtk::Image("./img/nothing.png");
+      hand->set_image(*image);
+    }
+
     for (int i = 0; i < 4; i ++) {
       for (int j = 0; j < 13; j++) {
         refBuilder->get_widget("image_" + std::to_string(i) + std::to_string(j), imgTable_[i][j]);
@@ -207,6 +212,10 @@ void GameWindow::startGame() {
   std::string seed_str = seed_input->get_text();
   seed = std::stoi(seed_str);
   std::cout << "this worked with seed: " << seed <<  std::endl;
+  p1_choice->set_sensitive(false);
+  p2_choice->set_sensitive(false);
+  p3_choice->set_sensitive(false);
+  p4_choice->set_sensitive(false);
   controller_->startGame(seed, choices_, recurring_);
   recurring_ = true;
 }
