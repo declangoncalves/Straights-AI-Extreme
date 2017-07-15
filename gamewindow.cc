@@ -202,6 +202,10 @@ void GameWindow::startGame() {
   refBuilder->get_widget("p2_discards", p2_discards);
   refBuilder->get_widget("p3_discards", p3_discards);
   refBuilder->get_widget("p4_discards", p4_discards);
+  refBuilder->get_widget("next_round_btn", next_round);
+  next_round->set_sensitivity(false);
+
+  next_round->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::nextRoundClick));
 
   for (int i = 0; i < 4; i++) {
     std::vector<Gtk::Image*> item;
@@ -247,6 +251,11 @@ void GameWindow::update() {
 		else { // Round not finished
 			playerTurn();
 	  }
+}
+
+void GameWindow::nextRoundClick() {
+  controller_->newRound();
+  next_round_btn->set_sensitivty(false);
 }
 
 void GameWindow::playerTurn() {
@@ -322,6 +331,8 @@ void GameWindow::roundEnd() {
 
   resetTable();
   updatePlayerHand();
+
+  next_round_btn->set_sensitivty(true);
 
 
   // controller_->newRound();

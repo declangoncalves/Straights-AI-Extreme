@@ -33,6 +33,7 @@ private:
   void handView();
   void setPlayer(int);
   void handClicked(int);
+  void nextRoundClick();
 
   //Child widgets:
   Gtk::Box* glade_window = nullptr;
@@ -55,6 +56,7 @@ private:
   Gtk::Label* p2_discards = nullptr;
   Gtk::Label* p3_discards = nullptr;
   Gtk::Label* p4_discards = nullptr;
+  Gtk::Button* next_round = nullptr;
   std::vector<Gtk::Button*> handButtons_;
   std::vector<std::vector<Gtk::Image*> > imgTable_;
   std::vector<std::vector<int> > intTable_;
