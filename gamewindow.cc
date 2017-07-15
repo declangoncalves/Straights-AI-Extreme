@@ -358,6 +358,7 @@ void GameWindow::updatePlayerHand(){
     for (i; i < 13; i++){
       Gtk::Image* image = new Gtk::Image("./img/nothing.png");
       handButtons_[i]->set_image(*image);
+      handButtons_[i]->set_relief(Gtk::ReliefStyle::RELIEF_NONE);
       image->show();
     }
     cout << "setting images for buttons to nothing worked" << endl;
