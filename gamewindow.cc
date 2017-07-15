@@ -257,10 +257,11 @@ void GameWindow::update() {
 void GameWindow::announceWinner() {
   int player = model_->calculateWinner();
   int score = model_->getPlayerScores()[player];
-  string winner_text = "Player " + to_string(player) + " wins with a score of " + to_string(score) + "!";
+  string winner_text = "Player " + to_string(player + 1) + " wins with a score of " + to_string(score) + "!";
   Glib::ustring msg(winner_text.c_str());
   Gtk::MessageDialog msgdialog(*this, msg);
   msgdialog.run();
+  next_round_btn->set_sensitive(false);
 }
 
 void GameWindow::nextRoundClick() {
