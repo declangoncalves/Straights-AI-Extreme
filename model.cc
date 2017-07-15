@@ -134,7 +134,7 @@ void Model::computerMove() {
     int index = 0;
     for (int i = 0; i < hand.size(); i++) {
       if (hand[i].rank().rank() <= min) {
-        min = legal[i].rank().rank();
+        min = hand[i].rank().rank();
         index = i;
       }
     }
