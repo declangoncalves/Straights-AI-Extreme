@@ -113,14 +113,43 @@ void Model::pickChoice(Card c) {
   }
 }
 
+// void Model::computerMove() {
+//   std::vector<Card> legal = getLegalPlays();
+//   std::vector<Card> hand = getCurrentPlayer()->getHand();
+//   if (legal.size() == 0) {
+//     discardCard(hand[0]);
+//   }
+//   else {
+//     playCard(legal[0]);
+//   }
+//   return;
+// }
+
 void Model::computerMove() {
   std::vector<Card> legal = getLegalPlays();
   std::vector<Card> hand = getCurrentPlayer()->getHand();
   if (legal.size() == 0) {
-    discardCard(hand[0]);
+    int min = hand[0].rank().rank();
+    int index = 0;
+    for (int i = 0; i < hand.size(); i++) {
+      if (hand[i].rank().rank() < min) {
+        min = legal[i].rank().rank();
+        index = i;
+      }
+    }
+    discardCard(hand[i]);
   }
   else {
-    playCard(legal[0]);
+    int min = legal[0].rank().rank();
+    int index = 0;
+    for (int i = 0; i < legal.size(); i++) {
+      if (legal[i].rank().rank() == 6) continue;
+      if legal[i].rank().rank() < min) {
+        min = legal[i].rank().rank();
+        index = i;
+      }
+    }
+    playCard(legal[index]);
   }
   return;
 }
