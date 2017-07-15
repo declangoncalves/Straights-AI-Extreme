@@ -123,7 +123,6 @@ void Model::incrementPlayerTurn() {
   cout << "Player's turn: " << playerturn_ << endl;
   if (emptyhands_ == 4) {
     endRound();
-    notify();
     return;
   }
   const int max_index = 3;
