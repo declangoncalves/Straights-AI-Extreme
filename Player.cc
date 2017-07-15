@@ -43,6 +43,7 @@ void Player::setTotalScore(int score) { // Sets player score
 
 void Player::emptyHand() { // Used to completely empty hand / discards
 	discards_.clear();
+	hand_.clear();
 }
 
 void Player::dealCard(Card c) { // Insert Card into hand

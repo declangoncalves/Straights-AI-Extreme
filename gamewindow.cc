@@ -109,6 +109,7 @@ GameWindow::~GameWindow()
 }
 
 void GameWindow::handClicked(int i) {
+  cout << "Index of card being played: " << endl;
   if (i >= model_->getCurrentPlayerHand().size()) {
     return;
   }
