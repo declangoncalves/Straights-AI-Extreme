@@ -9,6 +9,7 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
     set_default_size(800, 500);
     set_resizable(false);
     choices_ = {'h', 'h', 'h', 'h'};
+
     // Prepare MVC
     controller_ = c;
     model_ = m;
@@ -234,10 +235,7 @@ void GameWindow::update() {
       announceWinner();
     }
 	}
-  // if (model_->getGameState() == 2){ // Round Finished
-  //   cout << "announcing winner" << endl;
-  //   announceWinner();
-  // }
+
 	else { // Round not finished
 		playerTurn();
   }
@@ -334,6 +332,7 @@ void GameWindow::updatePlayerHand(){
       handButtons_[i]->set_image(*image);
       image->show();
       handButtons_[i]->set_relief(Gtk::ReliefStyle::RELIEF_NONE);
+
       // Highlight legal plays
       for (auto legalCard: legalPlays){
         if (legalCard == card){
@@ -353,8 +352,8 @@ void GameWindow::updatePlayerHand(){
 }
 
 void GameWindow::updateScores() {
-  // Iterate through and update labels for scores
 
+  // Iterate through and update labels for scores
   p1_score->set_text("Score: " + to_string(model_->getPlayerScores()[0]));
   p2_score->set_text("Score: " + to_string(model_->getPlayerScores()[1]));
   p3_score->set_text("Score: " + to_string(model_->getPlayerScores()[2]));
@@ -404,7 +403,6 @@ void GameWindow::roundEnd() {
   p4_RQ->set_sensitive(false);
   next_round->set_sensitive(true);
 
-  // controller_->newRound();
 }
 
 string GameWindow::listDiscards(std::vector<Card> discards) {
