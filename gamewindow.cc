@@ -255,6 +255,7 @@ void GameWindow::nextRoundClick() {
 void GameWindow::rageQuit() {
   Command c;
   c.type = Command::Type::RAGEQUIT;
+  controller_->executeComand(c);
 }
 
 void GameWindow::playerTurn() {
