@@ -143,7 +143,7 @@ void Model::computerMove() {
     int min = legal[0].rank().rank();
     int index = 0;
     for (int i = 0; i < legal.size(); i++) {
-      if (legal[i].rank().rank() == 6) continue;
+      // if (legal[i].rank().rank() == 6) continue;
       if (legal[i].rank().rank() <= min) {
         min = legal[i].rank().rank();
         index = i;
