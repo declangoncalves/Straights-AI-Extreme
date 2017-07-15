@@ -236,6 +236,7 @@ void GameWindow::startGame() {
 
   controller_->startGame(seed, choices_);
 
+
   return;
 }
 
@@ -333,9 +334,14 @@ void GameWindow::roundEnd() {
 		score_text += "Player " + to_string(i + 1) + "\'s score: " + to_string(scores[i]) + "\n";
 	}
   cout << "2nd part of RoundEnd() gets called easily" << endl;
+
   updateScores();
   updatePlayerHand();
   resetTable();
+
+  Glib::ustring msg(score_text.c_str());
+  Gtk::MessageDialog msgdialog(this, msg);
+  msgdialog.run();
 
   next_round->set_sensitive(true);
   cout << "Third part of RoundEnd() gets called easily" << endl;
