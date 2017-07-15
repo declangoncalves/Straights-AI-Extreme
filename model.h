@@ -20,6 +20,7 @@ class Model : public Subject {
   Command getPlayerMove();
   std::vector<int> getPlayerScores();
   std::vector<int> getPlayerDiscards();
+  std::vector<int> getPlayerRoundScores();  
   std::vector<std::vector<Card> > getAllDiscards();
   const int getCurrentPlayerIndex();
   const int getGameState();
