@@ -21,7 +21,7 @@ Card Deck::getCard(int i) {
 }
 
 void Deck::shuffle() {
-	static mt19937 rng(seed_);
+	mt19937 rng(seed_);
 
 	int n = 52;
 

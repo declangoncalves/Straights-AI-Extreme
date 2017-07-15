@@ -30,8 +30,12 @@ void Model::restartGame(int seed) {
     player->setTotalScore(0);
     player->emptyHand();
   }
-  intstable_(4, std::vector<int>(15, 0));
-  cardstable_(4, std::vector<Card>(15));
+  for (auto& sub : intstable_) {
+    std::fill(sub.begin(), sub.end(), 0);
+  }
+  for (auto& sub : cardstable_) {
+    std::fill(sub.begin(), sub.end(), Card());
+  }
   initializeRound();
 }
 
