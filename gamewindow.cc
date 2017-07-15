@@ -221,6 +221,12 @@ void GameWindow::startGame() {
   handButtons_[10]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 10) );
   handButtons_[11]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 11) );
   handButtons_[12]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 12) );
+
+  p1_RQ->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::rageQuit));
+  p2_RQ->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::rageQuit));
+  p3_RQ->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::rageQuit));
+  p4_RQ->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::rageQuit));
+
   controller_->startGame(seed, choices_, recurring_);
   recurring_ = true;
 }
@@ -244,6 +250,12 @@ void GameWindow::update() {
 void GameWindow::nextRoundClick() {
   next_round->set_sensitive(false);
   controller_->newRound();
+}
+
+void GameWindow::rageQuit() {
+  Command c;
+  c.type = Command::Type::RAGEQUIT;
+  controller_->executeCommand(c);
 }
 
 void GameWindow::playerTurn() {
@@ -426,10 +438,6 @@ void GameWindow::executeCommand(Command c) {
 	// 		}
 	// 	}
 	// // }
-}
-
-void GameWindow::rageQuit() {
-  return;
 }
 
 
