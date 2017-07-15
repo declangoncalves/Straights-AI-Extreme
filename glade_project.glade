@@ -605,7 +605,7 @@
             </child>
           </object>
           <packing>
-            <property name="x">20</property>
+            <property name="x">40</property>
             <property name="y">30</property>
           </packing>
         </child>
@@ -868,6 +868,7 @@
             </child>
           </object>
           <packing>
+            <property name="x">40</property>
             <property name="y">340</property>
           </packing>
         </child>
