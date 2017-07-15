@@ -214,8 +214,10 @@ void Model::initializeRound() {
 
 const int Model::calculateWinner() {
   int player = 0;
+  int max = 0;
   for (int i = 0; i < players_.size(); i++) {
-    if (players_[i]->getTotalScore() >= min) {
+    if ((players_[i]->getTotalScore()) >= max) {
+      max = players_[i]->getTotalScore();
       player = i;
     }
   }
