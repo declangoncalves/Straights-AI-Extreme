@@ -12,7 +12,7 @@ class Controller {
 
 	void executeCommand(Command);
 	void newRound();
-  void startGame(int seed, std::vector<char> players);
+  void startGame(int seed, std::vector<char> players, bool recurring);
 
   private:
     Model *model_;
