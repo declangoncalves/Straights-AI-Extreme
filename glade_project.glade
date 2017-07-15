@@ -14,6 +14,7 @@
             <property name="visible">True</property>
             <property name="n_rows">4</property>
             <property name="n_columns">13</property>
+            <property name="homogeneous">True</property>
             <child>
               <object class="GtkImage" id="image_00">
                 <property name="visible">True</property>
@@ -610,20 +611,20 @@
         <child>
           <object class="GtkButton" id="end_game_btn">
             <property name="label" translatable="yes">End Game</property>
-            <property name="width_request">400</property>
+            <property name="width_request">200</property>
             <property name="height_request">30</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
           </object>
           <packing>
-            <property name="x">400</property>
+            <property name="x">200</property>
           </packing>
         </child>
         <child>
           <object class="GtkHBox" id="hbox1">
             <property name="width_request">800</property>
-            <property name="height_request">80</property>
+            <property name="height_request">150</property>
             <property name="visible">True</property>
             <child>
               <object class="GtkVBox" id="vbox1">
@@ -669,6 +670,17 @@
                   </object>
                   <packing>
                     <property name="position">3</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="p1_type">
+                    <property name="label" translatable="yes">Human</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                  </object>
+                  <packing>
+                    <property name="position">4</property>
                   </packing>
                 </child>
               </object>
@@ -719,6 +731,17 @@
                     <property name="position">3</property>
                   </packing>
                 </child>
+                <child>
+                  <object class="GtkButton" id="p2_type">
+                    <property name="label" translatable="yes">Human</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                  </object>
+                  <packing>
+                    <property name="position">4</property>
+                  </packing>
+                </child>
               </object>
               <packing>
                 <property name="position">1</property>
@@ -766,6 +789,17 @@
                     <property name="position">3</property>
                   </packing>
                 </child>
+                <child>
+                  <object class="GtkButton" id="p3_type">
+                    <property name="label" translatable="yes">Human</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                  </object>
+                  <packing>
+                    <property name="position">4</property>
+                  </packing>
+                </child>
               </object>
               <packing>
                 <property name="position">2</property>
@@ -811,6 +845,17 @@
                   </object>
                   <packing>
                     <property name="position">3</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="p4_type">
+                    <property name="label" translatable="yes">Human</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                  </object>
+                  <packing>
+                    <property name="position">4</property>
                   </packing>
                 </child>
               </object>
@@ -973,18 +1018,43 @@
             </child>
           </object>
           <packing>
-            <property name="y">420</property>
+            <property name="y">500</property>
           </packing>
         </child>
         <child>
           <object class="GtkButton" id="next_round_btn">
             <property name="label" translatable="yes">Next Round</property>
-            <property name="width_request">400</property>
+            <property name="width_request">200</property>
             <property name="height_request">30</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
           </object>
+        </child>
+        <child>
+          <object class="GtkEntry" id="seed_input">
+            <property name="width_request">200</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="invisible_char">&#x25CF;</property>
+          </object>
+          <packing>
+            <property name="x">400</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="start_game_btn">
+            <property name="label" translatable="yes">Start new game with seed</property>
+            <property name="width_request">200</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+          </object>
+          <packing>
+            <property name="x">600</property>
+          </packing>
         </child>
       </object>
     </child>
