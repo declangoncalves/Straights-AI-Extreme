@@ -241,10 +241,10 @@ void GameWindow::update() {
     cout << "ROUND DID END PROPERLY" << endl;
 		roundEnd();
 	}
-  if (model_->getGameState() == 2){ // Round Finished
-    cout << "announcing winner" << endl;
-    announceWinner();
-  }
+  // if (model_->getGameState() == 2){ // Round Finished
+  //   cout << "announcing winner" << endl;
+  //   announceWinner();
+  // }
 	else { // Round not finished
     cout << "Player Turn 2: " << model_->getCurrentPlayerIndex() << endl;
 		playerTurn();
