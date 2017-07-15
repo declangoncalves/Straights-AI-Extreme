@@ -343,11 +343,11 @@ void GameWindow::updatePlayerHand(){
       image->show();
       i++;
       // Highlight legal plays
-      for (auto legalCard: legalPlays){
-        if (legalCard == card){
-          handButtons_[i]->set_relief(Gtk.ReliefStyle.NONE);
-        }
-      }
+      // for (auto legalCard: legalPlays){
+      //   if (legalCard == card){
+      //     handButtons_[i]->set_relief(Gtk::ReliefStyle::NONE);
+      //   }
+      // }
     }
     cout << "setting images worked" << endl;
     for (i; i < 13; i++){
