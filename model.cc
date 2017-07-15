@@ -62,7 +62,7 @@ std::vector<int> Model::getPlayerDiscards() {
 std::vector<int> Model::getPlayerRoundScores() {
   std::vector<int> scores;
   for (auto player : players_) {
-    scores.push_back(player->getRoundScores().size());
+    scores.push_back(player->getRoundScore().size());
   }
   return scores;
 }
