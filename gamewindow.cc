@@ -232,7 +232,7 @@ void GameWindow::startGame() {
 }
 
 void GameWindow::endGame() {
-  this.quit();
+  exit(0);
   return;
 }
 
