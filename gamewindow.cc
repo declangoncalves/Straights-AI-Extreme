@@ -253,6 +253,17 @@ void GameWindow::nextRoundClick() {
 }
 
 void GameWindow::rageQuit() {
+  int player = model_->getCurrentPlayerIndex();
+  switch (player) {
+    case 0:
+      p1_type->set_label("Computer");
+    case 1:
+      p2_type->set_label("Computer");
+    case 2:
+      p3_type->set_label("Computer");
+    case 3:
+      p4_type->set_label("Computer");
+  }
   Command c;
   c.type = Command::Type::RAGEQUIT;
   controller_->executeCommand(c);
