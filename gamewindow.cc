@@ -413,6 +413,10 @@ void GameWindow::roundEnd() {
   msgdialog.run();
 
   next_round->set_sensitive(true);
+  p1_RQ->set_sensitive(false);
+  p2_RQ->set_sensitive(false);
+  p3_RQ->set_sensitive(false);
+  p4_RQ->set_sensitive(false);
   cout << "Third part of RoundEnd() gets called easily" << endl;
 
   // controller_->newRound();
