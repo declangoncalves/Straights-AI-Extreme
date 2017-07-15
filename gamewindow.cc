@@ -237,14 +237,27 @@ void GameWindow::endGame() {
 }
 
 void GameWindow::update() {
-		if (model_->getGameState() != 0){ // Round Finished
-      cout << "ROUND DID END PROPERLY" << endl;
-			roundEnd();
-		}
-		else { // Round not finished
-      cout << "Player Turn 2: " << model_->getCurrentPlayerIndex() << endl;
-			playerTurn();
-	  }
+	if (model_->getGameState() != 0){ // Round Finished
+    cout << "ROUND DID END PROPERLY" << endl;
+		roundEnd();
+	}
+  if (model_->getGameState() == 2){ // Round Finished
+    cout << "announcing winner" << endl;
+    announceWinner();
+  }
+	else { // Round not finished
+    cout << "Player Turn 2: " << model_->getCurrentPlayerIndex() << endl;
+		playerTurn();
+  }
+}
+
+void GameWindow::announceWinner() {
+  int player = model_->calculateWinner();
+  int score = model_->getPlayerScores()[player];
+  string winner_text = "Player " + to_string(player) + " wins with a score of " + to_string(score) + "!";
+  Glib::ustring msg(winner_text.c_str());
+  Gtk::MessageDialog msgdialog(*this, msg);
+  msgdialog.run();
 }
 
 void GameWindow::nextRoundClick() {
