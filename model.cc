@@ -137,7 +137,7 @@ void Model::computerMove() {
         index = i;
       }
     }
-    discardCard(hand[i]);
+    discardCard(hand[index]);
   }
   else {
     int min = legal[0].rank().rank();
