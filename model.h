@@ -26,6 +26,7 @@ class Model : public Subject {
   const int getCurrentPlayerIndex();
   const int getGameState();
   const int checkScore();
+  const int calculateWinner();
   const std::vector<std::vector<Card> > getCardTable();
   const std::vector<std::vector<int> > getIntTable();
   const std::vector<Card> getPlayerHand();

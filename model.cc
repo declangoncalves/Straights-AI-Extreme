@@ -212,6 +212,16 @@ void Model::initializeRound() {
   cout << "notify worked" << endl;
 }
 
+const int Model::calculateWinner() {
+  int player = 0;
+  for (int i = 0; i < players_.size(); i++) {
+    if (players_[i]->getTotalScore() >= min) {
+      player = i;
+    }
+  }
+  return player;
+}
+
 void Model::endRound() {
   cout << "ROUND ENDING HAS BEGUN";
   gamestate_ = 1;
