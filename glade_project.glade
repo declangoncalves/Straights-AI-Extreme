@@ -619,7 +619,7 @@
             <property name="receives_default">True</property>
           </object>
           <packing>
-            <property name="x">630</property>
+            <property name="x">660</property>
           </packing>
         </child>
         <child>
@@ -1044,7 +1044,7 @@
             <property name="invisible_char">&#x25CF;</property>
           </object>
           <packing>
-            <property name="x">430</property>
+            <property name="x">230</property>
           </packing>
         </child>
         <child>
@@ -1057,7 +1057,7 @@
             <property name="receives_default">True</property>
           </object>
           <packing>
-            <property name="x">200</property>
+            <property name="x">430</property>
           </packing>
         </child>
       </object>
