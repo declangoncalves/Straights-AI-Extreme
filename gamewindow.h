@@ -26,6 +26,7 @@ private:
   void updateScores();
   void updatePlayerHand();
   void playerTurn();
+  string listDiscards();
   void roundEnd();
   void endGame();
   void rageQuit();
