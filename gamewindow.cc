@@ -7,6 +7,7 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
     // Prepare game window
     set_title("Straights EXTREME");
     set_default_size(800, 500);
+    set_resizable(false);
     choices_ = {'h', 'h', 'h', 'h'};
     // Prepare MVC
     controller_ = c;
