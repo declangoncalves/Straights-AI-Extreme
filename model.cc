@@ -39,12 +39,8 @@ std::vector<int> Model::getPlayerScores() {
   return scores;
 }
 
-std::vector<int> Model::getRoundScores() {
-
-}
-
-std::vector<<vector<Card> > Model::getAllDiscards() {
-  std::vector<<vector<Card> > retv;
+std::vector<vector<Card> > Model::getAllDiscards() {
+  std::vector<vector<Card> > retv;
   for (int i = 0; i < 4; i++) {
     std::vector<Card> items;
     retv.push_back(items);
