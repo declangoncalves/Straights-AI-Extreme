@@ -26,6 +26,7 @@ private:
   void updateScores();
   void updatePlayerHand();
   void playerTurn();
+  void announceWinner();
   std::string listDiscards(std::vector<Card>);
   void roundEnd();
   void endGame();
