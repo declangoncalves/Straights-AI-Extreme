@@ -131,13 +131,10 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
     }
     cout << " this worked after setting to nothing" << endl;
 
-    show_all_children();
-
     add(container);
     container.add(*glade_window);
 
     show_all_children();
-    startGame();
     return;
 }
 
