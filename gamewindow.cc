@@ -254,8 +254,8 @@ void GameWindow::update() {
 }
 
 void GameWindow::nextRoundClick() {
-  controller_->newRound();
   next_round->set_sensitive(false);
+  controller_->newRound();
 }
 
 void GameWindow::playerTurn() {
