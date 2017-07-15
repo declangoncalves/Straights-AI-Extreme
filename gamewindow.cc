@@ -78,20 +78,6 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
     refBuilder->get_widget("hand_btn_12", handButtons_[11]);
     refBuilder->get_widget("hand_btn_13", handButtons_[12]);
 
-    handButtons_[0]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 0) );
-    handButtons_[1]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 1) );
-    handButtons_[2]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 2) );
-    handButtons_[3]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 3) );
-    handButtons_[4]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 4) );
-    handButtons_[5]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 5) );
-    handButtons_[6]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 6) );
-    handButtons_[7]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 7) );
-    handButtons_[8]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 8) );
-    handButtons_[9]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 9) );
-    handButtons_[10]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 10) );
-    handButtons_[11]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 11) );
-    handButtons_[12]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 12) );
-
     cout << "this worked after setting handButtons[i]" << endl;
 
     refBuilder->get_widget("p1_score", p1_score);
@@ -216,6 +202,19 @@ void GameWindow::startGame() {
   p2_choice->set_sensitive(false);
   p3_choice->set_sensitive(false);
   p4_choice->set_sensitive(false);
+  handButtons_[0]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 0) );
+  handButtons_[1]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 1) );
+  handButtons_[2]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 2) );
+  handButtons_[3]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 3) );
+  handButtons_[4]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 4) );
+  handButtons_[5]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 5) );
+  handButtons_[6]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 6) );
+  handButtons_[7]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 7) );
+  handButtons_[8]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 8) );
+  handButtons_[9]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 9) );
+  handButtons_[10]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 10) );
+  handButtons_[11]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 11) );
+  handButtons_[12]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 12) );
   controller_->startGame(seed, choices_, recurring_);
   recurring_ = true;
 }
