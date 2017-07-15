@@ -232,7 +232,7 @@ void GameWindow::startGame() {
 }
 
 void GameWindow::endGame() {
-  this->Destroy();
+  exit(0);
   return;
 }
 
