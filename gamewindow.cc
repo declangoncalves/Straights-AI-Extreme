@@ -257,12 +257,16 @@ void GameWindow::rageQuit() {
   switch (player) {
     case 0:
       p1_choice->set_label("Computer");
+      break;
     case 1:
       p2_choice->set_label("Computer");
+      break;
     case 2:
       p3_choice->set_label("Computer");
+      break;
     case 3:
       p4_choice->set_label("Computer");
+      break;
   }
   Command c;
   c.type = Command::Type::RAGEQUIT;
