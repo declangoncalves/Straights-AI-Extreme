@@ -249,6 +249,7 @@ void GameWindow::update() {
 			roundEnd();
 		}
 		else { // Round not finished
+      cout << "Player Turn 2: " << model_->getCurrentPlayerIndex() << endl;
 			playerTurn();
 	  }
 }
