@@ -23,6 +23,16 @@ void Model::startGame(int seed, std::vector<char> players) {
   cout << "initializing round worked" << endl;
 }
 
+void Model::restartGame(int seed) {
+  deck_ = Deck(seed);
+  for (player : players_) {
+    player->setRoundScore(0);
+    player->setTotalScore(0);
+    player->emptyHand();
+  }
+  initializeRound();
+}
+
 const std::vector<std::vector<Card> > Model::getCardTable() {
   return cardstable_;
 }

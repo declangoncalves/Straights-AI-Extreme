@@ -15,15 +15,22 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
 
     refBuilder = Gtk::Builder::create();
     refActionGroup = Gio::SimpleActionGroup::create();
-    try {
-      refBuilder->add_from_file("start_screen.glade");
+    try
+    {
+      refBuilder->add_from_file("glade_project.glade");
     }
     catch(const Glib::Error& ex)
     {
       std::cerr << "ERROR ADDING FROM: glade_project" <<  ex.what();
     }
 
-    refBuilder->get_widget("window1", start_screen);
+    std::cout << "this worked 2" << std::endl;
+
+    refBuilder->get_widget("glade_window", glade_window);
+    if (!glade_window) {
+      std::cout << "this didn't work" << std::endl;
+    }
+
     refBuilder->get_widget("start_game_btn", start_game_btn);
     refBuilder->get_widget("p1_type", p1_choice);
     refBuilder->get_widget("p2_type", p2_choice);
@@ -38,22 +45,101 @@ GameWindow::GameWindow(const Glib::RefPtr<Gtk::Application>& app, Controller* c,
     p3_choice->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::setPlayer), 2) );
     p4_choice->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::setPlayer), 3) );
 
-    //start_game_btn->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::startGame));
-    //p1_choice->signal_clicked().connect(sigc::mem_fun(*this, GameWindow::setPlayer, n)
-    //p2_choice->signal_clicked().connect(sigc::mem_fun(*this, GameWindow::setPlayer);
-    //p3_choice->signal_clicked().connect(sigc::mem_fun(*this, GameWindow::setPlayer(2)));
-    //p4_choice->signal_clicked().connect(sigc::mem_fun(*this, GameWindow::setPlayer(3)));
+    cout << "this worked after glade" << endl;
 
+    refBuilder->get_widget("end_game_btn", end_game_btn);
+    refBuilder->get_widget("p1_RQ", p1_RQ);
+    refBuilder->get_widget("p2_RQ", p2_RQ);
+    cout << "this worked" << endl;
+    refBuilder->get_widget("p3_RQ", p3_RQ);
+    refBuilder->get_widget("p4_RQ", p4_RQ);
 
-    // refActionGroup->add_action("start_game_btn", sigc::mem_fun(*this, &GameWindow::startGame) );
-    // refActionGroup->add_action("p1_type", sigc::mem_fun(*this, &GameWindow::setPlayer(0)) );
-    // refActionGroup->add_action("p2_type", sigc::mem_fun(*this, &GameWindow::setPlayer(1)) );
-    // refActionGroup->add_action("p3_type", sigc::mem_fun(*this, &GameWindow::setPlayer(2)) );
-    // refActionGroup->add_action("p4_type", sigc::mem_fun(*this, &GameWindow::setPlayer(3)) );
+    cout << "this worked after get widget" << endl;
 
-    add(container);
-    container.add(*start_screen);
+    for (int i=0; i < 13; i++){
+      handButtons_.push_back(nullptr);
+    }
+
+    cout << "this worked after setting handbuttons to nullptr" << endl;
+
+    refBuilder->get_widget("hand_btn_1", handButtons_[0]);
+    refBuilder->get_widget("hand_btn_2", handButtons_[1]);
+    refBuilder->get_widget("hand_btn_3", handButtons_[2]);
+    refBuilder->get_widget("hand_btn_4", handButtons_[3]);
+    refBuilder->get_widget("hand_btn_5", handButtons_[4]);
+    refBuilder->get_widget("hand_btn_6", handButtons_[5]);
+    refBuilder->get_widget("hand_btn_7", handButtons_[6]);
+    refBuilder->get_widget("hand_btn_8", handButtons_[7]);
+    refBuilder->get_widget("hand_btn_9", handButtons_[8]);
+    refBuilder->get_widget("hand_btn_10", handButtons_[9]);
+    refBuilder->get_widget("hand_btn_11", handButtons_[10]);
+    refBuilder->get_widget("hand_btn_12", handButtons_[11]);
+    refBuilder->get_widget("hand_btn_13", handButtons_[12]);
+    refBuilder->get_widget("hand_btn_12", handButtons_[11]);
+    refBuilder->get_widget("hand_btn_13", handButtons_[12]);
+
+    handButtons_[0]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 0) );
+    handButtons_[1]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 1) );
+    handButtons_[2]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 2) );
+    handButtons_[3]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 3) );
+    handButtons_[4]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 4) );
+    handButtons_[5]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 5) );
+    handButtons_[6]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 6) );
+    handButtons_[7]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 7) );
+    handButtons_[8]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 8) );
+    handButtons_[9]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 9) );
+    handButtons_[10]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 10) );
+    handButtons_[11]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 11) );
+    handButtons_[12]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 12) );
+
+    cout << "this worked after setting handButtons[i]" << endl;
+
+    refBuilder->get_widget("p1_score", p1_score);
+    refBuilder->get_widget("p2_score", p2_score);
+    refBuilder->get_widget("p3_score", p3_score);
+    refBuilder->get_widget("p4_score", p4_score);
+    refBuilder->get_widget("p1_discards", p1_discards);
+    refBuilder->get_widget("p2_discards", p2_discards);
+    refBuilder->get_widget("p3_discards", p3_discards);
+    refBuilder->get_widget("p4_discards", p4_discards);
+    refBuilder->get_widget("next_round_btn", next_round);
+    next_round->set_sensitive(false);
+
+    next_round->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::nextRoundClick));
+
+    for (int i = 0; i < 4; i++) {
+      std::vector<Gtk::Image*> item;
+      imgTable_.push_back(item);
+      for (int j = 0; j < 13; j++) {
+        imgTable_[i].push_back(nullptr);
+      }
+    }
+
+    for (int i = 0; i < 4; i ++) {
+      for (int j = 0; j < 13; j++) {
+        refBuilder->get_widget("image_" + std::to_string(i) + std::to_string(j), imgTable_[i][j]);
+        imgTable_[i][j]->set("./img/nothing.png");
+      }
+    }
+
+    for (int i = 0; i < 4; i++) {
+      std::vector<int> ints;
+      intTable_.push_back(ints);
+      for (int j = 0; j < 15; j++) {
+        intTable_[i].push_back(0);
+      }
+    }
+    cout << " this worked after setting to nothing" << endl;
+
     show_all_children();
+
+    controller_->startGame(seed, choices_);
+    add(container)
+    container.add(*glade_window);
+
+    show_all_children();
+    return;
+
 }
 
 void GameWindow::setPlayer(int i) {
@@ -125,119 +211,7 @@ void GameWindow::startGame() {
   std::string seed_str = seed_input->get_text();
   seed = std::stoi(seed_str);
   std::cout << "this worked with seed: " << seed <<  std::endl;
-
-  try
-  {
-    refBuilder->add_from_file("glade_project.glade");
-  }
-  catch(const Glib::Error& ex)
-  {
-    std::cerr << "ERROR ADDING FROM: glade_project" <<  ex.what();
-  }
-
-  std::cout << "this worked 2" << std::endl;
-
-  refBuilder->get_widget("glade_window", glade_window);
-  if (!glade_window) {
-    std::cout << "this didn't work" << std::endl;
-  }
-
-  //remove(*start_screen);
-  container.remove(*start_screen);
-  container.add(*glade_window);
-
-  cout << "this worked after glade" << endl;
-
-  refBuilder->get_widget("end_game_btn", end_game_btn);
-  refBuilder->get_widget("p1_RQ", p1_RQ);
-  refBuilder->get_widget("p2_RQ", p2_RQ);
-  cout << "this worked" << endl;
-  refBuilder->get_widget("p3_RQ", p3_RQ);
-  refBuilder->get_widget("p4_RQ", p4_RQ);
-
-  cout << "this worked after get widget" << endl;
-
-  for (int i=0; i < 13; i++){
-    handButtons_.push_back(nullptr);
-  }
-
-  cout << "this worked after setting handbuttons to nullptr" << endl;
-
-  refBuilder->get_widget("hand_btn_1", handButtons_[0]);
-  refBuilder->get_widget("hand_btn_2", handButtons_[1]);
-  refBuilder->get_widget("hand_btn_3", handButtons_[2]);
-  refBuilder->get_widget("hand_btn_4", handButtons_[3]);
-  refBuilder->get_widget("hand_btn_5", handButtons_[4]);
-  refBuilder->get_widget("hand_btn_6", handButtons_[5]);
-  refBuilder->get_widget("hand_btn_7", handButtons_[6]);
-  refBuilder->get_widget("hand_btn_8", handButtons_[7]);
-  refBuilder->get_widget("hand_btn_9", handButtons_[8]);
-  refBuilder->get_widget("hand_btn_10", handButtons_[9]);
-  refBuilder->get_widget("hand_btn_11", handButtons_[10]);
-  refBuilder->get_widget("hand_btn_12", handButtons_[11]);
-  refBuilder->get_widget("hand_btn_13", handButtons_[12]);
-  refBuilder->get_widget("hand_btn_12", handButtons_[11]);
-  refBuilder->get_widget("hand_btn_13", handButtons_[12]);
-
-  handButtons_[0]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 0) );
-  handButtons_[1]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 1) );
-  handButtons_[2]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 2) );
-  handButtons_[3]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 3) );
-  handButtons_[4]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 4) );
-  handButtons_[5]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 5) );
-  handButtons_[6]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 6) );
-  handButtons_[7]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 7) );
-  handButtons_[8]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 8) );
-  handButtons_[9]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 9) );
-  handButtons_[10]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 10) );
-  handButtons_[11]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 11) );
-  handButtons_[12]->signal_clicked().connect( sigc::bind<int>( sigc::mem_fun(*this, &GameWindow::handClicked), 12) );
-
-  cout << "this worked after setting handButtons[i]" << endl;
-
-  refBuilder->get_widget("p1_score", p1_score);
-  refBuilder->get_widget("p2_score", p2_score);
-  refBuilder->get_widget("p3_score", p3_score);
-  refBuilder->get_widget("p4_score", p4_score);
-  refBuilder->get_widget("p1_discards", p1_discards);
-  refBuilder->get_widget("p2_discards", p2_discards);
-  refBuilder->get_widget("p3_discards", p3_discards);
-  refBuilder->get_widget("p4_discards", p4_discards);
-  refBuilder->get_widget("next_round_btn", next_round);
-  next_round->set_sensitive(false);
-
-  next_round->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::nextRoundClick));
-
-  for (int i = 0; i < 4; i++) {
-    std::vector<Gtk::Image*> item;
-    imgTable_.push_back(item);
-    for (int j = 0; j < 13; j++) {
-      imgTable_[i].push_back(nullptr);
-    }
-  }
-
-  for (int i = 0; i < 4; i ++) {
-    for (int j = 0; j < 13; j++) {
-      refBuilder->get_widget("image_" + std::to_string(i) + std::to_string(j), imgTable_[i][j]);
-      imgTable_[i][j]->set("./img/nothing.png");
-    }
-  }
-
-  for (int i = 0; i < 4; i++) {
-    std::vector<int> ints;
-    intTable_.push_back(ints);
-    for (int j = 0; j < 15; j++) {
-      intTable_[i].push_back(0);
-    }
-  }
-  cout << " this worked after setting to nothing" << endl;
-
-  show_all_children();
-
-  controller_->startGame(seed, choices_);
-
-
-  return;
+  controller_->newRound();
 }
 
 void GameWindow::endGame() {
