@@ -1,0 +1,9 @@
+Bonus Features:
+
+1) Smart AI:
+- Our computer players use a smart picking algorithm
+to determine which cards to discard and players
+
+2) Visual prompt for Legal Plays:
+- Our application prompts the user when they have Legal
+plays
