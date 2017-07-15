@@ -619,7 +619,7 @@
             <property name="receives_default">True</property>
           </object>
           <packing>
-            <property name="x">200</property>
+            <property name="x">600</property>
           </packing>
         </child>
         <child>
@@ -1056,7 +1056,7 @@
             <property name="receives_default">True</property>
           </object>
           <packing>
-            <property name="x">600</property>
+            <property name="x">200</property>
           </packing>
         </child>
       </object>
