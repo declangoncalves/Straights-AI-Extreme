@@ -345,19 +345,20 @@ void GameWindow::updatePlayerHand(){
       Gtk::Image* image = new Gtk::Image("./img/" + std::to_string(card.suit().suit()) + "_" + std::to_string(card.rank().rank()) + ".png");
       handButtons_[i]->set_image(*image);
       image->show();
-      i++;
+      handButtons_[i]->set_relief(Gtk::ReliefStyle::RELIEF_NONE);
       // Highlight legal plays
       for (auto legalCard: legalPlays){
         if (legalCard == card){
-            Gtk::ReliefStyle style = Gtk::ReliefStyle::RELIEF_NONE;
-            handButtons_[i]->set_relief(style);
+            handButtons_[i]->set_relief(Gtk::ReliefStyle::RELIEF_NORMAL);
         }
       }
+      i++;
     }
     cout << "setting images worked" << endl;
     for (i; i < 13; i++){
       Gtk::Image* image = new Gtk::Image("./img/nothing.png");
       handButtons_[i]->set_image(*image);
+      handButtons_[i]->set_relief(Gtk::ReliefStyle::RELIEF_NONE);
       image->show();
     }
     cout << "setting images for buttons to nothing worked" << endl;
