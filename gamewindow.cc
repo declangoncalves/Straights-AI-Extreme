@@ -246,6 +246,11 @@ void GameWindow::nextRoundClick() {
   controller_->newRound();
 }
 
+void GameWindow::rageQuit() {
+  Command c;
+  c.type = Command::Type::RAGEQUIT;
+}
+
 void GameWindow::playerTurn() {
   if (model_->getCurrentPlayerType() == 'h') {
     updatePlayerHand();
@@ -426,10 +431,6 @@ void GameWindow::executeCommand(Command c) {
 	// 		}
 	// 	}
 	// // }
-}
-
-void GameWindow::rageQuit() {
-  return;
 }
 
 
