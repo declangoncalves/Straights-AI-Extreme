@@ -231,11 +231,10 @@ void GameWindow::startGame() {
   }
   cout << " this worked after setting to nothing" << endl;
 
+  show_all_children();
+
   controller_->startGame(seed, choices_);
 
-
-
-  show_all_children();
   return;
 }
 
