@@ -321,6 +321,7 @@ void GameWindow::updateTable(){
 }
 
 void GameWindow::roundEnd() {
+  cout << "this part of RoundEnd() gets called easily" << endl;
   string score_text = "";
   vector<int> scores = model_->getPlayerScores();
   vector<int> discards = model_->getPlayerRoundScores();
@@ -331,13 +332,13 @@ void GameWindow::roundEnd() {
 		score_text += "\n";
 		score_text += "Player " + to_string(i + 1) + "\'s score: " + to_string(scores[i]) + "\n";
 	}
-
+  cout << "2nd part of RoundEnd() gets called easily" << endl;
   updateScores();
   updatePlayerHand();
   resetTable();
 
   next_round->set_sensitive(true);
-
+  cout << "Third part of RoundEnd() gets called easily" << endl;
 
   // controller_->newRound();
 }
