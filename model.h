@@ -11,6 +11,7 @@ class Model : public Subject {
   public:
   Model();
   void initializeRound();
+  void restartGame(int seed);
   void startGame(int seed, std::vector<char> players);
   void rageQuit();
   void pickChoice(Card);
@@ -20,7 +21,7 @@ class Model : public Subject {
   Command getPlayerMove();
   std::vector<int> getPlayerScores();
   std::vector<int> getPlayerDiscards();
-  std::vector<int> getPlayerRoundScores();  
+  std::vector<int> getPlayerRoundScores();
   std::vector<std::vector<Card> > getAllDiscards();
   const int getCurrentPlayerIndex();
   const int getGameState();
