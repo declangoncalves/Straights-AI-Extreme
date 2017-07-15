@@ -257,15 +257,19 @@ void GameWindow::rageQuit() {
   switch (player) {
     case 0:
       p1_choice->set_label("Computer");
+      p1_RQ->set_sensitive(false);
       break;
     case 1:
       p2_choice->set_label("Computer");
+      p2_RQ->set_sensitive(false);
       break;
     case 2:
       p3_choice->set_label("Computer");
+      p3_RQ->set_sensitive(false);
       break;
     case 3:
       p4_choice->set_label("Computer");
+      p4_RQ->set_sensitive(false);
       break;
   }
   Command c;
