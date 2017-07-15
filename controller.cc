@@ -11,7 +11,7 @@ void Controller::newRound() {
 }
 
 void Controller::startGame(int seed, vector<char> players, bool recurring) {
-	if (recurring) {model_->restartGame(seed)};
+	if (recurring) {model_->restartGame(seed); }
 	else {
 		model_->startGame(seed, players);
 	}
