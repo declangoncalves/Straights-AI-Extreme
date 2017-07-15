@@ -340,7 +340,7 @@ void GameWindow::roundEnd() {
   resetTable();
 
   Glib::ustring msg(score_text.c_str());
-  Gtk::MessageDialog msgdialog(this, msg);
+  Gtk::MessageDialog msgdialog(this, *msg);
   msgdialog.run();
 
   next_round->set_sensitive(true);
