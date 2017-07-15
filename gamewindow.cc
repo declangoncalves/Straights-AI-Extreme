@@ -203,7 +203,7 @@ void GameWindow::startGame() {
   refBuilder->get_widget("p3_discards", p3_discards);
   refBuilder->get_widget("p4_discards", p4_discards);
   refBuilder->get_widget("next_round_btn", next_round);
-  next_round->set_sensitivity(false);
+  next_round->set_sensitive(false);
 
   next_round->signal_clicked().connect(sigc::mem_fun(*this, &GameWindow::nextRoundClick));
 
@@ -255,7 +255,7 @@ void GameWindow::update() {
 
 void GameWindow::nextRoundClick() {
   controller_->newRound();
-  next_round_btn->set_sensitivty(false);
+  next_round->set_sensitive(false);
 }
 
 void GameWindow::playerTurn() {
@@ -332,7 +332,7 @@ void GameWindow::roundEnd() {
   resetTable();
   updatePlayerHand();
 
-  next_round_btn->set_sensitivty(true);
+  next_round->set_sensitive(true);
 
 
   // controller_->newRound();
