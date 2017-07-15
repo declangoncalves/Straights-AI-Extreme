@@ -126,6 +126,7 @@ void Model::pickChoice(Card c) {
 // }
 
 void Model::computerMove() {
+  cout << "somewhere this got used" << endl;
   std::vector<Card> legal = getLegalPlays();
   std::vector<Card> hand = getCurrentPlayer()->getHand();
   if (legal.size() == 0) {
