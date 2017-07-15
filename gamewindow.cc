@@ -331,7 +331,7 @@ void GameWindow::playerTurn() {
 
 void GameWindow::updatePlayerHand(){
     std::vector<Card> playerHand = model_->getCurrentPlayerHand();
-    std::vector<Card> legalPlays = model_->getLegalPlays()
+    std::vector<Card> legalPlays = model_->getLegalPlays();
 
     int suit;
     int value;
