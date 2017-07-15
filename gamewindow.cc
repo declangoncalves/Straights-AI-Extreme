@@ -240,6 +240,9 @@ void GameWindow::update() {
 	if (model_->getGameState() != 0){ // Round Finished
     cout << "ROUND DID END PROPERLY" << endl;
 		roundEnd();
+    if (model_->getGameState() == 2) {
+      announceWinner();
+    }
 	}
   // if (model_->getGameState() == 2){ // Round Finished
   //   cout << "announcing winner" << endl;
@@ -254,10 +257,11 @@ void GameWindow::update() {
 void GameWindow::announceWinner() {
   int player = model_->calculateWinner();
   int score = model_->getPlayerScores()[player];
-  string winner_text = "Player " + to_string(player) + " wins with a score of " + to_string(score) + "!";
+  string winner_text = "Player " + to_string(player + 1) + " wins with a score of " + to_string(score) + "!";
   Glib::ustring msg(winner_text.c_str());
   Gtk::MessageDialog msgdialog(*this, msg);
   msgdialog.run();
+  next_round->set_sensitive(false);
 }
 
 void GameWindow::nextRoundClick() {
@@ -331,7 +335,7 @@ void GameWindow::playerTurn() {
 
 void GameWindow::updatePlayerHand(){
     std::vector<Card> playerHand = model_->getCurrentPlayerHand();
-    std::vector<Card> legalPlays = model_->getLegalPlays()
+    std::vector<Card> legalPlays = model_->getLegalPlays();
 
     int suit;
     int value;
