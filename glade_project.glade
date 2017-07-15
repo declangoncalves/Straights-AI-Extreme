@@ -605,6 +605,7 @@
             </child>
           </object>
           <packing>
+            <property name="x">20</property>
             <property name="y">30</property>
           </packing>
         </child>
@@ -626,6 +627,8 @@
             <property name="width_request">800</property>
             <property name="height_request">150</property>
             <property name="visible">True</property>
+            <property name="spacing">5</property>
+            <property name="homogeneous">True</property>
             <child>
               <object class="GtkVBox" id="vbox1">
                 <property name="visible">True</property>
@@ -1034,7 +1037,7 @@
         <child>
           <object class="GtkEntry" id="seed_input">
             <property name="width_request">200</property>
-            <property name="height_request">25</property>
+            <property name="height_request">30</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="invisible_char">&#x25CF;</property>
@@ -1047,7 +1050,7 @@
           <object class="GtkButton" id="start_game_btn">
             <property name="label" translatable="yes">Start new game with seed</property>
             <property name="width_request">200</property>
-            <property name="height_request">25</property>
+            <property name="height_request">30</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
