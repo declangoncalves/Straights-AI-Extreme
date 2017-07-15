@@ -252,7 +252,8 @@ void GameWindow::update() {
 
 void GameWindow::announceWinner() {
   int player = model_->calculateWinner();
-  string winner_text = "Player " + to_string(player) + " wins!";
+  int score = model_->getPlayerScores()[player];
+  string winner_text = "Player " + to_string(player) + " wins with a score of " + to_string(score) + "!";
   Glib::ustring msg(winner_text.c_str());
   Gtk::MessageDialog msgdialog(*this, msg);
   msgdialog.run();
