@@ -20,7 +20,6 @@ public:
 private:
   //Signal handlers:
   void startGame();
-  void executeCommand(Command c);
   void updateTable();
   void resetTable();
   void updateScores();

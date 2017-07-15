@@ -20,7 +20,6 @@ void Model::startGame(int seed, std::vector<char> players) {
   }
   deck_ = Deck(seed);
   initializeRound();
-  cout << "initializing round worked" << endl;
 }
 
 void Model::restartGame(int seed) {
@@ -97,7 +96,6 @@ void Model::rageQuit() {
 }
 
 void Model::pickChoice(Card c) {
-  cout << "Card being played : " << c << endl;
   vector<Card> plays = getLegalPlays();
   if (plays.size() == 0) {
     discardCard(c);
@@ -126,7 +124,6 @@ void Model::pickChoice(Card c) {
 // }
 
 void Model::computerMove() {
-  cout << "somewhere this got used" << endl;
   std::vector<Card> legal = getLegalPlays();
   std::vector<Card> hand = getCurrentPlayer()->getHand();
   if (legal.size() == 0) {
@@ -164,7 +161,6 @@ char Model::getCurrentPlayerType() {
 }
 
 void Model::incrementPlayerTurn() {
-  cout << "Player's turn: " << playerturn_ << endl;
   if (emptyhands_ == 4) {
     endRound();
     return;
@@ -215,7 +211,6 @@ const int Model::getGameState() {
 }
 
 void Model::initializeRound() {
-  cout << "New Round is Initializing" << endl;
   gamestate_ = 0;
   playerturn_ = 0;
   emptyhands_ = 0;
@@ -223,21 +218,17 @@ void Model::initializeRound() {
   for (auto player : players_) {
     player->emptyHand();
   }
-  cout << "Emptying hand worked" << endl;
   for (int j = 0; j < players_.size(); j++) {
     for (int i = 0; i < 13; i ++) {
       players_[j]->dealCard(deck_.getCard(i + 13*j));
     }
   }
-  cout << "dealing cards worked" << endl;
   for (int i = 0; i < players_.size(); i++) {
     for (auto card : players_[i]->getHand()) {
       if (card.suit().suit() == 3 && card.rank().rank() == 6) playerturn_ = i;
     }
   }
-  cout << "picking the player turn worked" << endl;
   notify();
-  cout << "notify worked" << endl;
 }
 
 const int Model::calculateWinner() {
@@ -253,7 +244,6 @@ const int Model::calculateWinner() {
 }
 
 void Model::endRound() {
-  cout << "ROUND ENDING HAS BEGUN";
   gamestate_ = 1;
   std::vector<int> scores;
   for (auto player : players_) {
