@@ -252,7 +252,7 @@ void GameWindow::playerTurn() {
     updateTable();
     updateScores();
     int player = model_->getCurrentPlayerIndex();
-    switch player {
+    switch (player) {
       case 0:
         p1_RQ->set_sensitive(true);
         p2_RQ->set_sensitive(false);
