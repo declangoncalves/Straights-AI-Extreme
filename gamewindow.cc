@@ -240,6 +240,9 @@ void GameWindow::update() {
 	if (model_->getGameState() != 0){ // Round Finished
     cout << "ROUND DID END PROPERLY" << endl;
 		roundEnd();
+    if (model_->getGameState() == 2) {
+      announceWinner();
+    }
 	}
   // if (model_->getGameState() == 2){ // Round Finished
   //   cout << "announcing winner" << endl;
