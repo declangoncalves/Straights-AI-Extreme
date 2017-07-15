@@ -339,7 +339,8 @@ void GameWindow::roundEnd() {
   updatePlayerHand();
   resetTable();
 
-  Gtk::MessageDialog msgdialog(this, score_text);
+  Glib::ustring msg(score_text.c_str());
+  Gtk::MessageDialog msgdialog(this, *msg);
   msgdialog.run();
 
   next_round->set_sensitive(true);
