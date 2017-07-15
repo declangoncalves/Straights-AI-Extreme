@@ -255,8 +255,8 @@ void GameWindow::update() {
 }
 
 void GameWindow::nextRoundClick() {
-  controller_->newRound();
   next_round->set_sensitive(false);
+  controller_->newRound();
 }
 
 void GameWindow::playerTurn() {
@@ -298,7 +298,7 @@ void GameWindow::updateScores() {
   // Iterate through and update labels for scores
 
   p1_score->set_text("Score: " + to_string(model_->getPlayerScores()[0]));
-  p2_score->set_text("Score: " + to_string(model_->getPlayerScores()[0]));
+  p2_score->set_text("Score: " + to_string(model_->getPlayerScores()[1]));
   p3_score->set_text("Score: " + to_string(model_->getPlayerScores()[2]));
   p4_score->set_text("Score: " + to_string(model_->getPlayerScores()[3]));
   p1_discards->set_text("Discards: " + to_string(model_->getPlayerDiscards()[0]));
