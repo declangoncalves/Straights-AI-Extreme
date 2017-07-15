@@ -879,7 +879,7 @@
             <child>
               <object class="GtkButton" id="hand_btn_1">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="image">image1</property>
               </object>
@@ -890,7 +890,7 @@
             <child>
               <object class="GtkButton" id="hand_btn_2">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="image">image2</property>
               </object>
@@ -901,7 +901,7 @@
             <child>
               <object class="GtkButton" id="hand_btn_3">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="image">image3</property>
               </object>
@@ -912,7 +912,7 @@
             <child>
               <object class="GtkButton" id="hand_btn_4">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="image">image4</property>
               </object>
@@ -923,7 +923,7 @@
             <child>
               <object class="GtkButton" id="hand_btn_5">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="image">image5</property>
               </object>
@@ -934,7 +934,7 @@
             <child>
               <object class="GtkButton" id="hand_btn_6">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="image">image6</property>
               </object>
@@ -945,7 +945,7 @@
             <child>
               <object class="GtkButton" id="hand_btn_7">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="image">image13</property>
               </object>
@@ -956,7 +956,7 @@
             <child>
               <object class="GtkButton" id="hand_btn_8">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="image">image7</property>
               </object>
@@ -967,7 +967,7 @@
             <child>
               <object class="GtkButton" id="hand_btn_9">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="image">image8</property>
               </object>
@@ -978,7 +978,7 @@
             <child>
               <object class="GtkButton" id="hand_btn_10">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="image">image9</property>
               </object>
@@ -989,7 +989,7 @@
             <child>
               <object class="GtkButton" id="hand_btn_11">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="image">image10</property>
               </object>
@@ -1000,7 +1000,7 @@
             <child>
               <object class="GtkButton" id="hand_btn_12">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="image">image11</property>
               </object>
@@ -1011,7 +1011,7 @@
             <child>
               <object class="GtkButton" id="hand_btn_13">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
+                <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="image">image12</property>
               </object>
