@@ -1,10 +1,24 @@
 #include "model.h"
 #include "Human.h"
+#include "Computer.h"
 #include <algorithm>
 
 using namespace std;
 
-Model::Model(int seed, std::vector<Player*> players) : deck_(Deck(seed)) , intstable_(4, std::vector<int>(15, 0)) , cardstable_(4, std::vector<Card>(15)), seed_{seed} , players_{players} {
+Model::Model() : intstable_(4, std::vector<int>(15, 0)) , cardstable_(4, std::vector<Card>(15)) {}
+
+void Model::startGame(int seed, std::vector<char> players) {
+  for (int i = 0; i < 4; i++) {
+    if (players[i] == 'c') {
+      Computer *a = new Computer();
+      players_.push_back(a);
+    }
+    else {
+      Human *a = new Human();
+      players_.push_back(a);
+    }
+  }
+  deck_ = Deck(seed);
   initializeRound();
 }
 
@@ -16,16 +30,72 @@ const std::vector<std::vector<int> > Model::getIntTable() {
   return intstable_;
 }
 
+std::vector<int> Model::getPlayerScores() {
+  std::vector<int> scores;
+  for (auto player : players_) {
+    scores.push_back(player->getTotalScore());
+  }
+  return scores;
+}
+
+std::vector<int> Model::getPlayerDiscards() {
+  std::vector<int> discards;
+  for (auto player : players_) {
+    discards.push_back(player->getDiscards().size());
+  }
+  return discards;
+}
+
 const int Model::getCurrentPlayerIndex() {
   return playerturn_;
 }
 
-std::vector<Player*> Model::getPlayers() {
-  return players_;
+void Model::rageQuit() {
+  Computer *replacement = nullptr;
+  int i = getCurrentPlayerIndex();
+  replacement = new Computer(*(players_[i]));
+  delete players_[i];
+  players_[i] = replacement;
+  computerMove();
 }
 
-void Model::rageQuit() {
-  getCurrentPlayer()->rageQuit();
+void Model::pickChoice(Card c) {
+  cout << "picking choice worked" << endl;
+  vector<Card> plays = getLegalPlays();
+  if (plays.size() == 0) {
+    discardCard(c);
+    return;
+  }
+  else {
+    if (find(plays.begin(), plays.end(), c) !=  plays.end()) {
+      playCard(c);
+    }
+    else {
+      return;
+    }
+  }
+}
+
+void Model::computerMove() {
+  std::vector<Card> legal = getLegalPlays();
+  std::vector<Card> hand = getCurrentPlayer()->getHand();
+  if (legal.size() == 0) {
+    discardCard(hand[0]);
+    cout << "computer discarded " << hand[0] << endl;
+  }
+  else {
+    playCard(legal[0]);
+    cout << "computer played " << legal[0] << endl;
+  }
+  return;
+}
+
+Command Model::getPlayerMove() {
+  return getCurrentPlayer()->makeMove();
+}
+
+char Model::getCurrentPlayerType() {
+  return getCurrentPlayer()->getType();
 }
 
 void Model::incrementPlayerTurn() {
@@ -37,6 +107,7 @@ void Model::incrementPlayerTurn() {
     playerturn_++;
     if (playerturn_ > max_index) playerturn_ = 0;
   }
+  notify();
   return;
 }
 
@@ -46,7 +117,7 @@ Player* Model::getCurrentPlayer() {
 
 const std::vector<Card> Model::getLegalPlays() {
   std::vector<Card> plays;
-  for (auto card : getCurrentPlayer()->getHand()) {
+  for (auto card : players_[getCurrentPlayerIndex()]->getHand()) {
     int suit = card.suit().suit();
     int rank = card.rank().rank();
     if ((intstable_[suit][rank] == 1 || intstable_[suit][rank + 2] == 1) || (rank == 6)) {
@@ -63,7 +134,7 @@ const std::vector<Card> Model::getLegalPlays() {
 
 const std::vector<Card> Model::getPlayerHand() {
   std::vector<Card> hand;
-  for (auto card : getCurrentPlayer()->getHand()) {
+  for (auto card : players_[getCurrentPlayerIndex()]->getHand()) {
     hand.push_back(card);
   }
   return hand;
@@ -78,24 +149,30 @@ void Model::initializeRound() {
   gamestate_ = 0;
   playerturn_ = 0;
   emptyhands_ = 0;
+  cout << players_.size() << endl;
   deck_.shuffle();
   for (auto player : players_) {
     player->emptyHand();
   }
+  cout << "Emptying hand worked" << endl;
   for (int j = 0; j < players_.size(); j++) {
     for (int i = 0; i < 13; i ++) {
       players_[j]->dealCard(deck_.getCard(i + 13*j));
     }
   }
+  cout << "dealing cards worked" << endl;
   for (int i = 0; i < players_.size(); i++) {
     for (auto card : players_[i]->getHand()) {
       if (card.suit().suit() == 3 && card.rank().rank() == 6) playerturn_ = i;
     }
   }
+  cout << "picking the player turn worked" << endl;
   notify();
+  cout << "notify worked" << endl;
 }
 
 void Model::endRound() {
+  cout << "Round is considered to be ending for some reason" << endl;
   gamestate_ = 1;
   std::vector<int> scores;
   for (auto player : players_) {
@@ -117,25 +194,29 @@ void Model::endRound() {
 
 Model::~Model() {}
 
+const std::vector<Card> Model::getCurrentPlayerHand() {
+  return getCurrentPlayer()->getHand();
+}
+
 void Model::playCard(Card c) {
+  cout << "We are playing card " << c << endl;
   int suit = c.suit().suit();
   int rank = c.rank().rank();
-  getCurrentPlayer()->play(c);
+  players_[getCurrentPlayerIndex()]->play(c);
   intstable_[suit][rank + 1] = 1;
   cardstable_[suit][rank + 1] = c;
-  if (getCurrentPlayer()->getHand().size() == 0) emptyhands_++;
+  if (players_[getCurrentPlayerIndex()]->getHand().size() == 0) emptyhands_++;
   incrementPlayerTurn();
-  notify();
   return;
 }
 
 void Model::discardCard(Card c) {
+  cout << "We are discarding card " << c << endl;
   int suit = c.suit().suit();
   int rank = c.rank().rank();
-  getCurrentPlayer()->discard(c);
-  if (getCurrentPlayer()->getHand().size() == 0) emptyhands_++;
+  players_[getCurrentPlayerIndex()]->discard(c);
+  if (players_[getCurrentPlayerIndex()]->getHand().size() == 0) emptyhands_++;
   incrementPlayerTurn();
-  notify();
   return;
 }
 

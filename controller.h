@@ -2,6 +2,7 @@
 #define MVC_CONTROLLER_H
 
 #include "Command.h"
+#include <vector>
 
 class Model;
 
@@ -11,6 +12,7 @@ class Controller {
 
 	void executeCommand(Command);
 	void newRound();
+  void startGame(int seed, std::vector<char> players);
 
   private:
     Model *model_;

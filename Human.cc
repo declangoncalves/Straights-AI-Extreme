@@ -1,10 +1,11 @@
 #include "Human.h"
-#include <iostream>
-
-void Human::rageQuit() {
-  type_ = 'c';
-}
 
 Human::Human() {
   type_ = 'h';
+}
+
+Command Human::makeMove() {
+  Command c;
+  c.type = Command::Type::NOTHING;
+  return c;
 }

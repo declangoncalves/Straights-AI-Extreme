@@ -15,7 +15,7 @@
 using std::string;
 
 struct Command {
-    enum class Type { PLAY, DISCARD, DECK, QUIT, RAGEQUIT, BAD_COMMAND };
+    enum class Type { NEXT_ROUND, NOTHING, COMPUTER, CLICK, PLAY, DISCARD, DECK, QUIT, RAGEQUIT, BAD_COMMAND };
 	Type type;
 	Card card;
 
